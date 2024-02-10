@@ -1,0 +1,41 @@
+---
+title: 'Advanced animation patterns with Framer Motion'
+subtitle: A deep dive into Framer Motion's propagation, exit transitions and layout animation patterns through curated examples and interactive playgrounds.
+date: '2021-04-20T08:00:00.000Z'
+updated: '2022-08-04T08:00:00.000Z'
+---
+
+# Advanced animation patterns with Framer Motion
+
+A deep dive into Framer Motion's propagation, exit transitions and layout animation patterns through curated examples and interactive playgrounds.
+
+## Introduction
+
+Framer Motion is a production-ready animation library for React. It's a great tool for creating complex animations and interactions with a simple and intuitive API. In this article, we'll explore some advanced animation patterns that Framer Motion enables, such as propagation, exit transitions, and layout animations.
+
+## Propagation
+
+Propagation is the ability to animate a component and its children at the same time. This is useful when you want to create a staggered effect, where each child animates with a delay relative to its parent. Framer Motion makes this easy with the `staggerChildren` and `staggerDirection` props.
+
+- `staggerChildren` defines the delay between each child animation.
+- `staggerDirection` defines the direction in which the stagger should occur.
+- `staggerDelay` defines the delay before the stagger starts.
+
+1. hee
+2. jsjss
+
+**Stagger children**
+
+## hello
+
+```jsx
+
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+
+```
+

@@ -1,6 +1,4 @@
 # Ben's Website (v5)
 
-Test footnote[^1] 
-
-
-[^1]: the footbote
+## TODO
+- [ ] fix the slug prop in `blog/[slug...[]` because app dir doesn't use `getSaticPaths`
