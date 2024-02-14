@@ -7,10 +7,10 @@ import { FrontMatterPost, Post } from '@/types/post';
 // import { remarkFigure } from './remark-figure';
 // import { remarkMeta } from './remark-meta';
 
-const root = process.cwd();
+const root = process.cwd(); // get the current working directory
 
 export const getFiles = async () => {
-  return fs.readdirSync(path.join(root, 'content'));
+  return fs.readdirSync(path.join(root, 'content')); // get all the files in the content directory
 };
 
 // Regex to find all the custom static tweets in a MDX file
