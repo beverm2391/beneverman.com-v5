@@ -1,7 +1,8 @@
-import type { Metadata } from 'next';
 import { Suspense, cache } from 'react';
 import { notFound } from 'next/navigation';
 import { getBlogPosts } from '@/lib/blog';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import MDXComponents from '@/core/components/MDX/MDXComponents';
 
 import { unstable_noStore as noStore } from 'next/cache';
 
@@ -38,9 +39,10 @@ function formatDate(date: string) {
     return `${fullDate} (${formattedDate})`;
 }
 
-export default function Blog({ params }: { params: { slug: string } }) {
+export default async function Blog({ params }: { params: { slug: string } }) {
     console.log(params);
-    let post = getBlogPosts().find((post) => post.slug === params.slug);
+    const allPosts = await getBlogPosts()
+    const post = allPosts.find((post) => post?.slug === params.slug);
 
     console.log(post);
 
@@ -61,7 +63,12 @@ export default function Blog({ params }: { params: { slug: string } }) {
                 </Suspense>
             </div>
             <article className="prose prose-quoteless prose-neutral dark:prose-invert">
-                {post.content}
+                <MDXRemote
+                    source={post.mdxSource} 
+                    components={{
+                        // ...MDXComponents,
+                    }}
+                />
             </article>
         </section>
     );

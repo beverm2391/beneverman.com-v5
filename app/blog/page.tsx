@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { getBlogPosts } from '@/lib/blog';
+import { getBlogPosts } from '@/lib/blog-old';
 
 export const metadata = {
     title: 'Blog',
     description: 'Read my writing about the things I tinker with.',
 };
 
-export default function BlogPage() {
-    let allBlogs = getBlogPosts();
+export default async function BlogPage() {
+    let allBlogs = await getBlogPosts();
 
     // console.log(allBlogs);
   

@@ -1,7 +1,13 @@
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { Post } from '@/types/post';
+import { serialize } from 'next-mdx-remote/serialize';
+
+async function getMDXFiles(dir: string) {
+    const files = await fs.readdir(dir);
+    return files.filter((file) => path.extname(file) === '.mdx');
+}
 
 function parseFrontmatter(fileContent: string) {
     const parsed = matter(fileContent)
@@ -9,24 +15,46 @@ function parseFrontmatter(fileContent: string) {
     return {data, content: parsed.content}
 }
 
-function getMDXFiles(dir: string) {
-    return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx') // get all the MDX files in the directory
+async function readMDXFile(filePath: string) {
+    const rawContent = await fs.readFile(filePath, 'utf-8');
+    return parseFrontmatter(rawContent);
 }
 
-function readMDXFile(filePath: string) {
-    let rawContent = fs.readFileSync(filePath, 'utf-8') // load the file
-    return parseFrontmatter(rawContent) // parse the frontmatter into data and content
+async function parseContent(content: string) {
+    const mdxSource = await serialize(content, {
+        mdxOptions: {
+          remarkPlugins: [
+            // require('remark-slug'),
+            // require('remark-autolink-headings'),
+            // remarkSectionize,
+            // remarkFigure,
+          ],
+        //   rehypePlugins: [remarkMeta],
+        },
+      }); // serialize the content
+    return mdxSource
 }
 
-function getMDXData(dir: string) {
-    let mdxFiles = getMDXFiles(dir) // get all the MDX files in the directory
-    return mdxFiles.map((file) => {
-        let { data, content } = readMDXFile(path.join(dir, file)) // read the file
-        let slug = path.basename(file, path.extname(file))
-        return { data, slug, content }
-    })
+async function getMDXData(dir: string) {
+    const mdxFiles = await getMDXFiles(dir);
+    const posts = await Promise.all(mdxFiles.map(async (file) => {
+        const { data, content } = await readMDXFile(path.join(dir, file));
+        const slug = path.basename(file, '.mdx'); // Simplify by removing path.extname(file)
+        
+        try {
+            const mdxSource = await parseContent(content);
+            return { data, slug, mdxSource };
+        } catch (error) {
+            console.error(`Error processing MDX file ${file}:`, error);
+            // Optionally, return a fallback or null and filter out failures later
+            return null; // Indicate failure, to be filtered out
+        }
+    }));
+
+    // Filter out any nulls in case of errors
+    return posts.filter((post) => post !== null);
 }
 
 export function getBlogPosts() {
-    return getMDXData(path.join(process.cwd(), 'content'))
+    return getMDXData(path.join(process.cwd(), 'content')) // get the MDX data for the content directory in the current working directory
 }
