@@ -1,10 +1,6 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
-export type ReadingTime = {
-    text: string;
-};
-
-export type Post = {
+export type PostOLD = {
     colorFeatured?: string;
     date: string;
     updated: string;
@@ -23,3 +19,12 @@ export type FrontMatterPost = {
     // tweetIDs: string[];
     mdxSource: MDXRemoteSerializeResult;
 };
+
+export type Post = {
+    title: string;
+    subtitle: string;
+    date: string;
+    updated: string;
+    body: string;
+    slug: string;
+}

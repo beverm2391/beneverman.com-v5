@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 // import {
 //     Anchor,
@@ -25,100 +26,118 @@ import { cn } from "@/lib/utils"
 import Image from '@/core/components/MDX/Image/Image';
 
 interface HTMLComponentProps {
-    className?: string | undefined;
+    children: React.ReactNode;
+    className?: string;
+    href?: string;
 }
 
 const htmlComponents = {
-    h1: ({ className, ...props }: HTMLComponentProps) => (
+    h1: ({ children, ...props } : HTMLComponentProps) => (
         <h1
             className={cn(
                 "mt-2 scroll-m-20 text-4xl font-bold",
-                className
+                props.className
             )}
             {...props}
-        />
+        >
+            {children}
+        </h1>
     ),
-    h2: ({ className, ...props }: HTMLComponentProps) => (
+    h2: ({ children, ...props }: HTMLComponentProps) => (
         <h2
             className={cn(
                 "mt-10 scroll-m-20 border-b border-color pb-1 text-3xl font-semibold first:mt-0",
-                className
+                props.className
             )}
             {...props}
-        />
+        >
+            {children}
+        </h2>
     ),
-    h3: ({ className, ...props }: HTMLComponentProps) => (
+    h3: ({ children, ...props }: HTMLComponentProps) => (
         <h3
             className={cn(
                 "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight",
-                className
+                props.className
             )}
             {...props}
-        />
+        >
+            {children}
+        </h3>
     ),
-    h4: ({ className, ...props }: HTMLComponentProps) => (
+    h4: ({ children, ...props }: HTMLComponentProps) => (
         <h4
             className={cn(
                 "mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
-                className
+                props.className
             )}
             {...props}
-        />
+        >
+            {children}
+        </h4>
     ),
-    h5: ({ className, ...props }: HTMLComponentProps) => (
+    h5: ({ children, ...props }: HTMLComponentProps) => (
         <h5
             className={cn(
                 "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
-                className
+                props.className
             )}
             {...props}
-        />
+        >
+            {children}
+        </h5>
     ),
-    a: ({ className, ...props }: HTMLComponentProps) => (
-        <a
+    a: ({ children, ...props }: HTMLComponentProps) => (
+        <Link
             className={cn(
                 "",
-                className
+                props.className
             )}
+            href={props.href || ""}
             {...props}
-            target="_blank"
-        />
+            // target="_blank"
+        >
+            {children}
+        </Link>
     ),
-    p: ({ className, ...props }: HTMLComponentProps) => (
+    p: ({ children, ...props }: HTMLComponentProps) => (
         <p
-            className={cn("leading-7 [&:not(:first-child)]:mt-6 ", className)}
+            className={cn("leading-7 [&:not(:first-child)]:mt-6 ", props.className)}
             {...props}
-        />
+        >
+            {children}
+        </p>
     ),
-    ul: ({ className, ...props }: HTMLComponentProps) => (
-        <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+    ul: ({ children, ...props }: HTMLComponentProps) => (
+        <ul className={cn("my-6 ml-6 list-disc", props.className)} {...props} >
+            {children}
+        </ul>
     ),
-    ol: ({ className, ...props }: HTMLComponentProps) => (
-        <ol className={cn("my-2 [&:not(:child)]:my-6 ml-6 list-decimal", className)} {...props} />
+    ol: ({ children, ...props }: HTMLComponentProps) => (
+        <ol className={cn("my-2 [&:not(:child)]:my-6 ml-6 list-decimal", props.className)} {...props} />
     ),
-    li: ({ className, ...props }: HTMLComponentProps) => (
-        <li className={cn("mt-2", className)} {...props} />
+    li: ({ children, ...props }: HTMLComponentProps) => (
+        <li className={cn("mt-2", props.className)} {...props} />
     ),
-    blockquote: ({ className, ...props }: HTMLComponentProps) => (
+    blockquote: ({ children, ...props }: HTMLComponentProps) => (
         <blockquote
             className={cn(
                 "mt-6 border-l-2 border-slate-300 dark:border-slate-500 pl-6 italic",
                 // " text-slate-800 dark:text-slate-100 [&>*]:text-slate-600 dark:[&>*]:text-slate-200",
-                className
+                props.className
             )}
             {...props}
-        />
+        >
+            {children}
+        </blockquote>
     ),
 }
-
-const customComponents = {
-    // Card,
-    // CardBody: Card.Body,
-};
 
 const MDXComponents = {
     ...htmlComponents, // HTML Components
     // Button,
+    // Card,
+    // CardBody: Card.Body,
     // Callout,
     // Details,
     // Fullbleed,
@@ -127,7 +146,6 @@ const MDXComponents = {
     // Pill,
     // pre: Code,
     // VideoPlayer,
-    ...customComponents,
 };
 
 export default MDXComponents;
