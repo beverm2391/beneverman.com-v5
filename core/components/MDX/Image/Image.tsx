@@ -1,3 +1,5 @@
+"use client"
+
 import Box from '@/core/components/Box';
 import { Flex } from '@/core/components/Flex';
 // import { loader } from 'lib/next-image-loader';

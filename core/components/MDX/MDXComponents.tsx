@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import { Code } from "bright"
 
 // import {
 //     Anchor,
@@ -33,7 +34,7 @@ interface HTMLComponentProps {
 }
 
 const htmlComponents = {
-    h1: ({ children, ...props } : HTMLComponentProps) => (
+    h1: ({ children, ...props }: HTMLComponentProps) => (
         <h1
             className={cn(
                 "mt-2 scroll-m-20 text-4xl font-bold",
@@ -96,7 +97,7 @@ const htmlComponents = {
             )}
             href={props.href || ""}
             {...props}
-            // target="_blank"
+        // target="_blank"
         >
             {children}
         </Link>
@@ -120,6 +121,13 @@ const htmlComponents = {
     li: ({ children, ...props }: HTMLComponentProps) => (
         <li className={cn("mt-2", props.className)} {...props} />
     ),
+    pre: ({children, ...props}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>,HTMLPreElement>) => {
+        return (
+            <Code {...props}>
+                {children}
+            </Code>
+        )
+    },
     blockquote: ({ children, ...props }: HTMLComponentProps) => (
         <blockquote
             className={cn(
