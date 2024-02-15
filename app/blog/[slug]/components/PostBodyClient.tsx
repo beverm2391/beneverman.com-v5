@@ -16,7 +16,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrettyCode from 'rehype-pretty-code';
 
 const MDXComponents = {
-    ...HTMLComponents,
+    // ...HTMLComponents,
     ...ClientComponents,
 }
 
@@ -28,11 +28,11 @@ export async function PostBodyClient({ children }: { children: string }) {
             development: process.env.NODE_ENV === 'development',
             remarkPlugins: [
                 remarkGfm,
-                remarkToc,
-                remarkMath,
+                // remarkToc,
+                // remarkMath,
             ],
             rehypePlugins: [
-                rehypeSlug,
+                // rehypeSlug,
                 rehypeAutolinkHeadings,
                 // @ts-ignore
                 // seems to have a conflicting dependency with something

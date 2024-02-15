@@ -18,7 +18,7 @@ export default async function BlogPage() {
           read my blog
         </h1>
         {allBlogs ? allBlogs
-            // .sort((a, b) => new Date(b?.date || '').getTime() - new Date(a?.date || '').getTime())
+            .sort((a, b) => new Date(b?.date || '').getTime() - new Date(a?.date || '').getTime())
             .map((post) => (
             <Link
               key={post?.slug}
