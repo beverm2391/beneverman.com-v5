@@ -24,9 +24,10 @@ import Link from "next/link"
 
 // MDX only components
 import Image from '@/core/components/MDX/Image/Image';
+import { Url } from "url";
 
 interface HTMLComponentProps {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     className?: string;
     href?: string;
 }

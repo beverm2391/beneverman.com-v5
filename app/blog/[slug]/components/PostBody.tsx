@@ -18,7 +18,7 @@ export function PostBody({ children }: { children: string }) {
             options={{
                 mdxOptions: {
                     remarkPlugins: [
-                        remarkGfm,
+                        // remarkGfm,
                         remarkToc,
                         remarkMath,
                     ],
@@ -29,7 +29,7 @@ export function PostBody({ children }: { children: string }) {
                     ],
                 },
             }}
-            components={MDXComponents}
+            // components={MDXComponents}
         />
     )
 }
