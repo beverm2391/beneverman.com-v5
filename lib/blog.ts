@@ -27,6 +27,6 @@ export const getBlogPosts = cache(async () => {
 
 export async function getPost(slug: string) {
     const posts = await getBlogPosts(); // get all the blog posts
-    console.log("posts: ", posts)
+    // console.log("posts: ", posts)
     return posts.find((post) => post?.slug === slug); // find the post with the matching slug
 }

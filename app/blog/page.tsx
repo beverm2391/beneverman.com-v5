@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { getBlogPosts } from '@/lib/blog-old';
+import { getBlogPosts } from '@/lib/blog';
 
 export const metadata = {
     title: 'Blog',
@@ -17,21 +17,23 @@ export default async function BlogPage() {
         <h1 className="font-medium text-2xl mb-8 tracking-tighter">
           read my blog
         </h1>
-        {allBlogs
-            .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+        {allBlogs ? allBlogs
+            // .sort((a, b) => new Date(b?.date || '').getTime() - new Date(a?.date || '').getTime())
             .map((post) => (
             <Link
-              key={post.slug}
+              key={post?.slug}
               className="flex flex-col space-y-1 mb-4"
-              href={`/blog/${post.slug}`}
+              href={`/blog/${post?.slug}`}
             >
               <div className="w-full flex flex-col">
                 <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                  {post.data.title}
+                  {post?.title}
                 </p>
               </div>
             </Link>
-          ))}
+          )) : (
+            <p>No posts published.</p>
+          )}
       </section>
     );
   }

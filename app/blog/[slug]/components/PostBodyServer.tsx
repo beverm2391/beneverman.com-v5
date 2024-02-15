@@ -1,5 +1,6 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import MDXComponents from '@/core/components/MDX/MDXComponents';
+import HTMLComponents from '@/core/components/MDX/HTMLComponents';
+import ServerComponents from '@/core/components/MDX/ServerComponents';
 
 // TODO Import plugins here
 // remaek
@@ -10,22 +11,25 @@ import remarkMath from 'remark-math';
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
+const MDXComponents = {
+    ...HTMLComponents,
+    ...ServerComponents,
+}
 
-export function PostBody({ children }: { children: string }) {
+export function PostBodyServer({ children }: { children: string }) {
     return (
         <MDXRemote
             source={children}
             options={{
                 mdxOptions: {
                     remarkPlugins: [
-                        // remarkGfm,
+                        remarkGfm,
                         remarkToc,
                         remarkMath,
                     ],
                     rehypePlugins: [
                         rehypeSlug,
                         rehypeAutolinkHeadings,
-
                     ],
                 },
             }}

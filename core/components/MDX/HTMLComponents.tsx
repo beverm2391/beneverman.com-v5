@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils"
 import Link from "next/link"
-import { Code } from "bright"
 
 // import {
 //     Anchor,
@@ -22,10 +21,6 @@ import { Code } from "bright"
 // import Code from '@core/components/Code';
 // import Fullbleed from '@core/components/Fullbleed';
 // import VideoPlayer from '@core/components/VideoPlayer';
-
-// MDX only components
-import Image from '@/core/components/MDX/Image/Image';
-import { Url } from "url";
 
 interface HTMLComponentProps {
     children?: React.ReactNode;
@@ -121,13 +116,6 @@ const htmlComponents = {
     li: ({ children, ...props }: HTMLComponentProps) => (
         <li className={cn("mt-2", props.className)} {...props} />
     ),
-    pre: ({children, ...props}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>,HTMLPreElement>) => {
-        return (
-            <Code {...props}>
-                {children}
-            </Code>
-        )
-    },
     blockquote: ({ children, ...props }: HTMLComponentProps) => (
         <blockquote
             className={cn(
@@ -142,6 +130,7 @@ const htmlComponents = {
     ),
 }
 
+
 const MDXComponents = {
     ...htmlComponents, // HTML Components
     // Button,
@@ -150,11 +139,12 @@ const MDXComponents = {
     // Callout,
     // Details,
     // Fullbleed,
-    Image,
+    // Image,
     // code: InlineCode,
     // Pill,
-    // pre: Code,
     // VideoPlayer,
 };
 
-export default MDXComponents;
+const HTMLComponents = htmlComponents
+
+export default HTMLComponents;
