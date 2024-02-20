@@ -1,6 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import HTMLComponents from '@/core/components/MDX/HTMLComponents';
 import ServerComponents from '@/core/components/MDX/ServerComponents';
+import ClientComponents from '@/core/components/MDX/ClientComponents';
 
 // TODO Import plugins here
 // remaek
@@ -11,11 +12,13 @@ import remarkMath from 'remark-math';
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 const MDXComponents = {
     ...HTMLComponents,
     ...ServerComponents,
-}
+};
+
 
 export function PostBodyServer({ children }: { children: string }) {
     return (
@@ -33,6 +36,7 @@ export function PostBodyServer({ children }: { children: string }) {
                         rehypeAutolinkHeadings,
                         // @ts-ignore
                         rehypeKatex,
+                        // rehypePrettyCode, // this does work on the server but im using bright for now (see MDX/ServerComponents.tsx)
                     ],
                     format: 'mdx',
                 },
