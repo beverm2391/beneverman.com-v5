@@ -98,24 +98,25 @@ const htmlComponents = {
         </Link>
     ),
     p: ({ children, ...props }: HTMLComponentProps) => (
-        <p
-            className={cn("leading-7 [&:not(:first-child)]:mt-6 ", props.className)}
-            {...props}
-        >
+        <p className={cn("leading-7 [&:not(:first-child)]:mt-6 ", props.className)} {...props}>
             {children}
         </p>
     ),
     ul: ({ children, ...props }: HTMLComponentProps) => (
-        <ul className={cn("my-6 ml-6 list-disc", props.className)} {...props} >
+        <ul className={cn("my-6 ml-6 list-disc", props.className)} {...props}>
             {children}
         </ul>
     ),
-    // ol: ({ children, ...props }: HTMLComponentProps) => (
-    //     <ol className={cn("my-2 [&:not(:child)]:my-6 ml-6 list-decimal", props.className)} {...props} />
-    // ),
-    // li: ({ children, ...props }: HTMLComponentProps) => (
-    //     <li className={cn("mt-2", props.className)} {...props} />
-    // ),
+    ol: ({ children, ...props }: HTMLComponentProps) => (
+        <ol className={cn("my-2 [&:not(:child)]:my-6 ml-6 list-decimal", props.className)} {...props}>
+            {children}
+        </ol>
+    ),
+    li: ({ children, ...props }: HTMLComponentProps) => (
+        <li className={cn("mt-2", props.className)} {...props}>
+            {children}
+        </li>
+    ),
     blockquote: ({ children, ...props }: HTMLComponentProps) => (
         <blockquote
             className={cn(

@@ -31,6 +31,7 @@ code[data-theme*=" "] span {
   background-color: blue;
 }
 
-.footnotes[data-footnotes="true"] ol {
+.footnotes ol li {
   all: unset
 }
+
