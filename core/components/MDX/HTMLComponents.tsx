@@ -110,12 +110,12 @@ const htmlComponents = {
             {children}
         </ul>
     ),
-    ol: ({ children, ...props }: HTMLComponentProps) => (
-        <ol className={cn("my-2 [&:not(:child)]:my-6 ml-6 list-decimal", props.className)} {...props} />
-    ),
-    li: ({ children, ...props }: HTMLComponentProps) => (
-        <li className={cn("mt-2", props.className)} {...props} />
-    ),
+    // ol: ({ children, ...props }: HTMLComponentProps) => (
+    //     <ol className={cn("my-2 [&:not(:child)]:my-6 ml-6 list-decimal", props.className)} {...props} />
+    // ),
+    // li: ({ children, ...props }: HTMLComponentProps) => (
+    //     <li className={cn("mt-2", props.className)} {...props} />
+    // ),
     blockquote: ({ children, ...props }: HTMLComponentProps) => (
         <blockquote
             className={cn(

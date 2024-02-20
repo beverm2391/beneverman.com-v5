@@ -24,3 +24,4 @@ I also briefly tried [react-markdown](https://github.com/remarkjs/react-markdown
   - etc.
 - Code Block Syntax Highlighting
 - Katex/Math
+- Custom Client Components

@@ -21,8 +21,16 @@ code[data-theme*=" "] span {
   }
 } */
 
-[aria-hidden="true"] { visibility: hidden; }
+/* this is to hide the katex-html class which already has the aria-hidden set to true */
+[aria-hidden="true"] { 
+  visibility: hidden; 
+  position: absolute;
+} 
 
-.katex-html {
-  display: hidden
+.footnotes[data-footnotes="true"]{
+  background-color: blue;
+}
+
+.footnotes[data-footnotes="true"] ol {
+  all: unset
 }
