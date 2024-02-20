@@ -10,10 +10,11 @@ import remarkMath from 'remark-math';
 // rehype
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeKatex from 'rehype-katex';
 
 const MDXComponents = {
-    ...HTMLComponents,
-    ...ServerComponents,
+    // ...HTMLComponents,
+    // ...ServerComponents,
 }
 
 export function PostBodyServer({ children }: { children: string }) {
@@ -24,13 +25,16 @@ export function PostBodyServer({ children }: { children: string }) {
                 mdxOptions: {
                     remarkPlugins: [
                         remarkGfm,
-                        remarkToc,
+                        // remarkToc,
                         remarkMath,
                     ],
                     rehypePlugins: [
-                        rehypeSlug,
-                        rehypeAutolinkHeadings,
+                        // rehypeSlug,
+                        // rehypeAutolinkHeadings,
+                        // @ts-ignore
+                        rehypeKatex,
                     ],
+                    format: 'mdx',
                 },
             }}
             components={MDXComponents}

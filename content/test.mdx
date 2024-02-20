@@ -1,0 +1,73 @@
+---
+title: 'test footnootes'
+subtitle: A deep dive into Framer Motion's propagation, exit transitions and layout animation patterns through curated examples and interactive playgrounds.
+date: '2022-04-20T08:00:00.000Z'
+updated: '2023-08-04T08:00:00.000Z'
+published: true
+---
+
+
+Things to test:
+- regular markdown
+- remark-gfm
+    - footnotes
+    - tables
+    - strikethrough
+    - tasklists
+    - autolinks
+- remark-math (does the $ and $ delimiter work?)
+- rehype-katex (does the math render?)
+- rehype-highlight (does the code syntax highlight?)
+- rehype-autolink-headings (do the headings have anchor links?)
+- does raw html work?
+- what about MDX?
+
+# MDX Feature Test
+
+This document tests various Markdown, MDX, and plugin features.
+
+## Regular Markdown
+
+Regular markdown features like **bold**, _italics_, and [links](https://example.com) should work out of the box.
+
+## `remark-gfm` Features
+
+### Tables
+
+| Syntax    | Description |
+| --------- | ----------- |
+| Header    | Title       |
+| Paragraph | Text        |
+
+### Footnotes
+
+Here's a sentence with a footnote. [^1]
+
+[^1]: This is the footnote.
+
+### Strikethrough
+
+~~Strikethrough this text.~~
+
+### Task Lists
+
+- [x] Completed task
+- [ ] Incomplete task
+
+### Autolinks
+
+http://example.com is automatically linked.
+
+## `remark-math` and `rehype-katex`
+
+Inline math: $E=mc^2$
+
+Block math:
+
+
+## `rehype-highlight` for Code Syntax Highlighting
+
+```javascript
+function testHighlight(code) {
+    return code;
+}

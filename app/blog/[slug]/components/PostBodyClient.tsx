@@ -21,7 +21,7 @@ import 'katex/dist/katex.min.css'
 
 
 const MDXComponents = {
-    // ...HTMLComponents,
+    ...HTMLComponents,
     ...ClientComponents,
 }
 
@@ -33,14 +33,14 @@ export async function PostBodyClient({ children }: { children: string }) {
             development: process.env.NODE_ENV === 'development',
             remarkPlugins: [
                 remarkGfm,
-                // remarkToc,
+                remarkToc,
                 remarkMath,
             ],
             rehypePlugins: [
                 // @ts-ignore (vFile version mismatch I think)
                 rehypeKatex,
                 // rehypeSlug,
-                rehypeAutolinkHeadings,
+                // rehypeAutolinkHeadings,
                 [
                     // @ts-ignore  (vFile version mismatch I think)
                     rehypePrettyCode,
