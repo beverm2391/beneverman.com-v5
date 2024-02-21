@@ -1,12 +1,13 @@
 import "./styles.css"
+import 'katex/dist/katex.min.css'
 
-export default function Layout({ children } : { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div>
-            My blog
-        <main>
-            {children}
+        <main className="mx-auto max-w-4xl">
+            <h1>My blog</h1>
+            <div>
+                {children}
+            </div>
         </main>
-        </div>
     )
 }

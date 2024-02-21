@@ -1,6 +1,7 @@
 import { Code } from 'bright'
+import Image, { ImageProps } from 'next/image'
 
-export const PreServerSide = ({children, ...props}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>,HTMLPreElement>) => {
+const PreServerSide = ({ children, ...props }: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLPreElement>) => {
     return (
         <Code {...props}>
             {children}
@@ -8,8 +9,18 @@ export const PreServerSide = ({children, ...props}: React.DetailedHTMLProps<Reac
     )
 }
 
+const MDXImage = (props: any) => (
+    <Image
+        width={props.width || 100}
+        height={props.height || 100}
+        {...(props as ImageProps)}
+    />
+)
+
 const ServerComponents = {
     pre: PreServerSide,
+    img: MDXImage,
+    Image: MDXImage,
 }
 
 export default ServerComponents
