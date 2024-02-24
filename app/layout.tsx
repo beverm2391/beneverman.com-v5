@@ -96,8 +96,8 @@ export default function RootLayout({
       <body>
         <main className="min-h-screen w-screen relative py-4 px-8">
           <nav>
-          <Navbar items={NavItems} className='hidden lg:flex'/>
-          <MobileNavbar items={NavItems} className='flex lg:hidden'/>
+          <Navbar items={NavItems} className='hidden xl:flex'/>
+          <MobileNavbar items={NavItems} className='flex xl:hidden'/>
           </nav>
           {children}
         </main>

@@ -1,3 +1,5 @@
+import GradientComponent from '@/core/components/GradientComponent';
+
 export default function Home() {
   const currentYear: number = new Date().getFullYear();
   return (
@@ -9,6 +11,7 @@ export default function Home() {
       <p className="font-inter text-lg">
         I&apos;m 23 y/o and I live in Atlanta, Ga.
       </p>
+      <GradientComponent />
     </div>
   )
 }
