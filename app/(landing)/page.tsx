@@ -7,7 +7,7 @@ export default function Home() {
         <span className="text-8xl">&copy;{currentYear}</span>
       </h1>
       <p className="font-inter text-lg">
-        I'm 23 y/o and I live in Atlanta, Ga.
+        I&apos;m 23 y/o and I live in Atlanta, Ga.
       </p>
     </div>
   )
