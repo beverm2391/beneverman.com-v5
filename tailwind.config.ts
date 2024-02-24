@@ -6,6 +6,7 @@ const config: Config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './core/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -15,14 +16,14 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        sans: ['var(--font-satoshi)', ...fontFamily.sans],
+        sans: ['var(--font-satoshi)', ...fontFamily.sans], // Satoshi
         // TODO pick and add default serif font
         // other fonts:
-        arimo: ['var(--font-arimo)', ...fontFamily.sans], // Arimo 
-        inter: ['var(--font-inter)', ...fontFamily.sans], // Inter
+        arimo: ['var(--font-arimo)'], // Arimo 
+        inter: ['var(--font-inter)'], // Inter
       },
     },
   },
   plugins: [],
 }
-export default config
+export default config;

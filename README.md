@@ -8,14 +8,14 @@
 - [X] get the `$$` delimiter working by trying [memoized react markdown](https://github.com/beverm2391/chat-beverm-frontend/blob/74ff52bc6350c05733f1cd241909edda618739ea/components/markdown.tsx)
 - [ ] fix styling and layout
   - [ ] main layout
-    - [ ] pick a font
+    - [X] pick a font
       - [untitled sans](https://untitledsans.com/)
       - helvetica
       - [Neue Haas Grotesk](https://commercialtype.com/catalog/neue_haas_grotesk)
       - [Neue Montreal](https://pangrampangram.com/products/neue-montreal)
-    - [ ] pick a background color (no dark mode)
-    - [ ] navbar desktop
-    - [ ] navbar mobile
+    - [X] pick a background color (no dark mode)
+    - [X] navbar desktop
+    - [X] navbar mobile
   - [ ] blog layout
     - [ ] blog post layout
     - [ ] all posts layout

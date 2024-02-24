@@ -4,11 +4,23 @@ import { cn } from '@/lib/utils'
 import { Inter, Arimo } from 'next/font/google'
 import localFont from 'next/font/local'
 
-import "../styles/globals.css"
+import "./globals.css"
+import Navbar from '@/core/components/Navbar/Navbar'
+import { NavItems } from '@/config/navigation'
+import MobileNavbar from '@/core/components/Navbar/MobileNavbar'
 
-const inter = Inter({ subsets: ['latin'] })
-const arimo = Arimo({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  variable: "--font-inter",
+})
+
+const arimo = Arimo({
+  subsets: ['latin'],
+  variable: "--font-arimo",
+})
+
 const satoshi = localFont({
+  variable: "--font-satoshi",
   src: [
     {
       path: '../public/fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Black.otf',
@@ -59,7 +71,7 @@ const satoshi = localFont({
       path: '../public/fonts/Satoshi_Complete/Fonts/OTF/Satoshi-MediumItalic.otf',
       weight: '500',
       style: 'italic',
-    }
+    },
   ]
 })
 
@@ -74,14 +86,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          inter.className,
-          arimo.className, 
-          satoshi.className, 
-        )}>
-        {children}
+    <html
+      lang="en"
+      className={cn(
+        inter.variable,
+        arimo.variable,
+        satoshi.variable,
+      )}>
+      <body>
+        <main className="min-h-screen w-screen relative py-4 px-8">
+          <nav>
+          <Navbar items={NavItems} className='hidden lg:flex'/>
+          <MobileNavbar items={NavItems} className='flex lg:hidden'/>
+          </nav>
+          {children}
+        </main>
       </body>
     </html>
   )
