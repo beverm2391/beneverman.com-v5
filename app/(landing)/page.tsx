@@ -1,7 +1,6 @@
-import LandingPage from '@/core/components/LandingPage';
+import LandingPage from '@/core/components/Pages/LandingPage';
 
 export default function Home() {
-  const currentYear: number = new Date().getFullYear();
   return (
     <div>
       <LandingPage />

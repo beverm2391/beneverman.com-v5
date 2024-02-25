@@ -17,7 +17,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-satoshi)', ...fontFamily.sans], // Satoshi
-        // TODO pick and add default serif font
+        serif: ['var(--font-playfair)', ...fontFamily.serif], // Merriweather
         // other fonts:
         arimo: ['var(--font-arimo)'], // Arimo 
         inter: ['var(--font-inter)'], // Inter

@@ -1,13 +1,10 @@
 import type { Metadata } from 'next'
 import { cn } from '@/lib/utils'
 
-import { Inter, Arimo } from 'next/font/google'
+import { Inter, Arimo, Merriweather, Playfair_Display } from 'next/font/google'
 import localFont from 'next/font/local'
 
-import "./globals.css"
-import Navbar from '@/core/components/Navbar/Navbar'
-import { NavItems } from '@/config/navigation'
-import MobileNavbar from '@/core/components/Navbar/MobileNavbar'
+import "@/styles/globals.css"
 import Navbars from '@/core/components/Navbar/Navbars'
 
 const inter = Inter({
@@ -18,6 +15,17 @@ const inter = Inter({
 const arimo = Arimo({
   subsets: ['latin'],
   variable: "--font-arimo",
+})
+
+const merriweather = Merriweather({
+  weight: ['300', '400', '700','900'],
+  subsets: ['latin'],
+  variable: "--font-merriweather",
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: "--font-playfair",
 })
 
 const satoshi = localFont({
@@ -93,6 +101,8 @@ export default function RootLayout({
         inter.variable,
         arimo.variable,
         satoshi.variable,
+        merriweather.variable,
+        playfair.variable
       )}>
       <body>
         <main className="min-h-screen w-screen relative py-4 px-8">

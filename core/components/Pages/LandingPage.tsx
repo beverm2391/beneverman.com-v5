@@ -1,0 +1,120 @@
+"use client"
+
+import { FADE_IN_ANIMATION_VARIANTS, FADE_UP_ANIMATION_VARIANTS } from "@/config/animations";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
+import DoubleHorizontalRule from "../DoubleHorizontalRule";
+import Image from "next/image";
+import Box from "@/core/components/Box";
+
+import image1 from "@/assets/0_0.webp"
+import image2 from "@/assets/0_1.webp"
+import image3 from "@/assets/0_2.webp"
+import image4 from "@/assets/0_3.webp"
+import image5 from "@/assets/0_4.webp"
+import image6 from "@/assets/0_5.webp"
+import image7 from "@/assets/0_6.webp"
+import image8 from "@/assets/0_7.webp"
+import image9 from "@/assets/0_8.webp"
+import GradientComponent from "../GradientComponent";
+
+
+
+export default function LandingPage() {
+    const currentYear: number = new Date().getFullYear();
+
+    const ref = useRef(null);
+    const isInView = useInView(ref);
+    return (
+        <section className="font-normal">
+            <motion.div
+                ref={ref}
+                initial="hidden"
+                animate={isInView ? "show" : "hidden"}
+                variants={{
+                    hidden: {},
+                    show: {
+                        transition: {
+                            staggerChildren: 0.3,
+                        },
+                    },
+                }}
+                viewport={{ once: false }}
+            >
+                <motion.h1
+                    className="text-6xl sm:text-8xl mb-4"
+                    variants={FADE_IN_ANIMATION_VARIANTS}
+                >
+                    Ben Everman<br />
+                    <span className="">&copy;{currentYear}</span>
+                </motion.h1>
+                <div
+                    id='continer'
+                    className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-36"
+                >
+                    <motion.div
+                        id='box1'
+                        className="flex flex-col items-center justify-center hover:cursor-pointer"
+                        variants={FADE_UP_ANIMATION_VARIANTS}
+                    >
+                        <Box>
+                            <div className="w-full h-full flex flex-col items-center justify-center overflow-clip relative">
+                                <div className="w-[95%] h-[95%] relative p-8">
+                                    <Image src={image4} alt="image1" fill={true} className="-z-10 opacity-90" />
+                                    {/* <h2 className="text-7xl font-medium text-black">Projects</h2> */}
+                                </div>
+                            </div>
+                        </Box>
+                        <div className='w-full mx-[5%] mt-4'>
+                            <h3 className="text-5xl mb-4 font-serif">Project 1</h3>
+                            <p className="text-lg font-inter">This is a project that I worked on when I was in college. It was a lot of fun and I learned a lot from it.</p>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        id='box2'
+                        className="flex flex-col items-center justify-center hover:cursor-pointer"
+                        variants={FADE_UP_ANIMATION_VARIANTS}
+                    >
+                        <Box>
+                            <div className="w-full h-full flex flex-col items-center justify-center overflow-clip relative">
+                                <div className="w-[95%] h-[95%] relative p-8">
+                                    <Image src={image2} alt="image1" fill={true} className="-z-10 opacity-90" />
+                                    {/* <h2 className="text-7xl font-medium text-black">About Me</h2> */}
+                                </div>
+                            </div>
+                        </Box>
+                    </motion.div>
+                    <motion.div
+                        id='box1'
+                        className="flex flex-col items-center justify-center hover:cursor-pointer"
+                        variants={FADE_UP_ANIMATION_VARIANTS}
+                    >
+                        <Box>
+                            <div className="w-full h-full flex flex-col items-center justify-center overflow-clip relative">
+                                <div className="w-[95%] h-[95%] relative p-8">
+                                    <Image src={image1} alt="image1" fill={true} className="-z-10 opacity-90" />
+                                    {/* <h2 className="text-7xl font-medium text-black">Projects</h2> */}
+                                </div>
+                            </div>
+                        </Box>
+                    </motion.div>
+                    <motion.div
+                        id='box2'
+                        className="flex flex-col items-center justify-center hover:cursor-pointer"
+                        variants={FADE_UP_ANIMATION_VARIANTS}
+                    >
+                        <Box>
+                            <div className="w-full h-full flex flex-col items-center justify-center overflow-clip relative">
+                                <div className="w-[95%] h-[95%] relative p-8">
+                                    <Image src={image3} alt="image1" fill={true} className="-z-10 opacity-90" />
+                                    {/* <h2 className="text-7xl font-medium text-black">About Me</h2> */}
+                                </div>
+                            </div>
+                        </Box>
+                    </motion.div>
+                </div>
+            </motion.div>
+        </section>
+    )
+}
