@@ -1,23 +1,19 @@
 #gradient-canvas {
-    width: 100%;
-    height: 100%;
-    /* --gradient-color-1: #449ce4;
+    --gradient-color-1: #449ce4;
     --gradient-color-2: #2f8bc1;
     --gradient-color-3: #ccbeee;
-    --gradient-color-4: #4c57f6; */
+    --gradient-color-4: #4c57f6;
 
-    --gradient-color-1: #C6FFDD;
+    /* --gradient-color-1: #C6FFDD;
     --gradient-color-2: #FBD786;
     --gradient-color-3: #f7797d;
-    --gradient-color-4: #FBD786;
-
-    /* --gradient-color-1: #0F2027;
+    --gradient-color-4: #FBD786; */
+/* 
+    --gradient-color-1: #0F2027;
     --gradient-color-2: #203A43;
     --gradient-color-3: #2C5364;
     --gradient-color-4: #203A43; */
 
-    z-index: 1000;
-    border-radius: 50px;
-    box-shadow:  20px 20px 60px #bebebe,
-                -20px -20px 60px #ffffff;
-  }
+    /* border-radius: 50px; */
+    /* box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
+}

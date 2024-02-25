@@ -1,6 +1,6 @@
 export const FADE_UP_ANIMATION_VARIANTS = {
     hidden: { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0, transition: { type: "spring" } },
+    show: { opacity: 1, y: 0, transition: { type: "spring", delay: 0 }}
 };
 
 export const FADE_BLUR_ANIMATION_VARIANTS = {

@@ -8,6 +8,7 @@ import "./globals.css"
 import Navbar from '@/core/components/Navbar/Navbar'
 import { NavItems } from '@/config/navigation'
 import MobileNavbar from '@/core/components/Navbar/MobileNavbar'
+import Navbars from '@/core/components/Navbar/Navbars'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -95,10 +96,7 @@ export default function RootLayout({
       )}>
       <body>
         <main className="min-h-screen w-screen relative py-4 px-8">
-          <nav>
-          <Navbar items={NavItems} className='hidden xl:flex'/>
-          <MobileNavbar items={NavItems} className='flex xl:hidden'/>
-          </nav>
+          <Navbars/>
           {children}
         </main>
       </body>

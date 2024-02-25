@@ -1,17 +1,11 @@
-import GradientComponent from '@/core/components/GradientComponent';
+import LandingPage from '@/core/components/landingPage';
 
 export default function Home() {
   const currentYear: number = new Date().getFullYear();
   return (
     <div>
-      <h1 className="text-8xl font-medium mb-4">
-        Ben Everman<br />
-        <span className="text-8xl">&copy;{currentYear}</span>
-      </h1>
-      <p className="font-inter text-lg">
-        I&apos;m 23 y/o and I live in Atlanta, Ga.
-      </p>
-      <GradientComponent />
+      <LandingPage />
+      {/* <DoubleHorizontalRule /> */}
     </div>
   )
 }

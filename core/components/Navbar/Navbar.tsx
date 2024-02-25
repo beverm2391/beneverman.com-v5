@@ -14,7 +14,7 @@ export default function Navbar({ items, className }: { items: NavItem[], classNa
                     <Link
                         key={index}
                         href={item.href}
-                        className='border-2 border-black rounded-full py-1 px-4 uppercase hover:bg-gray-200 transition-all hover:cursor-pointer'
+                        className='border-2 border-black rounded-full py-1 px-4 uppercase hover:bg-gray-200 hover:cursor-pointer'
                     >
                         {item.label}
                     </Link>
