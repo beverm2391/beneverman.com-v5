@@ -42,6 +42,7 @@ export default function LandingPage() {
                     },
                 }}
                 viewport={{ once: true }}
+                
             >
                 <motion.h1
                     className="text-6xl sm:text-8xl mb-4"
