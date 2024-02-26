@@ -8,15 +8,11 @@ import DoubleHorizontalRule from "../DoubleHorizontalRule";
 import Image from "next/image";
 import Box from "@/core/components/Box";
 
-import image1 from "@/assets/0_0.webp"
-import image2 from "@/assets/0_1.webp"
-import image3 from "@/assets/0_2.webp"
-import image4 from "@/assets/0_3.webp"
-import image5 from "@/assets/0_4.webp"
-import image6 from "@/assets/0_5.webp"
-import image7 from "@/assets/0_6.webp"
-import image8 from "@/assets/0_7.webp"
-import image9 from "@/assets/0_8.webp"
+import image1 from "@/public/assets/0_0.webp"
+import image2 from "@/public/assets/0_1.webp"
+
+import image4 from "@/public/assets/0_3.webp"
+
 import GradientComponent from "../GradientComponent";
 import ScrollText from "../ScrollText";
 
@@ -42,7 +38,7 @@ export default function LandingPage() {
                     },
                 }}
                 viewport={{ once: true }}
-                
+
             >
                 <motion.h1
                     className="text-6xl sm:text-8xl mb-4"
