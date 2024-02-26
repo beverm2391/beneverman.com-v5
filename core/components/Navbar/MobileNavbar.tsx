@@ -40,14 +40,10 @@ export default function MobileNavbar({ items, className }: { items: NavItem[], c
                                     <motion.li
                                         variants={FADE_UP_ANIMATION_VARIANTS}
                                         key={index}
+                                        className="py-2 px-4 mt-4  hover:bg-gray-200 transition-all hover:cursor-pointer rounded-full border-2 border-black uppercase"
                                     >
                                         <Drawer.Close asChild>
-                                            <Link
-                                                href={item.href}
-                                                className={cn(
-                                                    "border-2 border-black rounded-full py-2 px-6 uppercase hover:bg-gray-200 transition-all hover:cursor-pointer mt-4",
-                                                )}
-                                            >
+                                            <Link href={item.href}>
                                                 {item.label}
                                             </Link>
                                         </Drawer.Close>
