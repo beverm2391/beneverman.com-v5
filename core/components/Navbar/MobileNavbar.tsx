@@ -20,11 +20,11 @@ export default function MobileNavbar({ items, className }: { items: NavItem[], c
                 </Drawer.Trigger>
                 <Drawer.Portal>
                     <Drawer.Overlay className="fixed inset-0 bg-black/10 transition-all focus:border-none" />
-                    <Drawer.Content className="flex flex-col fixed bottom-0 left-0 right-0 bg-white h-[calc(100dvh-7rem)]">
+                    <Drawer.Content className="flex flex-col fixed bottom-0 left-0 right-0 bg-white h-[90dvh]">
                         <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mt-4" />
-                        <nav className="p-8">
+                        <nav className="p-4 sm:p-8">
                             <motion.ul
-                                className="grid grid-flow-row auto-rows-max text-4xl gap-4"
+                                className="grid grid-flow-row auto-rows-max text-3xl sm:text-4xl focus:outline-none overflow-scroll"
                                 initial="hidden"
                                 animate="show"
                                 variants={{
@@ -45,7 +45,7 @@ export default function MobileNavbar({ items, className }: { items: NavItem[], c
                                             <Link
                                                 href={item.href}
                                                 className={cn(
-                                                    "border-2 border-black rounded-full py-2 px-6 uppercase hover:bg-gray-200 transition-all hover:cursor-pointer",
+                                                    "border-2 border-black rounded-full py-2 px-6 uppercase hover:bg-gray-200 transition-all hover:cursor-pointer mt-4",
                                                 )}
                                             >
                                                 {item.label}
