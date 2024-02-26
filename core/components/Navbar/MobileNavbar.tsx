@@ -23,33 +23,19 @@ export default function MobileNavbar({ items, className }: { items: NavItem[], c
                     <Drawer.Content className="flex flex-col fixed bottom-0 left-0 right-0 bg-white h-[90dvh]">
                         <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mt-4" />
                         <nav className="p-4 sm:p-8">
-                            <motion.ul
-                                className="flex flex-col text-3xl sm:text-4xl focus:outline-none overflow-scroll"
-                                initial="hidden"
-                                animate="show"
-                                variants={{
-                                    show: {
-                                        transition: {
-                                            delayChildren: 0.2,
-                                            staggerChildren: 0.07,
-                                        },
-                                    },
-                                }}
-                            >
+                            <ul
+                                className="flex flex-col text-3xl sm:text-4xl focus:outline-none">
                                 {items.map((item, index) => (
-                                    <motion.li
-                                        variants={FADE_UP_ANIMATION_VARIANTS}
+                                    <li
                                         key={index}
-                                        className="py-2 px-4 mt-4  hover:bg-gray-200 transition-all hover:cursor-pointer rounded-full border-2 border-black uppercase"
+                                        className="py-2 px-4 mt-4 hover:bg-gray-200 transition-all hover:cursor-pointer rounded-full border-2 border-black uppercase"
                                     >
                                         <Drawer.Close asChild>
-                                            <Link href={item.href}>
-                                                {item.label}
-                                            </Link>
+                                            <Link href={item.href}>{item.label}</Link>
                                         </Drawer.Close>
-                                    </motion.li>
+                                    </li>
                                 ))}
-                            </motion.ul>
+                            </ul>
                         </nav>
                     </Drawer.Content>
                     <Drawer.Overlay />
