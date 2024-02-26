@@ -3,9 +3,9 @@
 import { Gradient } from "whatamesh";
 import '@/styles/gradient.css';
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-export default function GradientComponent() {
+export default function GradientComponent({ className }: { className?: string }) {
     useEffect(() => {
         const gradient = new Gradient();
         gradient.initGradient("#gradient-canvas");
@@ -14,7 +14,7 @@ export default function GradientComponent() {
     return (
         <canvas
             id="gradient-canvas"
-            className="w-full h-full"
+            className={cn("w-full h-full", className)}
             data-js-darken-top
             data-transition-in
         />

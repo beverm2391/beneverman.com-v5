@@ -105,7 +105,7 @@ export default function RootLayout({
         playfair.variable
       )}>
       <body>
-        <main className="min-h-screen w-screen relative py-4 px-8">
+        <main className="min-h-screen w-screen relative py-4 px-8 bg-[#faf7f1]">
           <Navbars/>
           {children}
         </main>

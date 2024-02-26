@@ -18,6 +18,7 @@ import image7 from "@/assets/0_6.webp"
 import image8 from "@/assets/0_7.webp"
 import image9 from "@/assets/0_8.webp"
 import GradientComponent from "../GradientComponent";
+import ScrollText from "../ScrollText";
 
 
 
@@ -40,7 +41,7 @@ export default function LandingPage() {
                         },
                     },
                 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
             >
                 <motion.h1
                     className="text-6xl sm:text-8xl mb-4"
@@ -51,35 +52,35 @@ export default function LandingPage() {
                 </motion.h1>
                 <div
                     id='continer'
-                    className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-36"
+                    className="gap-x-8 gap-y-32 mt-36 grid grid-cols-1 lg:grid-cols-3"
                 >
                     <motion.div
                         id='box1'
-                        className="flex flex-col items-center justify-center hover:cursor-pointer"
+                        className="flex flex-col items-center hover:cursor-pointer"
                         variants={FADE_UP_ANIMATION_VARIANTS}
                     >
                         <Box>
                             <div className="w-full h-full flex flex-col items-center justify-center overflow-clip relative">
                                 <div className="w-[95%] h-[95%] relative p-8">
-                                    <Image src={image4} alt="image1" fill={true} className="-z-10 opacity-90" />
+                                    <Image src={image4} alt="image1" fill={true} className="opacity-90" />
                                     {/* <h2 className="text-7xl font-medium text-black">Projects</h2> */}
                                 </div>
                             </div>
                         </Box>
-                        <div className='w-full mx-[5%] mt-4'>
-                            <h3 className="text-5xl mb-4 font-serif">Project 1</h3>
-                            <p className="text-lg font-inter">This is a project that I worked on when I was in college. It was a lot of fun and I learned a lot from it.</p>
-                        </div>
+                        {/* <div className='w-[95%] mx-[5%] mt-8 font-inter'>
+                            <h3 className="text-lg mb-2 font-semibold">Project 1</h3>
+                            <p className="text-base">This is a project that I worked on when I was in college. It was a lot of fun and I learned a lot from it.</p>
+                        </div> */}
                     </motion.div>
                     <motion.div
                         id='box2'
-                        className="flex flex-col items-center justify-center hover:cursor-pointer"
+                        className="flex flex-col items-center hover:cursor-pointer"
                         variants={FADE_UP_ANIMATION_VARIANTS}
                     >
                         <Box>
                             <div className="w-full h-full flex flex-col items-center justify-center overflow-clip relative">
                                 <div className="w-[95%] h-[95%] relative p-8">
-                                    <Image src={image2} alt="image1" fill={true} className="-z-10 opacity-90" />
+                                    <Image src={image2} alt="image1" fill={true} className="opacity-90" />
                                     {/* <h2 className="text-7xl font-medium text-black">About Me</h2> */}
                                 </div>
                             </div>
@@ -87,34 +88,26 @@ export default function LandingPage() {
                     </motion.div>
                     <motion.div
                         id='box1'
-                        className="flex flex-col items-center justify-center hover:cursor-pointer"
+                        className="flex flex-col items-center hover:cursor-pointer"
                         variants={FADE_UP_ANIMATION_VARIANTS}
                     >
                         <Box>
                             <div className="w-full h-full flex flex-col items-center justify-center overflow-clip relative">
                                 <div className="w-[95%] h-[95%] relative p-8">
-                                    <Image src={image1} alt="image1" fill={true} className="-z-10 opacity-90" />
+                                    <Image src={image1} alt="image1" fill={true} className="opacity-90" />
                                     {/* <h2 className="text-7xl font-medium text-black">Projects</h2> */}
-                                </div>
-                            </div>
-                        </Box>
-                    </motion.div>
-                    <motion.div
-                        id='box2'
-                        className="flex flex-col items-center justify-center hover:cursor-pointer"
-                        variants={FADE_UP_ANIMATION_VARIANTS}
-                    >
-                        <Box>
-                            <div className="w-full h-full flex flex-col items-center justify-center overflow-clip relative">
-                                <div className="w-[95%] h-[95%] relative p-8">
-                                    <Image src={image3} alt="image1" fill={true} className="-z-10 opacity-90" />
-                                    {/* <h2 className="text-7xl font-medium text-black">About Me</h2> */}
                                 </div>
                             </div>
                         </Box>
                     </motion.div>
                 </div>
             </motion.div>
+            <div className='flex flex-col items-center justify-center my-24'>
+                <ScrollText text="Ben Everman" />
+            </div>
+            <section className="h-[60vh] w-full relative">
+                <GradientComponent />
+            </section>
         </section>
     )
 }
