@@ -1,0 +1,87 @@
+::selection {
+    background-color: var(--accent);
+}
+
+:is(ul, h1) {
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+    color: var(--gray-0);
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  svg {
+    width: calc(var(--font-size) * 0.8);
+    aspect-ratio: 1;
+  }
+  
+  .info {
+    display: grid;
+    color: var(--gray-0);
+    padding: var(--size-1);
+    text-transform: uppercase;
+    font-size: var(--font-size);
+    line-height: 1;
+    font-weight: bold;
+  }
+  
+  .info a {
+    color: var(--gray-0);
+  }
+  
+  .info__line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--size-4);
+  }
+  
+  .info__line > :is(span, a) {
+    opacity: var(--opacity, 1);
+    transition: opacity 0.2s;
+  }
+  
+  a:focus-visible {
+    outline-color: var(--accent);
+  }
+  
+  /* .info:has(a:is(:hover, :focus))
+  .info__line > :is(a:not(:hover, :focus), span) {
+    --opacity: 0.1;
+  } */
+  .info:has(a:is(:hover, :focus-visible)) :is(span, a):not(:hover, :focus-visible) {
+    --opacity: 0.1;
+  }
+  
+  a:is(:hover, :focus) {
+    text-decoration: none;
+    --active: 1;
+  }
+  
+  :is(svg, .char) {
+    transition: transform 0.25s ease-in-out;
+    display: inline-block;
+    transform:
+      rotate(calc((var(--active, 0) * var(--r, 0)) * 1deg))
+      translate(
+        calc((var(--active, 0) * var(--x, 0)) * 1%),
+        calc((var(--active, 0) * var(--y, 0)) * 1%)
+      );
+  }

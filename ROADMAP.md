@@ -12,3 +12,7 @@ Cool fonts that I like but cost money:
 - helvetica
 - [Neue Haas Grotesk](https://commercialtype.com/catalog/neue_haas_grotesk)
 - [Neue Montreal](https://pangrampangram.com/products/neue-montreal)
+- [reckless](https://displaay.net/typeface/reckless-collection/reckless/)
+
+### Assets
+- [midjourney hot](https://www.midjourney.com/explore?tab=hot)

@@ -27,6 +27,39 @@ code[data-theme*=" "] span {
   position: absolute;
 }  */
 
-.footnotes[data-footnotes="true"]{
-  background-color: blue;
+.footnotes[data-footnotes="true"] {
+  @apply mt-8 break-words
+  /* background-color: blue; */
+}
+
+.footnotes h2 {
+  @apply font-semibold mb-4
+}
+
+.footnotes li {
+  @apply mt-0
+}
+
+.blog p {
+  @apply text-lg
+}
+
+.blog {
+  @apply text-lg font-serif antialiased text-[#111111]
+}
+
+.blog h5,
+.blog h4,
+.blog h3,
+.blog h2,
+.blog h1 {
+  @apply font-normal;
+}
+
+.blog a {
+  @apply underline underline-offset-2;
+}
+
+.blog blockquote {
+  @apply not-italic
 }

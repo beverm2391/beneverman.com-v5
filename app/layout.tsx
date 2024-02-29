@@ -12,21 +12,21 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-const arimo = Arimo({
-  subsets: ['latin'],
-  variable: "--font-arimo",
-})
+// const arimo = Arimo({
+//   subsets: ['latin'],
+//   variable: "--font-arimo",
+// })
 
-const merriweather = Merriweather({
-  weight: ['300', '400', '700','900'],
-  subsets: ['latin'],
-  variable: "--font-merriweather",
-})
+// const merriweather = Merriweather({
+//   weight: ['300', '400', '700','900'],
+//   subsets: ['latin'],
+//   variable: "--font-merriweather",
+// })
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: "--font-playfair",
-})
+// const playfair = Playfair_Display({
+//   subsets: ['latin'],
+//   variable: "--font-playfair",
+// })
 
 const satoshi = localFont({
   variable: "--font-satoshi",
@@ -84,6 +84,58 @@ const satoshi = localFont({
   ]
 })
 
+const etbook = localFont({
+  variable: "--font-etbook",
+  src: [
+    // {
+    //   path: '../public/fonts/ETBook/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.woff',
+    //   weight: '400',
+    //   style: 'normal',
+    // },
+    {
+      path: '../public/fonts/ETBook/et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/ETBook/et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/ETBook/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/ETBook/et-book/et-book-semi-bold-old-style-figures/et-book-semi-bold-old-style-figures.woff',
+      weight: '500',
+      style: 'normal',
+    }
+  ]
+})
+
+// const etbembo = localFont({
+//   variable: "--font-etbembo",
+//   src: [
+//     {
+//       path: '../public/fonts/ETBembo/ET_Bembo/ETBembo-RomanLF.otf',
+//       weight: '400',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../public/fonts/ETBembo/ET_Bembo/ETBembo-DisplayItalic.otf',
+//       weight: '400',
+//       style: 'italic',
+//     },
+//     {
+//       path: '../public/fonts/ETBembo/ET_Bembo/ETBembo-SemiBoldOSF.otf',
+//       weight: '500',
+//       style: 'normal',
+//     }
+//   ]
+// })
+
 export const metadata: Metadata = {
   title: 'beneverman.com',
   description: 'my website',
@@ -99,13 +151,16 @@ export default function RootLayout({
       lang="en"
       className={cn(
         inter.variable,
-        arimo.variable,
         satoshi.variable,
-        merriweather.variable,
-        playfair.variable
+        etbook.variable,
+        // etbembo.variable,
       )}>
       <body>
-        <main className="min-h-screen w-screen relative py-4 px-8 bg-[#faf7f1]">
+        <main className={cn(
+          "min-h-screen w-screen relative py-4 px-8",
+          // "bg-[#faf7f1]",
+          "bg-[#fffff9]"
+          )}>
           <Navbars/>
           {children}
         </main>

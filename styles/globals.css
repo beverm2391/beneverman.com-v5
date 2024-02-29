@@ -16,7 +16,8 @@
   }
 }
 
-body {}
+body {
+}
 
 h1 {
   @apply text-6xl font-medium

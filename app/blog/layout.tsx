@@ -3,6 +3,7 @@
 import { FADE_IN_ANIMATION_VARIANTS } from "@/config/animations";
 import { motion } from "framer-motion";
 import DoubleHorizontalRule from "@/core/components/DoubleHorizontalRule";
+import "@/styles/blog.css"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -24,9 +25,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             >
                 Writing
             </motion.h1>
-            <DoubleHorizontalRule className="mt-24 mb-12" />
+            {/* <DoubleHorizontalRule className="mt-24 mb-12" /> */}
             <motion.div
-                className="mx-auto max-w-4xl"
+                className="w-[84%] md:w-[87.5%] px-[8%] md:pl-[12.5%] max-w-[1400px]"
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
                 {children}

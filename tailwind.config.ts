@@ -17,8 +17,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-satoshi)', ...fontFamily.sans], // Satoshi
-        serif: ['var(--font-playfair)', ...fontFamily.serif], // Merriweather
-        // other fonts:
+        serif: ['var(--font-etbook)', ...fontFamily.serif], // ET Book
         arimo: ['var(--font-arimo)'], // Arimo 
         inter: ['var(--font-inter)'], // Inter
       },

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@motionone/utils": "^10.17.0",
@@ -40,6 +41,7 @@
     "remark-mdx-math-enhanced": "^0.0.1-beta.3",
     "remark-toc": "^9.0.0",
     "shiki": "^1.1.2",
+    "splitting": "^1.0.6",
     "tailwind-merge": "^2.2.1",
     "vaul": "^0.9.0",
     "whatamesh": "^0.2.0"
@@ -48,6 +50,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/splitting": "^1.0.6",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",

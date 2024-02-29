@@ -1,0 +1,111 @@
+---
+title: 'Building Neural Networks to Detect Eye Diseases'
+subtitle: 'Using Convolutional Neural Networks to Detect Eye Diseases'
+date: '2024-02-28T08:00:00.000Z'
+published: true
+---
+
+# Building Neural Networks to Detect Eye Diseases
+
+<Callout type="info">
+If you're an engineer and you just want the code, [here's the colab](). You'll need a GPU to run it, but everyting else should be ready to go.
+</Callout>
+
+## Doctors Can't Keep Up
+
+Healthcare is constantly changing and evolving. Research moves fast: in a 2011 publication, Densen estimated that by 2020, medical knowledge would double every 73 days, a marked departure from the 1950s, when doubling took 50 years[^1] <Sidenote idx={1}>hello</Sidenote>For the average physician, though some continuing education is required to maintain licensure and board certification, they must fight to keep pace with the rate of new research while they juggle heavy caseloads, administrative responsibility, and personal care. 
+
+> "This growing aggregation of advances and reversals presents a significant challenge to physicians attempting to stay up to date. Historically, there has been an average 17-year lag between medical discoveries and implementation into clinical practice.[12](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441682/#CR12),[13](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441682/#CR13) With the acceleration of changes in clinical medicine, coupled with normal lag times in dissemination, there is a higher probability than ever before that physicians, within just a few years of leaving their training, may not be practicing contemporary standards of care."
+
+**With new technology like Machine Learning (ML) and Artificial Intelligence (AI), what are the implications for the average physician? Can we reduce the 17-year lag?**
+
+I think we can. How? By building clinical *Decision Support Systems* (DSS)[^2]. While older decision support systems date back to the British in World War II[^3], a modern example is NASA's mission control. While astronauts pilot air and spacecraft, mission control gathers and manages vast data sets, utilizes advanced models for analysis, offers user-friendly interfaces for astronaut interaction, and provides crucial support for real-time decision-making. Observing NASA in action - throughout the Apollo program, 32 astronauts were assigned to fly missions[^4]. At a 1:100 ratio, one would estimate as many as 3200 staff on mission control. The actual number? 400,000[^5] . 
+
+So how can we use ML and AI to support clinical decision making? One way is using computer vision. With neural networks that take images as input, we can batch-process large amounts of medical imagery and use the network to return the much smaller subset that requires actual physician review. The goal is not to diagnose, but to identify what needs physician review while providing the physician with as much supporting information as possible.
+
+## Using Math to See Disease
+
+This project was inspired by the incredible work of [Ophthalytics](https://www.ophthalytics.com/). In [their recent paper](https://www.mdpi.com/2075-4418/13/3/393) they trained a Convolutional Neural Network (CNN), commonly used in computer vision, to detect Diabetic Retinopathy (DR). DR is a X....
+
+In their paper, the model takes close-up images of eyes and classifies them in a binary manner. The 2 output classes are DR-Positive and DR-Negative. See the figure below.
+
+![ophth figure 3](/assets/blog/neural-nets-for-eye-disease/ophth-fig-3.png)
+(**a**) DR Negative and (**b**) DR Positive
+
+I decided I wanted to build a similar eye disease classifier. My goals for this project were twofold:
+1. Train a classifier that can detect *multiple* eye diseases
+2. Train the model using minimal compute, as fast as possible
+
+### Convolutional Neural Networks
+make this an accordion
+CNNS work by X
+LBDL Images
+
+## Implementing a CNN for Eye Disease Classification
+
+Since my goal was to minimize compute costs, I chose the [EfficientNet](https://arxiv.org/abs/1905.11946) architecture, which 
+uniformly scales all architectural dimensions of the CNN (depth/width/resolution) (Tan & Le 2019). You can read the original EfficientNet paper [here](https://arxiv.org/abs/1905.11946). With neural architecture search (meta-learning), the authors created a new family of models called *EfficientNets*. At the time of publication, their largest model, the *EfficientNetB7* was deemed "8.4x smaller and 6.1x faster on inference than the best existing ConvNet" (Tan & Le 2019). Here's a figure from the paper:
+
+![EfficientNet](/assets/blog/neural-nets-for-eye-disease/efficientnet.png)
+
+### Compute Details
+
+Notice the Y axis is Accuracy and the X axis is FLOPs - a direct measure for compute cost. FLOPs stands for *Floating Point Operations*, which is the number of matrix multiplications in the model (CHECK THIS). 
+
+For context, the [speculated number of FLOPs](https://patmcguinness.substack.com/p/gpt-4-details-revealed) used to train [GPT-4](https://arxiv.org/abs/2303.08774) (aka ChatGPT) was ~2.15e25 or 21,500,000 EFLOPs, which for \$1/A100 hour is estimated at \$63 Million. 
+
+For this project, I used an A100 on Google Colab, which costs me about \$9.99 a month. The isolated cost of this project would be much lower. It turns out that being poor does force you to be more creative. Read about it below.
+
+### More Architecture Decisions
+
+I realized I could leverage [transfer learning](https://en.wikipedia.org/wiki/Transfer_learning) by taking a pre-trained *EfficientNet* and continuing its training on my eye disease dataset (AKA fine-tuning). This has a few benefits:
+1. Reduced compute cost (time and throughput) that would be incurred by pre-training a CNN
+2. Prevent overfitting on my small dataset during pre-training
+3. Increase the speed I could iterate and finish this project.
+
+My goal here was not to train the most performant classifier. Maybe I'll return to that in the future, for now, it's less relevant. The easiest way to boost performance would be to use a larger base model, which I did play around with.
+
+### The Code
+
+<Callout>
+Here is the link to the code. I've set it up so that you should be able to download the data, train/fine-tune the model, and test it pretty easily. NOTE: You'll probably need an A100 at least, which means you need Colab Pro. You could probably get away with a T4 (free) for the smallest model, *EfficientNet-B0*.
+</Callout>
+
+I'm not going to go into detail on how the code works, because it's pretty standard ML. If you want to know how a specific part works, I'd recommend trying to reverse-engineer it. If you have any questions or get stuck, just shoot me an email (emoji) [here]()
+
+### Model Performance
+
+The model performs well at about 90% accuracy on the test set. As aforementioned, for this project, I'm not too worried about performance, so I'm going to skip a full model evaluation. Instead, let's put the model in the context of a Clinical DSS.
+
+To determine which images need to be reviewed by the physician, we can set a confidence threshold $t$ that corresponds to the required output probability to bypass manual clinical review.
+
+>If the model is confident enough, don't review the image. If the model is not confident enough, send the image to a physician for manual review.
+
+Here is an example model output:
+
+```python
+cataract: 0.0006, glaucoma: 0.0000, diabetic_retinopathy: 0.0011, normal: 0.9983
+cataract: 0.9999, glaucoma: 0.0000, diabetic_retinopathy: 0.0001, normal: 0.0000
+cataract: 0.8247, glaucoma: 0.0001, diabetic_retinopathy: 0.1748, normal: 0.0004
+cataract: 0.7998, glaucoma: 0.0000, diabetic_retinopathy: 0.1971, normal: 0.0031
+```
+
+![example model output](/assets/blog/neural-nets-for-eye-disease/example-output.png)
+
+Notice that the model was incorrect on the last image. The greatest probability in the distribution was cataract (at .7998), but the image was actually diabetic retinopathy. If our threshold is set to .85 this image would correctly be tagged for physician review. 
+
+> Note that in this test environment, the True labels are available (we already know what disease is depicted, ahead of time). In production, this will be unknown.
+
+For images that get tagged for review, once they are reviewed they can be added to a dataset which can be used to further improve model performance down the road.
+
+## Final Thoughts
+
+To reiterate, Machine Learning and Artificial Intelligence have many applications in healthcare. A great way to implement this new technology is part of a larger Clinical Decision Support System that aims to help medical personnel like physicians with decision-making. With the low cost of inference, it's now possible to screen large numbers of patients for pathologies like cataracts, glaucoma, and DR. 
+
+The next steps for this project could include optimizing model performance, implementing a model into production, or exploring other use cases like more pathologies or different types of imaging. 
+
+[^1]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3116346/
+[^2]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441682/#CR12
+[^3]: https://www.nature.com/articles/s41746-020-0221-y
+[^4]: https://apps.dtic.mil/sti/tr/pdf/ADA234216.pdf
+[^5]: https://www.bbc.com/future/article/20190617-apollo-in-50-numbers-the-workers
