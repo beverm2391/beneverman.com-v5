@@ -107,8 +107,8 @@ export default function LandingPage() {
             {/* <div className='flex flex-col items-center justify-center my-24'>
                 <ScrollText text="Ben Everman" />
             </div> */}
-            {/* <section className="h-[60vh] w-full relative">
-                <GradientComponent />
+            {/* <section className="h-[80vh] w-full relative">
+                    <GradientComponent />
             </section> */}
         </section>
     )

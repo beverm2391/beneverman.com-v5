@@ -163,7 +163,7 @@ export default function RootLayout({
           // "bg-[#faf7f1]",
           "bg-[#fffff9]"
         )}>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mb-8">
             <Logo />
             <Navbars />
           </div>
