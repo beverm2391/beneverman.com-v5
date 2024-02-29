@@ -20,7 +20,11 @@ export default function MobileNavbar({ items, className }: { items: NavItem[], c
                 </Drawer.Trigger>
                 <Drawer.Portal>
                     <Drawer.Overlay className="fixed inset-0 bg-black/10 transition-all" />
-                    <Drawer.Content className="flex flex-col fixed bottom-0 left-0 right-0 bg-white h-[90dvh] focus:outline-none">
+                    <Drawer.Content className={cn("flex flex-col fixed bottom-0 left-0 right-0",
+                            "h-[90dvh] focus:outline-none",
+                            // "bg-white",
+                            "bg-[#fffff9]",
+                            )}>
                         <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mt-4" />
                         <nav className="p-4 sm:p-8">
                             <ul
@@ -28,7 +32,11 @@ export default function MobileNavbar({ items, className }: { items: NavItem[], c
                                 {items.map((item, index) => (
                                     <li
                                         key={index}
-                                        className="py-2 px-4 mt-4 hover:bg-gray-200 transition-all hover:cursor-pointer rounded-full border-2 border-black uppercase"
+                                        className={cn(
+                                            "py-2 px-4 mt-4 hover:bg-gray-200 transition-all hover:cursor-pointer uppercase",
+                                            "tracking-wide",
+                                            // "rounded-full border-2 border-black"
+                                        )}
                                     >
                                         <Drawer.Close asChild>
                                             <Link href={item.href}>{item.label}</Link>

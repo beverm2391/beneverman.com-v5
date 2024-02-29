@@ -11,7 +11,7 @@
 - [ ] blog stuff
   - intercepting routes with the first x words of article, click on it to go to page (check https://adammaj.com/)
   - Easily hover over TOC to change preview
-  - [ ] serif font? // styling
+  - [X] serif font? // styling
   - [ ] style links somehow
   - [ ] add accordian component
 - [ ] copy

@@ -92,7 +92,7 @@ const htmlComponents = {
             )}
             href={props.href || ""}
             {...props}
-        // target="_blank"
+            target="_blank"
         >
             {children}
         </Link>

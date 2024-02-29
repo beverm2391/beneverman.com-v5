@@ -19,15 +19,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 },
             }}
         >
-            <motion.h1
-                className="text-6xl sm:text-8xl mb-4"
+            {/* <motion.h1
+                className="mb-4"
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
                 Writing
-            </motion.h1>
-            {/* <DoubleHorizontalRule className="mt-24 mb-12" /> */}
+            </motion.h1> */}
+            {/* <DoubleHorizontalRule className="" /> */}
             <motion.div
-                className="w-[84%] md:w-[87.5%] px-[8%] md:pl-[12.5%] max-w-[1400px]"
+                // className="py-24 w-[84%] md:w-[87.5%] px-[8%] md:pl-[12.5%] max-w-[1400px]"
+                className="py-24"
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
                 {children}

@@ -82,7 +82,7 @@ export default function LandingPage() {
     const isInView = useInView(ref);
     return (
         <section className="font-normal">
-            <motion.div
+            {/* <motion.div
                 ref={ref}
                 initial="hidden"
                 animate={isInView ? "show" : "hidden"}
@@ -103,7 +103,7 @@ export default function LandingPage() {
                     Ben Everman<br />
                     <span className="">&copy;{currentYear}</span>
                 </motion.h1>
-            </motion.div>
+            </motion.div> */}
             {/* <div className='flex flex-col items-center justify-center my-24'>
                 <ScrollText text="Ben Everman" />
             </div> */}

@@ -29,7 +29,7 @@ figure.fullwidth figcaption {
 img {
     max-width: 100%;
 }
-
+/* 
 hr {
     display: block;
     height: 1px;
@@ -38,22 +38,23 @@ hr {
     border-top: 1px solid #ccc;
     margin: 1em 0;
     padding: 0;
-}
+} */
 
 
 .sidenote,
 .marginnote {
-    float: right;
-    clear: right;
-    margin-right: -60%;
-    width: 50%;
-    margin-top: 0.3rem;
-    margin-bottom: 0;
-    font-size: 1.1rem;
-    line-height: 1.3;
-    vertical-align: baseline;
-    position: relative;
+    @apply float-right clear-right mr-[-70%] w-[50%] mt-[0.3rem] mb-0 text-base leading-[1.3] relative align-baseline;
 }
+
+/* on small screens, dont show it on the side */
+@media screen and (max-width: 768px) {
+
+    .sidenote,
+    .marginnote {
+        display: none;
+    }
+}
+
 
 .sidenote-number {
     counter-increment: sidenote-counter;
@@ -111,35 +112,37 @@ figure.fullwidth figcaption {
     max-width: none;
 }
 
-label.margin-toggle:not(.sidenote-number) {
-    display: inline;
-}
 
-.sidenote,
-.marginnote {
-    display: none;
-}
-
+/* hide the checkbox only */
+/* the new "checkbox" is whaterver is put in the label tag. see `Server Components` to change */
 .custom-checkbox {
     display: none;
 }
 
-.margin-toggle:checked+.sidenote,
-.margin-toggle:checked+.marginnote {
-    display: block;
-    float: left;
-    left: 1rem;
-    clear: both;
-    width: 95%;
-    margin: 1rem 2.5%;
-    /* vertical-align: baseline; */
-    position: relative;
-}
+@media screen and (max-width: 768px) {
 
-label {
-    cursor: pointer;
-}
+    /* this reveals the note after toggled */
+    .margin-toggle:checked+.sidenote,
+    .margin-toggle:checked+.marginnote {
+        display: block;
+        float: left;
+        left: 1rem;
+        clear: both;
+        width: 95%;
+        margin: 1rem 2.5%;
+        /* vertical-align: baseline; */
+        position: relative;
+    }
 
-img {
-    width: 100%;
+    label.margin-toggle:not(.sidenote-number) {
+        display: inline;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    img {
+        width: 100%;
+    }
 }

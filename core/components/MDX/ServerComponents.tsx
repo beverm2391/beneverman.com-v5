@@ -1,6 +1,7 @@
 import { Code } from 'bright'
 import Image, { ImageProps } from 'next/image'
 import Callout from '@/core/components/Callout'
+import { BsPlusCircle } from 'react-icons/bs'
 
 const PreServerSide = ({ children, ...props }: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLPreElement>) => {
     return (
@@ -19,25 +20,26 @@ const MDXImage = (props: any) => (
     />
 )
 
-const Sidenote = (props: any, idx: number) => {
+const Sidenote = (props: { children: any; idx: number }) => {
     return (
         <>
             <label
-                htmlFor={`sn-${idx}`}
+                htmlFor={`sn-${props.idx}`}
                 className="margin-toggle sidenote-number">
-                    +
+                    <BsPlusCircle className="inline-block h-4 w-4 md:hidden" />
             </label>
             <input
                 type="checkbox"
-                id={`sn-${idx}`}
+                id={`sn-${props.idx}`}
                 className="margin-toggle custom-checkbox"
             />
             <span className='sidenote'>
                 {props.children}
             </span>
         </>
-    )
-}
+    );
+};
+
 
 const ServerComponents = {
     pre: PreServerSide,

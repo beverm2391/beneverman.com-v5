@@ -8,13 +8,24 @@ export type NavItem = {
 
 export default function Navbar({ items, className }: { items: NavItem[], className?: string }) {
     return (
-        <div className={cn('flex relative', className)}>
-            <div className='flex flex-row gap-4 absolute right-0 text-3xl'>
+        <div className={cn(
+            'flex relative',
+            'items-center justify-center',
+            className
+        )}>
+            <div className={cn(
+                'flex flex-row gap-4 text-3xl',
+                // 'absolute right-0'
+            )}>
                 {items.map((item, index) => (
                     <Link
                         key={index}
                         href={item.href}
-                        className='border-2 border-black rounded-full py-1 px-4 uppercase hover:bg-gray-200 hover:cursor-pointer'
+                        className={cn(
+                            // 'border-2 border-black rounded-full',
+                            'tracking-wide',
+                            'py-1 px-4 uppercase hover:bg-gray-200 hover:cursor-pointer'
+                        )}
                     >
                         {item.label}
                     </Link>

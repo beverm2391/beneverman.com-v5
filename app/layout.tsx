@@ -6,6 +6,8 @@ import localFont from 'next/font/local'
 
 import "@/styles/globals.css"
 import Navbars from '@/core/components/Navbar/Navbars'
+import DoubleHorizontalRule from '@/core/components/DoubleHorizontalRule'
+import Logo from '@/core/components/Logo'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -160,8 +162,11 @@ export default function RootLayout({
           "min-h-screen w-screen relative py-4 px-8",
           // "bg-[#faf7f1]",
           "bg-[#fffff9]"
-          )}>
-          <Navbars/>
+        )}>
+          <div className="flex justify-between items-center">
+            <Logo />
+            <Navbars />
+          </div>
           {children}
         </main>
       </body>

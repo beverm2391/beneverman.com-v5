@@ -15,7 +15,7 @@ export default async function Page() {
     // console.log(posts);
 
     return (
-      <div>
+      <div className='mx-auto flex items-center justify-center'>
         <BlogPage posts={posts} />
       </div>
     );

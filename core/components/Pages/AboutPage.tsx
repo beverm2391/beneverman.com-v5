@@ -21,12 +21,12 @@ export default function AboutPage() {
                     },
                 }}
             >
-                <motion.h1
-                    className="text-6xl sm:text-8xl mb-4"
+                {/* <motion.h1
+                    className="mb-4"
                     variants={FADE_IN_ANIMATION_VARIANTS}
                 >
                     About Me
-                </motion.h1>
+                </motion.h1> */}
                 {/* <DoubleHorizontalRule/> */}
             </motion.div>
         </section>

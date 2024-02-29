@@ -19,7 +19,7 @@ export function AllPosts({ posts }: { posts: Post[] }) {
                         href={`/blog/${post?.slug}`}
                     >
                         <div className="w-full flex flex-col my-2">
-                            <h2 className="text-5xl font-medium">
+                            <h2 className="text-5xl">
                                 {post?.title}
                             </h2>
                         </div>
@@ -34,7 +34,7 @@ export function AllPosts({ posts }: { posts: Post[] }) {
 // This is the blog page (client side)
 export default function BlogPage({ posts }: { posts: Post[] }) {
     return (
-        <div>
+        <div className='font-serif'>
             <AllPosts posts={posts} />
         </div>
     )
