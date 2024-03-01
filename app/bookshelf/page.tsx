@@ -29,7 +29,7 @@ export default async function Page() {
 
   return (
     <div>
-      <BookshelfPage />
+      <BookshelfPage data={data}/>
     </div>
   )
 }
