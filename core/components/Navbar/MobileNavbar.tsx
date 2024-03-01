@@ -13,7 +13,7 @@ export default function MobileNavbar({ items, className }: { items: NavItem[], c
         <div className={cn(className, "z-10 relative")}>
             <Drawer.Root>
                 <Drawer.Trigger
-                    className='absolute right-0 focus:outline-none'
+                    className='focus:outline-none'
                 // asChild
                 >
                     <BsList className='w-6 h-6' />

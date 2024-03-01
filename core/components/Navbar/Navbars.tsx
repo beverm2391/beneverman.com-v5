@@ -12,8 +12,8 @@ export default function Navbars() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
             >
-                <Navbar items={NavItems} className='hidden xl:flex' />
-                <MobileNavbar items={NavItems} className='flex xl:hidden' />
+                <Navbar items={NavItems} className='hidden lg:flex' />
+                <MobileNavbar items={NavItems} className='flex lg:hidden' />
             </motion.div>
         </nav>
     )

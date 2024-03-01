@@ -11,7 +11,7 @@ export default async function PostPage({ params }: { params: { slug: string; } }
     const post = await getPost(params.slug);
     if (!post) { return notFound(); }
     return (
-        <div className=' w-[84%] md:w-[87.5%] px-[8%] md:pl-[12.5%] max-w-[1400px]'>
+        <div className='md:w-[87.5%] sm:px-[8%] md:pl-[12.5%] max-w-[1400px]'>
             <article className='relative blog md:max-w-[75%]'>
                 <Link className="absolute left-[-120px] mt-8 hidden lg:block" href="/blog">
                     <BsArrowLeftShort className="inline-block h-12 w-12" />
