@@ -5,6 +5,11 @@ import { cn } from '@/lib/utils';
 import Box from "@/core/components/Box";
 import { ParsedResult } from '@/types/reading-list';
 import Link from 'next/link';
+import {
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
+} from "@/core/components/shadcn/hover-card"
 
 import '@/styles/bookshelf.css'
 
@@ -25,10 +30,10 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
 
     const Reading2 = ({ name, author, type, url, comments, status, date }: ParsedResult) => {
         const typemap: { [key: string]: string } = {
-            'book': 'bg-blue-300 border-blue-200',
-            'article': 'bg-green-300 border-green-200',
-            'journal': 'bg-pink-300 border-pink-200',
-            'essay': 'bg-red-300 border-red-200',
+            'book': 'bg-[#bdd3d9]',
+            'article': 'bg-[#ecc6cd]',
+            'journal': 'bg-[#fae4c9]',
+            'essay': 'bg-[#c6bef8]'
         }
 
         return (
@@ -75,18 +80,20 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                         <Reading key={index} {...reading} />
                     ))}
                 </div> */}
-                <div className='h-full flex flex-col-reverse lg:flex-row'>
-                    <div className="flex flex-col w-full lg:w-1/2 rounded-2xl p-4 bg-amber-100">
-                        <h2 className="text-6xl text-black font-medium mb-6 mt-2 ml-4">Reading List</h2>
-                        <div className='flex flex-col border-white/20 border-2 bg-amber-100 rounded-xl overflow-clip'>
-                            <div className='flex flex-col'>
+                <div className='h-full flex flex-col-reverse lg:flex-row gap-8'>
+                    <div className="flex flex-col w-full lg:w-1/2">
+                        <h2 className="text-6xl text-black font-medium mb-6">
+                            Reading List
+                        </h2>
+                        <div className='flex flex-col shadow-lg shadow-white'>
+                            <div className='flex flex-col  border-black border-2 overflow-clip'>
                                 {data.filter((reading: ParsedResult) => !reading.comments).map((reading: ParsedResult, index: number) => (
                                     <Reading2 key={index} {...reading} />
                                 ))}
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col h-full w-full lg:w-1/2 p-8">
+                    <div className="flex flex-col h-full w-full lg:w-1/2">
                         <h2 className="text-6xl text-black font-medium">Featured Reads</h2>
                         <hr className='my-4' />
                         {data.filter((reading: ParsedResult) => reading.comments).map((reading: ParsedResult, index: number) => (
