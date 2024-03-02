@@ -28,7 +28,7 @@ export default async function Page() {
   // fs.writeFileSync('parsed-data.json', JSON.stringify(data, null, 4))
 
   return (
-    <div>
+    <div className="py-8 md:py-24">
       <BookshelfPage data={data}/>
     </div>
   )

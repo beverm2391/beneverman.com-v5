@@ -1,0 +1,7 @@
+.show-child-on-hover .child-to-show {
+  display: none;
+}
+
+.show-child-on-hover:hover .child-to-show {
+  display: block;
+}
