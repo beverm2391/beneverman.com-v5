@@ -2,16 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import Box from "@/core/components/Box";
 import { ParsedResult } from '@/types/reading-list';
 import Link from 'next/link';
-import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
-} from "@/core/components/shadcn/hover-card"
+import { FaCircle } from 'react-icons/fa';
 
 import '@/styles/bookshelf.css'
+
+const typemap: { [key: string]: string } = {
+    'book': 'text-blue-500',
+    'article': 'text-green-500',
+    'journal': 'text-yellow-500',
+    'essay': 'text-red-500',
+}
 
 export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
 
@@ -29,22 +31,23 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
     }
 
     const Reading2 = ({ name, author, type, url, comments, status, date }: ParsedResult) => {
-        const typemap: { [key: string]: string } = {
-            'book': 'bg-[#bdd3d9]',
-            'article': 'bg-[#ecc6cd]',
-            'journal': 'bg-[#fae4c9]',
-            'essay': 'bg-[#c6bef8]'
-        }
+        // const typemap: { [key: string]: string } = {
+        //     'book': 'bg-[#bdd3d9]',
+        //     'article': 'bg-[#ecc6cd]',
+        //     'journal': 'bg-[#fae4c9]',
+        //     'essay': 'bg-[#c6bef8]'
+        // }
 
         return (
             <motion.div
                 className={cn(
                     // 'border-t-2 border-x-2 border-black', 
                     'px-4 py-2 hover:underline hover:underline-offset-2 transition-all',
-                    type && typemap[type],
+                    // type && typemap[type],
                 )}>
                 <Link href={url || ''}>
-                    <h2 className='text-lg font-medium'>{name}</h2>
+                    <h2 className='text-lg font-medium inline'>{name}</h2>
+                    <FaCircle className={cn('w-3 h-3 ml-2 inline translate-y-[-1px]', type && typemap[type])} />
                     <motion.div
                         className='transition-all'
                         layout
@@ -82,9 +85,19 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                 </div> */}
                 <div className='h-full flex flex-col-reverse lg:flex-row gap-8'>
                     <div className="flex flex-col w-full lg:w-1/2">
-                        <h2 className="text-6xl text-black font-medium mb-6">
-                            Reading List
-                        </h2>
+                        <div className='flex flex-row w-full items-center'>
+                            <h2 className="text-6xl text-black font-medium mb-6">
+                                Reading List
+                                <span className='align-super text-base font-medium ml-2'>{currentYear}</span>
+                            </h2>
+                            <div className='flex ml-8 p-4'>
+                                {Object.keys(typemap).map((type: string, index: number) => (
+                                    <span key={index} className='text-base text-black font-medium inline mr-4'>
+                                        <FaCircle className={cn('w-3 h-3 inline translate-y-[-2px]', typemap[type])}/> {type}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
                         <div className='flex flex-col shadow-lg shadow-white'>
                             <div className='flex flex-col  border-black border-2 overflow-clip'>
                                 {data.filter((reading: ParsedResult) => !reading.comments).map((reading: ParsedResult, index: number) => (

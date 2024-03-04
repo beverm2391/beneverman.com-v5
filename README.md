@@ -22,3 +22,5 @@
   - [ ] make the titles animate on view
   - [ ] try the same style as blog page, books on the left in the main, sidenotes will be comments on the right
   - [ ] add a cool scroll animation or something
+  - [ ] add in progress reads at the top of featured with an "in progress" badge
+  - [ ] add tabs to filter each type of reading
