@@ -12,7 +12,7 @@ function Box(props: ThreeElements['mesh']) {
         <mesh
             {...props}
             ref={meshRef}
-            scale={active ? 1.5 : 1}
+            scale={active ? 2 : 1.5}
             onClick={(event) => setActive(!active)}
             onPointerOver={(event) => setHover(true)}
             onPointerOut={(event) => setHover(false)}>
@@ -24,7 +24,7 @@ function Box(props: ThreeElements['mesh']) {
 
 export default function TestR3F() {
     return (
-        <div className='h-[600px] w-[800px] mx-auto'>
+        <div className='h-[80vh] w-screen'>
             <Canvas>
                 <ambientLight intensity={Math.PI / 2} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
