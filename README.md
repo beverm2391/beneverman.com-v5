@@ -24,3 +24,5 @@
   - [ ] add a cool scroll animation or something
   - [ ] add in progress reads at the top of featured with an "in progress" badge
   - [ ] add tabs to filter each type of reading
+  - [ ] V2 - take screenshots of each link to page, or use book cover
+    - [ ] put in this component https://x.com/verse_/status/1759343366842548262?s=20

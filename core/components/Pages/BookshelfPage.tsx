@@ -88,7 +88,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                         <div className='flex flex-row w-full items-center'>
                             <h2 className="text-6xl text-black font-medium mb-6">
                                 Reading List
-                                <span className='align-super text-base font-medium ml-2'>{currentYear}</span>
+                                {/* <span className='align-super text-base font-medium ml-2'>{currentYear}</span> */}
                             </h2>
                             <div className='flex ml-8 p-4'>
                                 {Object.keys(typemap).map((type: string, index: number) => (

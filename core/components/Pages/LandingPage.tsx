@@ -112,7 +112,6 @@ export default function LandingPage() {
             {/* <section className="h-[80vh] w-full relative">
                     <GradientComponent />
             </section> */}
-        <TestR3F />
         </section>
     )
 }

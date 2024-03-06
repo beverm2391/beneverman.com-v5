@@ -1,8 +1,8 @@
 export const NavItems = [
-    {
-        label: 'Home',
-        href: '/'
-    },
+    // {
+    //     label: 'Home',
+    //     href: '/'
+    // },
     {
         label: 'About',
         href: '/about'
@@ -14,5 +14,9 @@ export const NavItems = [
     {
         label: 'Bookshelf',
         href: '/bookshelf'
+    },
+    {
+        label: 'Canvas',
+        href: '/canvas'
     }
 ]
