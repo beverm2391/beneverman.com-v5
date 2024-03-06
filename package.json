@@ -17,8 +17,10 @@
     "@notionhq/client": "^2.2.14",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-hover-card": "^1.0.7",
+    "@react-three/fiber": "^8.15.19",
     "@stitches/react": "^1.2.8",
     "@types/mdx": "^2.0.11",
+    "@types/three": "^0.162.0",
     "bright": "^0.8.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -48,6 +50,7 @@
     "splitting": "^1.0.6",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.162.0",
     "vaul": "^0.9.0",
     "whatamesh": "^0.2.0"
   },

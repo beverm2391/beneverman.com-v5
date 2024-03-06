@@ -15,6 +15,8 @@ import image4 from "@/public/assets/0_3.webp"
 
 import GradientComponent from "../GradientComponent";
 import ScrollText from "../ScrollText";
+import ThreeDCircle from "../3DCircle";
+import TestR3F from "../TestR3F";
 
 export function Boxes() {
     return (
@@ -110,6 +112,7 @@ export default function LandingPage() {
             {/* <section className="h-[80vh] w-full relative">
                     <GradientComponent />
             </section> */}
+        <TestR3F />
         </section>
     )
 }
