@@ -1,4 +1,4 @@
-import BookshelfPage from "@/core/components/Pages/BookshelfPage";
+import BookshelfPage from "@/core/components/Pages_/BookshelfPage";
 import { queryDBPagination, parseResponse } from "@/lib/reading-list-db"
 import { ParsedResult } from "@/types/reading-list"
 import { cache } from 'react'
