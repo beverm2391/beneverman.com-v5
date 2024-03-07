@@ -25,7 +25,7 @@ export default function Navbar({ items, className }: { items: NavItem[], classNa
                         className={cn(
                             // 'border-2 border-black rounded-full',
                             'tracking-wide',
-                            'py-1 px-4 uppercase hover:bg-gray-200 hover:cursor-pointer'
+                            'py-1 px-4 uppercase hover:bg-gray-200/10 hover:cursor-pointer'
                         )}
                     >
                         {item.label}

@@ -1,0 +1,25 @@
+.mask-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    /* Ensure there's content or dimensions so there's an area to interact with */
+    /* mask-image: radial-gradient(circle, transparent 0%, black 70%); */
+    /* -webkit-mask-image: radial-gradient(circle, transparent 0%, black 70%); */
+    /* background: inherit; */
+}
+
+.mask-container::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-color);
+    /* mask-image: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), transparent 0%, black 70%); */
+}
+
+.mask-container:hover::before {
+    mask-image: radial-gradient(circle at var(--x) var(--y), transparent 0%, white 100%);
+    -webkit-mask-image: radial-gradient(circle at var(--x) var(--y), transparent 0%, white 100%);
+    cursor: grab;
+    transition: mask-image 0.5s;
+}

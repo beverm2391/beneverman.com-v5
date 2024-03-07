@@ -28,15 +28,15 @@ export default function Waves() {
 
         // ! Style Params ================================
         const linesAmount = 25; // Number of lines
-        const fadeAmount = 0.6 // Fade amount (0 = no fade, 1 = full fade)
+        const fadeAmount = 1 // Fade amount (0 = no fade, 1 = full fade)
         const noiseAmount = 0.1 // Noise amount (0 = no noise, 1 = full noise)
         const userInteraction = false; // Enable user interaction
 
         // ! Colors ================================
         let color1: number[] = HexToRGB("#FFFFFF")
-        let color2: number[] = HexToRGB("#FF5400")
+        let color2: number[] = HexToRGB("#FFFFFF")
 
-        s.draw = () => {
+        s.draw = () => {    
             s.clear(); // Clear the canvas each frame
             phase += 0.015; // Increment phase (this controls the speed of the wave)
             // //amplitude = s.map(s.mouseX, 0, s.width, 0, 200);
@@ -118,5 +118,5 @@ export default function Waves() {
         };
     }
 
-    return <div ref={sketchRef} className="w-full h-full -z-10" id="p5-sketch"><NextReactP5Wrapper sketch={sketch} /></div>;
+    return <div ref={sketchRef} className="absolute top-0 left-0 w-full h-full" id="p5-sketch"><NextReactP5Wrapper sketch={sketch} /></div>;
 };
