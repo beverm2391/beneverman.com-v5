@@ -85,41 +85,13 @@ export default function LandingPage() {
     const isInView = useInView(ref);
     return (
         <section className="font-normal">
-            {/* <motion.div
-                ref={ref}
-                initial="hidden"
-                animate={isInView ? "show" : "hidden"}
-                variants={{
-                    hidden: {},
-                    show: {
-                        transition: {
-                            staggerChildren: 0.3,
-                        },
-                    },
-                }}
-                viewport={{ once: true }}
-            >
-                <motion.h1
-                    className="text-6xl sm:text-8xl mb-4"
-                    variants={FADE_IN_ANIMATION_VARIANTS}
-                >
-                    Ben Everman<br />
-                    <span className="">&copy;{currentYear}</span>
-                </motion.h1>
-            </motion.div> */}
-            {/* <div className='flex flex-col items-center justify-center my-24'>
-                <ScrollText text="Ben Everman" />
-            </div> */}
-            {/* <section className="h-[80vh] w-full relative">
-                    <GradientComponent />
-            </section> */}
             <motion.div
                 className="absolute top-0 left-0 w-full h-full" // ! make sure the animation sits on the bg (-z-50) but is behind everything else
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
             >
-                <Waves/>
+                <Waves />
             </motion.div>
         </section>
     )
