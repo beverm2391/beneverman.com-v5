@@ -91,9 +91,7 @@ export default function LandingPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
             >
-                {/* TODO add a fallback/suspense here */}
-                    {/* <Waves /> */}
-                    some other element
+                <Waves />
             </motion.div>
         </section>
     )
