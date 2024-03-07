@@ -8,16 +8,16 @@ const Waves = () => {
 
     // Use p5 to create the sketch
     useEffect(() => {
-        // if (typeof window === "undefined") return; // ? Check for window object on pre-render (next.js)
+        if (typeof window === "undefined") return; // ? Check for window object on pre-render (next.js)
+        if (sketchRef.current === null) return;
+        
         const sketch = (s: p5) => {
             // Phase and amplitude are used to animate the wave
             let phase = 0; // Phase offset (starts at 0 and is incremented)
 
             s.setup = () => {
                 // Ensure the canvas fills the div container
-                // @ts-ignore
-                const canvas = s.createCanvas(sketchRef.current.offsetWidth, sketchRef.current.offsetHeight);
-                // @ts-ignore
+                const canvas = s.createCanvas(sketchRef.current?.offsetWidth, sketchRef.current?.offsetHeight);
                 canvas.parent(sketchRef.current); // Assign the canvas to the div
                 s.noFill(); // No fill color
                 s.smooth(); // Anti-aliasing
@@ -65,7 +65,6 @@ const Waves = () => {
             // Adjust canvas size when the div container size changes
             s.windowResized = () => {
                 console.log("resized!")
-                // @ts-ignore
                 s.resizeCanvas(sketchRef.current.offsetWidth, sketchRef.current.offsetHeight);
             };
         };
