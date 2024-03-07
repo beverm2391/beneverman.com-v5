@@ -8,7 +8,7 @@ const Waves = () => {
 
     // Use p5 to create the sketch
     useEffect(() => {
-        if (typeof window === "undefined") return; // ? Check for window object on pre-render (next.js)
+        // if (typeof window === "undefined") return; // ? Check for window object on pre-render (next.js)
         const sketch = (s: p5) => {
             // Phase and amplitude are used to animate the wave
             let phase = 0; // Phase offset (starts at 0 and is incremented)

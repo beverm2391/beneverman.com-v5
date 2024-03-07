@@ -92,9 +92,8 @@ export default function LandingPage() {
                 transition={{ duration: 1 }}
             >
                 {/* TODO add a fallback/suspense here */}
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Waves />
-                </Suspense>
+                    {/* <Waves /> */}
+                    some other element
             </motion.div>
         </section>
     )
