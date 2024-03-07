@@ -25,35 +25,34 @@ const Waves = () => {
 
             s.draw = () => {
                 s.clear(); // Clear the canvas each frame
-                // s.stroke(0, 0, 0); // Black color for visibility
-                s.strokeWeight(2); // Thicker lines
 
                 // Update phase and amplitude for animation
-                phase += 0.02; // Increment phase (this controls the speed of the wave)
+                phase += 0.015; // Increment phase (this controls the speed of the wave)
                 // //amplitude = s.map(s.mouseX, 0, s.width, 0, 200);
                 // amplitude = 40 + 50 * s.sin(phase * 0.05); // Animate amplitude
                 const linesAmount = 20;
 
                 // amplitude = 60; // Height of the wave
-                const maxAmplitude = 90; // Maximum amplitude
-                const minAmplitude = 50; // Minimum amplitude
+                // const maxAmplitude = 90; // Maximum amplitude
+                // const minAmplitude = 50; // Minimum amplitude
                 // let amplitude = minAmplitude + (maxAmplitude - minAmplitude) * s.sin(phase * 0.05); // Animate amplitude
 
                 for (var k = 0; k < linesAmount; k++) {
-                    s.stroke(0, 0, 0, (k / (linesAmount/2 - 1) * 255));
-                    // s.stroke(0, 0, 0, 255);
+                    // s.stroke(0, 0, 0, (k / (linesAmount/2 - 1) * 255));
+                    s.stroke(0, 0, 0, 255);
+                    s.strokeWeight(1.8); // Thicker lines
                     const offset = (1 - k / linesAmount) * 4;
                     s.beginShape();
                     for (var i = 0; i < (s.width + 4); i += 4) {
                         let y = s.height * 0.5;
-                        y += s.sin(i * (frequency*1) - phase/1. + offset) * amplitude;
-                        y += s.sin(i * (frequency*2) - phase/1.1 + offset) * amplitude;
+                        y += s.sin(i * (frequency*1) - phase/1 + offset) * amplitude;
+                        y += s.sin(i * (frequency*2) - phase/1 + offset) * amplitude;
 
                         // add noise for valiability
                         // const lastSineNoise = s.noise(phase * 0.1 + (i / s.width) * 5) * 1;
                         // y += s.sin(i * (frequency*4) - phase + offset + lastSineNoise) * amplitude;
 
-                        y += s.sin(i * (frequency*4) - phase/1.2 + offset) * amplitude; // normal sine wave
+                        y += s.sin(i * (frequency*4) - phase/1 + offset) * amplitude; // normal sine wave
                         s.vertex(i, y);
                     }
                     s.endShape();
