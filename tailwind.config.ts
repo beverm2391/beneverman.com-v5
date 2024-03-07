@@ -25,6 +25,7 @@ const config = {
         serif: ['var(--font-etbook)', ...fontFamily.serif], // ET Book
         arimo: ['var(--font-arimo)'], // Arimo 
         inter: ['var(--font-inter)'], // Inter
+        monofett: ['var(--font-monofett)'], // Monofett
       },
       keyframes: {
         "accordion-down": {

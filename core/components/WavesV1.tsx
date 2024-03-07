@@ -20,6 +20,9 @@ const Waves = () => {
                 s.smooth(); // Anti-aliasing
             };
 
+            let amplitude = 50
+            let frequency = 0.004;
+
             s.draw = () => {
                 s.clear(); // Clear the canvas each frame
                 // s.stroke(0, 0, 0); // Black color for visibility
@@ -29,15 +32,12 @@ const Waves = () => {
                 phase += 0.02; // Increment phase (this controls the speed of the wave)
                 // //amplitude = s.map(s.mouseX, 0, s.width, 0, 200);
                 // amplitude = 40 + 50 * s.sin(phase * 0.05); // Animate amplitude
-
-                const frequency = 0.005; // the frequency of the wave (distance between the peaks of the wave)
                 const linesAmount = 20;
 
-                let amplitude = 50; // Height of the wave
-                // const middleY = s.height / 2; // Middle of the canvas
-                // const distanceFromMiddle = Math.abs(s.mouseY - middleY); // Distance from the middle of the canvas
-                // const amplitudeScale = 1 + Math.pow(distanceFromMiddle / middleY, 2); // Exponential scale (reduce the factor//last arg to decrease the effect)
-                // amplitude = 40 * amplitudeScale; // Base amplitude of 40, adjust as needed
+                // amplitude = 60; // Height of the wave
+                const maxAmplitude = 90; // Maximum amplitude
+                const minAmplitude = 50; // Minimum amplitude
+                // let amplitude = minAmplitude + (maxAmplitude - minAmplitude) * s.sin(phase * 0.05); // Animate amplitude
 
                 for (var k = 0; k < linesAmount; k++) {
                     s.stroke(0, 0, 0, (k / (linesAmount/2 - 1) * 255));
@@ -46,14 +46,14 @@ const Waves = () => {
                     s.beginShape();
                     for (var i = 0; i < (s.width + 4); i += 4) {
                         let y = s.height * 0.5;
-                        y += s.sin(i * (frequency*1) - phase + offset) * amplitude;
-                        y += s.sin(i * (frequency*2) - phase + offset) * amplitude;
+                        y += s.sin(i * (frequency*1) - phase/1. + offset) * amplitude;
+                        y += s.sin(i * (frequency*2) - phase/1.1 + offset) * amplitude;
 
                         // add noise for valiability
                         // const lastSineNoise = s.noise(phase * 0.1 + (i / s.width) * 5) * 1;
                         // y += s.sin(i * (frequency*4) - phase + offset + lastSineNoise) * amplitude;
 
-                        y += s.sin(i * (frequency*4) - phase + offset) * amplitude; // normal sine wave
+                        y += s.sin(i * (frequency*4) - phase/1.2 + offset) * amplitude; // normal sine wave
                         s.vertex(i, y);
                     }
                     s.endShape();
@@ -62,6 +62,7 @@ const Waves = () => {
 
             // Adjust canvas size when the div container size changes
             s.windowResized = () => {
+                console.log("resized!")
                 // @ts-ignore
                 s.resizeCanvas(sketchRef.current.offsetWidth, sketchRef.current.offsetHeight);
             };

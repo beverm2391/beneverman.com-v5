@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { cn } from '@/lib/utils'
 
 import { Inter, Arimo, Merriweather, Playfair_Display } from 'next/font/google'
+import { Monofett } from 'next/font/google'
 import localFont from 'next/font/local'
 
 import "@/styles/globals.css"
@@ -138,6 +139,12 @@ const etbook = localFont({
 //   ]
 // })
 
+const monofett = Monofett({
+  variable: "--font-monofett",
+  subsets: ['latin'],
+  weight: ['400'],
+})
+
 export const metadata: Metadata = {
   title: 'beneverman.com',
   description: 'my website',
@@ -155,6 +162,7 @@ export default function RootLayout({
         inter.variable,
         satoshi.variable,
         etbook.variable,
+        monofett.variable,
         // etbembo.variable,
       )}>
       <body>
