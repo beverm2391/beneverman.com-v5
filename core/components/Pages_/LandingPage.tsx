@@ -2,7 +2,7 @@
 
 import { FADE_IN_ANIMATION_VARIANTS, FADE_UP_ANIMATION_VARIANTS } from "@/config/animations";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 
 import DoubleHorizontalRule from "../DoubleHorizontalRule";
 import Image from "next/image";
@@ -91,7 +91,10 @@ export default function LandingPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
             >
-                <Waves />
+                {/* TODO add a fallback/suspense here */}
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Waves />
+                </Suspense>
             </motion.div>
         </section>
     )
