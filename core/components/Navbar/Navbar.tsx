@@ -11,6 +11,7 @@ export default function Navbar({ items, className }: { items: NavItem[], classNa
         <div className={cn(
             'flex relative',
             'items-center justify-center',
+            'z-10', // make sure the navbar sits on top of everything else (thus is clickable)
             className
         )}>
             <div className={cn(

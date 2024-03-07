@@ -17,6 +17,7 @@ import GradientComponent from "../GradientComponent";
 import ScrollText from "../ScrollText";
 import ThreeDCircle from "../3DCircle";
 import TestR3F from "../TestR3F";
+import Waves from "../WavesV1";
 
 export function Boxes() {
     return (
@@ -112,6 +113,14 @@ export default function LandingPage() {
             {/* <section className="h-[80vh] w-full relative">
                     <GradientComponent />
             </section> */}
+            <motion.div
+                className="absolute top-0 left-0 w-full h-full" // ! make sure the animation sits on the bg (-z-50) but is behind everything else
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+            >
+                <Waves/>
+            </motion.div>
         </section>
     )
 }
