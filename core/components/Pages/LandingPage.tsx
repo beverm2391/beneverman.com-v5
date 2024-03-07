@@ -91,7 +91,7 @@ export default function LandingPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
             >
-                <Waves />
+                {/* <Waves /> */}
             </motion.div>
         </section>
     )
