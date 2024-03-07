@@ -45,7 +45,8 @@ code[data-theme*=" "] span {
 }
 
 .blog {
-  @apply text-lg font-serif antialiased text-[#111111];
+  @apply text-lg font-serif antialiased;
+  /* @apply text-[#111111]; */
   counter-reset: sidenote-counter; /* for sidenotes */
 }
 

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { type Sketch } from '@p5-wrapper/react';
 import { NextReactP5Wrapper, HexToRGB } from '@/lib/utils';
 
@@ -28,12 +28,13 @@ export default function Waves() {
 
         // ! Style Params ================================
         const linesAmount = 25; // Number of lines
-        const fadeAmount = 0.5 // Fade amount (0 = no fade, 1 = full fade)
+        const fadeAmount = 0.6 // Fade amount (0 = no fade, 1 = full fade)
         const noiseAmount = 0.1 // Noise amount (0 = no noise, 1 = full noise)
+        const userInteraction = false; // Enable user interaction
 
         // ! Colors ================================
-        const color1 = HexToRGB("#23074d")
-        const color2 = HexToRGB("#cc5333")
+        let color1: number[] = HexToRGB("#FFFFFF")
+        let color2: number[] = HexToRGB("#FF5400")
 
         s.draw = () => {
             s.clear(); // Clear the canvas each frame
@@ -46,7 +47,7 @@ export default function Waves() {
             // let amplitude = minAmplitude + (maxAmplitude - minAmplitude) * s.sin(phase * 0.05); // Animate amplitude
 
             for (var k = 0; k < linesAmount; k++) {
-
+                // ! based on order
                 const color = [ // Interpolate between color1 and color2
                     s.lerp(color1[0], color2[0], k / (linesAmount - 1)), // lerp = linear interpolation
                     s.lerp(color1[1], color2[1], k / (linesAmount - 1)),
@@ -60,19 +61,52 @@ export default function Waves() {
                 // s.stroke(0, 0, 0, 255);
                 s.strokeWeight(1.8); // Thicker lines
                 const offset = (1 - k / linesAmount) * 4;
-                s.beginShape();
-                for (var i = 0; i < (s.width + 4); i += 4) {
-                    let y = s.height * 0.5;
-                    y += s.sin(i * (frequency * 1) - phase / 1 + offset) * amplitude;
-                    y += s.sin(i * (frequency * 2) - phase / 1 + offset) * amplitude;
 
-                    // add noise for valiability
-                    const lastSineNoise = s.noise(phase * 0.1 + (i / s.width) * 5) * noiseAmount;
-                    y += s.sin(i * (frequency * 4) - phase + offset + lastSineNoise) * amplitude;
-                    // y += s.sin(i * (frequency * 4) - phase / 1 + offset) * amplitude; // no noise
-                    s.vertex(i, y);
+                //! preset funcitons ================================
+                const withInteraction = () => {
+                    const mouseXDisplacement = s.mouseX - s.width / 2;
+                    const mouseYDisplacement = s.mouseY - s.height / 2;
+
+                    // Use mouse X displacement to adjust phase for horizontal shifting
+                    const mousePhaseOffset = mouseXDisplacement * 0.001; // Adjust multiplier as needed for sensitivity
+
+                    // Adjust amplitude based on mouse Y displacement
+                    const mouseAmplitudeMultiplier = s.map(Math.abs(mouseYDisplacement), 0, s.height / 2, 0.95, 1.05)
+                    const dynamicAmplitude = amplitude * mouseAmplitudeMultiplier;
+                    s.beginShape();
+                    for (var i = 0; i < (s.width + 4); i += 4) {
+                        let y = s.height * 0.5;
+                        y += s.sin(i * (frequency * 1) - (phase + mousePhaseOffset) + offset) * dynamicAmplitude;
+                        y += s.sin(i * (frequency * 2) - (phase + mousePhaseOffset) + offset) * dynamicAmplitude;
+
+                        // Add noise for variability
+                        const lastSineNoise = s.noise((phase + mousePhaseOffset) * 0.1 + (i / s.width) * 5) * noiseAmount;
+                        y += s.sin(i * (frequency * 4) - (phase + mousePhaseOffset) + offset + lastSineNoise) * dynamicAmplitude;
+
+                        s.vertex(i, y);
+                    }
+                    s.endShape();
                 }
-                s.endShape();
+
+                const withoutInteraction = () => {
+                    s.beginShape();
+                    for (var i = 0; i < (s.width + 4); i += 4) {
+                        let y = s.height * 0.5;
+                        y += s.sin(i * (frequency * 1) - phase / 1 + offset) * amplitude;
+                        y += s.sin(i * (frequency * 2) - phase / 1 + offset) * amplitude;
+
+                        // add noise for valiability
+                        const lastSineNoise = s.noise(phase * 0.1 + (i / s.width) * 5) * noiseAmount;
+                        y += s.sin(i * (frequency * 4) - phase + offset + lastSineNoise) * amplitude;
+                        // y += s.sin(i * (frequency * 4) - phase / 1 + offset) * amplitude; // no noise
+                        s.vertex(i, y);
+                    }
+                    s.endShape();
+                }
+                // ! ============================================
+
+                // Draw the wave (controlled by user interaction or not)
+                userInteraction ? withInteraction() : withoutInteraction(); 
             };
         }
 

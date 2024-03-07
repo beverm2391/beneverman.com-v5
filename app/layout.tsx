@@ -172,7 +172,9 @@ export default function RootLayout({
           // "bg-[#faf7f1]",
           // "bg-[#fffff9]"
           // "bg-white",
-          "bg-gradient-to-r from-[#f5f5f5] to-[#f0f0f0]",
+          // "bg-gradient-to-r from-[#f5f5f5] to-[#f0f0f0]",
+          "bg-[#4a5f8d]",
+          "text-white"
         )}>
           <div className="flex justify-between items-center mb-8">
             <Logo />

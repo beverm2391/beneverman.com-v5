@@ -86,20 +86,23 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                 <div className='h-full flex flex-col-reverse lg:flex-row gap-8'>
                     <div className="flex flex-col w-full lg:w-1/2">
                         <div className='flex flex-row w-full items-center'>
-                            <h2 className="text-6xl text-black font-medium mb-6">
+                            <h2 className="text-6xl font-medium mb-6">
                                 Reading List
                                 {/* <span className='align-super text-base font-medium ml-2'>{currentYear}</span> */}
                             </h2>
                             <div className='flex ml-8 p-4'>
                                 {Object.keys(typemap).map((type: string, index: number) => (
-                                    <span key={index} className='text-base text-black font-medium inline mr-4'>
+                                    <span key={index} className='text-base font-medium inline mr-4'>
                                         <FaCircle className={cn('w-3 h-3 inline translate-y-[-2px]', typemap[type])}/> {type}
                                     </span>
                                 ))}
                             </div>
                         </div>
-                        <div className='flex flex-col shadow-lg shadow-white'>
-                            <div className='flex flex-col  border-black border-2 overflow-clip'>
+                        <div className={cn(
+                            'flex flex-col',
+                            // 'shadow-sm shadow-white'
+                        )}>
+                            <div className='flex flex-col border-2 overflow-clip'>
                                 {data.filter((reading: ParsedResult) => !reading.comments).map((reading: ParsedResult, index: number) => (
                                     <Reading2 key={index} {...reading} />
                                 ))}
@@ -107,7 +110,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                         </div>
                     </div>
                     <div className="flex flex-col h-full w-full lg:w-1/2">
-                        <h2 className="text-6xl text-black font-medium">Featured Reads</h2>
+                        <h2 className="text-6xl font-medium">Featured Reads</h2>
                         <hr className='my-4' />
                         {data.filter((reading: ParsedResult) => reading.comments).map((reading: ParsedResult, index: number) => (
                             <Reading key={index} {...reading} />
