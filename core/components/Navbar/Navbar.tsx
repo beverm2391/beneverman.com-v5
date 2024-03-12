@@ -6,12 +6,13 @@ export type NavItem = {
     href: string
 }
 
-export default function Navbar({ items, className }: { items: NavItem[], className?: string }) {
+export default function Navbar({ items, path, className }: { items: NavItem[], path: string, className?: string }) {
+    console.log(path)
     return (
         <div className={cn(
             'flex relative',
             'items-center justify-center',
-            'z-10', // make sure the navbar sits on top of everything else (thus is clickable)
+            'z-50', // make sure the navbar sits on top of everything else (thus is clickable)
             className
         )}>
             <div className={cn(
@@ -24,8 +25,11 @@ export default function Navbar({ items, className }: { items: NavItem[], classNa
                         href={item.href}
                         className={cn(
                             // 'border-2 border-black rounded-full',
+                            path === "/" ?
+                                'text-[var(--hero-text-color)] hover:bg-[var(--hero-hover-color)]' : // hero styles
+                                'text-[var(--text-color)] hover:bg-[var(--hover-color)]', // normal styles
                             'tracking-wide',
-                            'py-1 px-4 uppercase hover:bg-gray-200/10 hover:cursor-pointer'
+                            'py-1 px-4 uppercase hover:cursor-pointer'
                         )}
                     >
                         {item.label}

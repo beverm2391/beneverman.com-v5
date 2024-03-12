@@ -23,7 +23,7 @@ export default function Waves() {
 
         // ! Params ================================
         let phase = 0; // Phase offset (starts at 0 and is incremented for the animation)
-        let amplitude = 50 // Height of the wave
+        let amplitude = 60 // Height of the wave
         let frequency = 0.004; // Frequency of the wave (peak to peak distance)
 
         // ! Style Params ================================
@@ -33,8 +33,10 @@ export default function Waves() {
         const userInteraction = false; // Enable user interaction
 
         // ! Colors ================================
-        let color1: number[] = HexToRGB("#FFFFFF")
-        let color2: number[] = HexToRGB("#FFFFFF")
+        // let color1: number[] = HexToRGB("#FFFFFF")
+        // let color2: number[] = HexToRGB("#FFFFFF")
+        let color1: number[] = HexToRGB(getComputedStyle(document.body).getPropertyValue('--wave-color-1') || "#FFFFFF")
+        let color2: number[] = HexToRGB(getComputedStyle(document.body).getPropertyValue('--wave-color-2') || "#FFFFFF")
 
         s.draw = () => {    
             s.clear(); // Clear the canvas each frame
@@ -45,7 +47,6 @@ export default function Waves() {
             // const maxAmplitude = 90; // Maximum amplitude
             // const minAmplitude = 50; // Minimum amplitude
             // let amplitude = minAmplitude + (maxAmplitude - minAmplitude) * s.sin(phase * 0.05); // Animate amplitude
-
             for (var k = 0; k < linesAmount; k++) {
                 // ! based on order
                 const color = [ // Interpolate between color1 and color2

@@ -7,29 +7,12 @@ import localFont from 'next/font/local'
 
 import "@/styles/globals.css"
 import Navbars from '@/core/components/Navbar/Navbars'
-import DoubleHorizontalRule from '@/core/components/DoubleHorizontalRule'
 import Logo from '@/core/components/Logo'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: "--font-inter",
 })
-
-// const arimo = Arimo({
-//   subsets: ['latin'],
-//   variable: "--font-arimo",
-// })
-
-// const merriweather = Merriweather({
-//   weight: ['300', '400', '700','900'],
-//   subsets: ['latin'],
-//   variable: "--font-merriweather",
-// })
-
-// const playfair = Playfair_Display({
-//   subsets: ['latin'],
-//   variable: "--font-playfair",
-// })
 
 const satoshi = localFont({
   variable: "--font-satoshi",
@@ -117,27 +100,6 @@ const etbook = localFont({
     }
   ]
 })
-
-// const etbembo = localFont({
-//   variable: "--font-etbembo",
-//   src: [
-//     {
-//       path: '../public/fonts/ETBembo/ET_Bembo/ETBembo-RomanLF.otf',
-//       weight: '400',
-//       style: 'normal',
-//     },
-//     {
-//       path: '../public/fonts/ETBembo/ET_Bembo/ETBembo-DisplayItalic.otf',
-//       weight: '400',
-//       style: 'italic',
-//     },
-//     {
-//       path: '../public/fonts/ETBembo/ET_Bembo/ETBembo-SemiBoldOSF.otf',
-//       weight: '500',
-//       style: 'normal',
-//     }
-//   ]
-// })
 
 const monofett = Monofett({
   variable: "--font-monofett",

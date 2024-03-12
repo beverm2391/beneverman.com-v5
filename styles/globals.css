@@ -8,11 +8,25 @@
 
 body {
     /* --background-color: #0B2545; */
-    --background-color: #13315C;
-    --text-color: #FFFFFF;
+    /* --background-color: #13315C; */
+    --background-color: #ffffff;
+    --text-color: rgb(16, 16, 16);
+    --hover-color: #e2e2e247;
+
+    --hero-background-color: #ffffff;
+    --hero-text-color: #000000;
+    --hero-hover-color: rgba(208, 208, 208, 0.123);
+
+    --wave-color-1: #ff006e;
+    --wave-color-2: #3a86ff;
 }
 
 .background {
     background-color: var(--background-color);
     color: var(--text-color);
+}
+
+
+.stroke {
+    -webkit-text-stroke: 3px black;
 }
