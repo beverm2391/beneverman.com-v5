@@ -14,11 +14,11 @@ export default function Logo() {
         )}>
             <Link href='/' className={cn(
                 path === "/" ?
-                    'text-[var(--hero-text-color)] hover-[bg-var(--hero-hover-color)]' : // hero styles
+                    'text-[var(--hero-text-color)] hover:bg-[var(--hero-hover-color)]' : // hero styles
                     'text-[var(--text-color)] hover:bg-[var(--hover-color)]', // normal styles
                 'hover:cursor-pointer transition-all px-2 py-1 flex flex-row items-center'
             )}>
-                <h1 className='text-3xl uppercase font-medium'>Home</h1>
+                <h1 className='text-3xl uppercase'>Home</h1>
                 {/* <FaRegSmileBeam className='ml-2 w-8 h-8 text-white' /> */}
             </Link>
         </div>

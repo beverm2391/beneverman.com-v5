@@ -109,6 +109,7 @@ export default function LandingPage() {
                                     "font-bold",
                                     "uppercase",
                                     "text-transparent",
+                                    "tracking-tight",
                                     // "stroke"
                                 )}>
                                 Ben<br className="block md:hidden"/>{' '}Everman

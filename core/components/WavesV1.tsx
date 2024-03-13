@@ -21,6 +21,9 @@ export default function Waves() {
             s.smooth(); // Anti-aliasing
         };
 
+        // ! Grid Background ================================
+
+        // ! WAVE ANIMATION ================================
         // ! Params ================================
         let phase = 0; // Phase offset (starts at 0 and is incremented for the animation)
         let amplitude = 60 // Height of the wave
@@ -38,7 +41,7 @@ export default function Waves() {
         let color1: number[] = HexToRGB(getComputedStyle(document.body).getPropertyValue('--wave-color-1') || "#FFFFFF")
         let color2: number[] = HexToRGB(getComputedStyle(document.body).getPropertyValue('--wave-color-2') || "#FFFFFF")
 
-        s.draw = () => {    
+        s.draw = () => {
             s.clear(); // Clear the canvas each frame
             phase += 0.015; // Increment phase (this controls the speed of the wave)
             // //amplitude = s.map(s.mouseX, 0, s.width, 0, 200);
@@ -104,18 +107,36 @@ export default function Waves() {
                     }
                     s.endShape();
                 }
+
+                const drawGrid = () => {
+                    s.beginShape();
+                    s.strokeWeight(1);
+                    s.stroke(0, 0, 0, 1);
+
+                    for (let x = 0; x < s.width; x += 80) {
+                        s.line(x, 0, x, s.height);
+                    }
+                    for (let y = 0; y < s.height; y += 80) {
+                        s.line(0, y, s.width, y);
+                    }
+                    s.endShape();
+                }
                 // ! ============================================
 
                 // Draw the wave (controlled by user interaction or not)
-                userInteraction ? withInteraction() : withoutInteraction(); 
+                userInteraction ? withInteraction() : withoutInteraction();
+                drawGrid()
             };
         }
+
+
 
         // Adjust canvas size when the div container size changes
         s.windowResized = () => {
             console.log("resized!")
-            // @ts-ignore
-            s.resizeCanvas(sketchRef.current.offsetWidth, sketchRef.current.offsetHeight);
+            amplitude = sketchRef.current ? (sketchRef.current.offsetWidth < 768 ? 40 : 60) : 60;
+            frequency = sketchRef.current ? (sketchRef.current.offsetWidth < 768 ? 0.008 : 0.004) : 0.004;
+            s.resizeCanvas(sketchRef.current ? sketchRef.current.offsetWidth : 0, sketchRef.current ? sketchRef.current.offsetHeight : 0);
         };
     }
 
