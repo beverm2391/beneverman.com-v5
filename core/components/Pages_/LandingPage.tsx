@@ -112,7 +112,7 @@ export default function LandingPage() {
                                     "tracking-tight",
                                     // "stroke"
                                 )}>
-                                Ben<br className="block md:hidden"/>{' '}Everman
+                                Ben<br className="block md:hidden" />{' '}Everman
                             </h1>
                         </div>
                         {/* <h2
@@ -125,12 +125,19 @@ export default function LandingPage() {
                     </div>
                 </div>
                 <motion.div
-                    className="absolute top-0 left-0 w-full h-full"
+                    className="absolute top-0 left-0 w-full h-full custom-grid overflow-hidden"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.4, delay: 0.4 }}
                 >
-                    <Waves />
+                    <div className="vertical-grid">
+                        {Array.from({ length: 21 }).map((_, i) => (
+                            <div key={i}></div>  
+                        ))}
+                    </div>
+                    {/* <div className="horizontal-grid">
+                    </div> */}
+                    {/* <Waves /> */}
                 </motion.div>
             </motion.div>
         </section>

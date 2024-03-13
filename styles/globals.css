@@ -30,3 +30,76 @@ body {
 .stroke {
     -webkit-text-stroke: 3px black;
 }
+
+.custom-grid {
+    --grid-gutter-width: 20px;
+    --grid-column-width-base: 90;
+    --window-width: calc(100vw);
+    --grid-column-count: 20;
+    --grid-column-width: calc((var(--window-width) - calc(var(--grid-gutter-width) * 2)) / var(--grid-column-count));
+    --line-color: rgba(0, 0, 0, 0.15);
+}
+
+@media only screen and (max-width: 1300px) {
+    .custom-grid {
+        --grid-column-count: 16;
+    }
+}
+
+@media only screen and (max-width: 1120px) {
+    .custom-grid {
+        --grid-column-count: 14;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .custom-grid {
+        --grid-column-count: 12;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .custom-grid {
+        --grid-column-count: 10;
+    }
+}
+
+.custom-grid {
+    pointer-events: none;
+    position: absolute;
+    left: -.5px; 
+    overflow: hidden;
+    width: 100%;
+    background-size: 5px var(--grid-column-width);
+    background-image: none;
+    background-color: transparent;
+}
+
+.vertical-grid {
+    display: grid;
+    grid-template-columns: repeat(calc(var(--grid-column-count) + 0),var(--grid-column-width));
+    height: 100%;   
+    pointer-events: none;
+    padding: 0 var(--grid-gutter-width);
+}
+
+.vertical-grid > div {
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg,var(--line-color),var(--line-color) 60%,transparent 0,transparent);
+    background-size: 1px 5px;
+    position: relative;
+}
+
+/* last child div of .vertical-grid */
+.vertical-grid > div:last-child {
+    position: absolute;
+    right: var(--grid-gutter-width);
+    top: 0;
+}
+
+.horizontal-grid {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--grid-column-width) - 1px);
+}
