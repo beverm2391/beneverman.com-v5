@@ -26,7 +26,8 @@ export default function Waves() {
         // ! WAVE ANIMATION ================================
         // ! Params ================================
         let phase = 0; // Phase offset (starts at 0 and is incremented for the animation)
-        let amplitude = 60 // Height of the wave
+        const fixedAmplitude = 80; // Height of the wave
+        let amplitude = fixedAmplitude // for the initial value
         let frequency = 0.004; // Frequency of the wave (peak to peak distance)
 
         // ! Style Params ================================
@@ -129,12 +130,10 @@ export default function Waves() {
             };
         }
 
-
-
         // Adjust canvas size when the div container size changes
         s.windowResized = () => {
             console.log("resized!")
-            amplitude = sketchRef.current ? (sketchRef.current.offsetWidth < 768 ? 40 : 60) : 60;
+            amplitude = sketchRef.current ? (sketchRef.current.offsetWidth < 768 ? 40 : fixedAmplitude) : fixedAmplitude;
             frequency = sketchRef.current ? (sketchRef.current.offsetWidth < 768 ? 0.008 : 0.004) : 0.004;
             s.resizeCanvas(sketchRef.current ? sketchRef.current.offsetWidth : 0, sketchRef.current ? sketchRef.current.offsetHeight : 0);
         };

@@ -20,6 +20,7 @@ import TestR3F from "../TestR3F";
 import Waves from "../WavesV1";
 import TextReveal from "../TextReveal";
 import { cn } from "@/lib/utils";
+import ResponsiveGrid from "../ResponsiveGrid";
 
 export function Boxes() {
     return (
@@ -124,22 +125,13 @@ export default function LandingPage() {
                         </h2> */}
                     </div>
                 </div>
+                <ResponsiveGrid />
                 <motion.div
                     className="absolute top-0 left-0 w-full h-full custom-grid overflow-hidden"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    animate={{ opacity: 0.9 }}
                     transition={{ duration: 0.4, delay: 0.4 }}
                 >
-                    <div className="vertical-grid">
-                        {Array.from({ length: 41 }).map((_, i) => (
-                            <div key={i}></div>  
-                        ))}
-                    </div>
-                    <div className="horizontal-grid">
-                        {Array.from({ length: 41 }).map((_, i) => (
-                            <div key={i}></div>
-                        ))}
-                    </div>
                     <Waves />
                 </motion.div>
             </motion.div>
