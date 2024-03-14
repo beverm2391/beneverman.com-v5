@@ -125,7 +125,7 @@ export default function Waves() {
 
                 // Draw the wave (controlled by user interaction or not)
                 userInteraction ? withInteraction() : withoutInteraction();
-                drawGrid()
+                // drawGrid()
             };
         }
 

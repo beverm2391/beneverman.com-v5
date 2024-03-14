@@ -131,13 +131,16 @@ export default function LandingPage() {
                     transition={{ duration: 0.4, delay: 0.4 }}
                 >
                     <div className="vertical-grid">
-                        {Array.from({ length: 21 }).map((_, i) => (
+                        {Array.from({ length: 41 }).map((_, i) => (
                             <div key={i}></div>  
                         ))}
                     </div>
-                    {/* <div className="horizontal-grid">
-                    </div> */}
-                    {/* <Waves /> */}
+                    <div className="horizontal-grid">
+                        {Array.from({ length: 41 }).map((_, i) => (
+                            <div key={i}></div>
+                        ))}
+                    </div>
+                    <Waves />
                 </motion.div>
             </motion.div>
         </section>
