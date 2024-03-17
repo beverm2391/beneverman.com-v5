@@ -5,12 +5,16 @@
     --window-width: calc(100vw);
     --grid-column-count: 20;
     --grid-column-width: calc((var(--window-width) - calc(var(--grid-gutter-width) * 2)) / var(--grid-column-count));
-    --line-color: rgba(0, 0, 0, 0.15);
+    --line-color: rgba(255, 255, 255, 0.15);
 }
+
 
 @media only screen and (max-width: 1300px) {
     .responsive-grid {
         --grid-column-count: 16;
+    }
+    .show-1300 {
+        display: block;
     }
 }
 
@@ -18,11 +22,17 @@
     .responsive-grid {
         --grid-column-count: 14;
     }
+    .show-1120 {
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 940px) {
     .responsive-grid {
         --grid-column-count: 12;
+    }
+    .show-940 {
+        display: block;
     }
 }
 
@@ -30,11 +40,17 @@
     .responsive-grid {
         --grid-column-count: 10;
     }
+    .show-760 {
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 580px) {
     .responsive-grid {
         --grid-column-count: 8;
+    }
+    .show-580 {
+        display: block;
     }
 }
 
