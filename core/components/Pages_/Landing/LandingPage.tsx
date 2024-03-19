@@ -40,28 +40,26 @@ export default function LandingPage() {
                     <div className='flex flex-col items-center justify-center my-36 -translate-y-10 z-10'>
                         <div className={cn(
                             // "bg-red-500",
-                            // "bg-gradient-to-r from-white via-slate-200 to-slate-100",
+                            // "bg-gradient-to-r from-black via-slate-900 to-black",
                             "bg-[var(--hero-text-color)]",
                             "bg-clip-text",
                             // "translate-y-[-10vh] md:translate-y-0",
                             // "translate-y-[-20vh]",
-                            "z-10 "
                         )}>
                             <h1
                                 className={cn(
-                                    "text-8xl md:text-8xl lg:text-[8rem] xl:text-[9rem] 2xl:text-[12rem]",
+                                    "text-[7rem] md:text-[7rem] lg:text-[8rem] xl:text-[9rem] 2xl:text-[12rem]",
                                     "font-bold",
                                     "uppercase",
                                     "text-transparent",
                                     "tracking-tight",
                                 )}>
-                                Ben<br className="block hidden" />{' '}E<span className="text-red-500">.</span>
+                                Ben<br className="hidden" />{' '}E<span className="text-red-500">.</span>
                             </h1>
                         </div>
                         <h2 className={cn(
-                            "text-3xl md:text-4xl lg:text-5xl xl:text-6xl 7xl:text-6xl mt-4",
-                            "text-[var(--hero-text-color)] font-medium z-10",
-                            ""
+                            "text-3xl md:text-4xl lg:text-5xl xl:text-6xl 7xl:text-6xl",
+                            "text-[var(--hero-text-color)] font-medium",
                         )}>
                             <TextTransition/>
                         </h2>
