@@ -7,15 +7,15 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
     const rows = new Array(150).fill(1);
     const cols = new Array(100).fill(1);
     let colors = [
-        "--sky-300",
-        "--pink-300",
-        "--green-300",
-        "--yellow-300",
-        "--red-300",
-        "--purple-300",
-        "--blue-300",
-        "--indigo-300",
-        "--violet-300",
+        "--sky-500",
+        "--pink-500",
+        "--green-500",
+        "--yellow-500",
+        "--red-500",
+        "--purple-500",
+        "--blue-500",
+        "--indigo-500",
+        "--violet-500",
     ];
     const getRandomColor = () => {
         return colors[Math.floor(Math.random() * colors.length)];
@@ -36,8 +36,8 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                 <motion.div
                     key={`row` + i}
                     className={cn(
-                        "w-[40px] h-[40px]",
-                        "border-l",
+                        "w-[70px] h-[70px]",
+                        // "border-l",
                         "border-slate-700 relative border-dashed"
                     )}
                 >
@@ -52,10 +52,13 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                             }}
                             key={`col` + j}
                             className={cn(
-                                "w-[40px] h-[40px]", 
-                                "border-r border-t",
-                                "border-red-700 border-dashed relative",
+                                "w-[70px] h-[70px]", 
+                                // "border-r border-t",
+                                "border-black border-dashed relative",
                                 "border-opacity-80",
+                                // "rounded-full",
+                                "hover:shadow-2xl",
+                                "hover:cursor-grab"
                             )}
                         >
                             {/* {j % 2 === 0 && i % 2 === 0 ? (

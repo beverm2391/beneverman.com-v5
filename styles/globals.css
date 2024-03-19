@@ -13,8 +13,8 @@ body {
     --text-color: rgb(16, 16, 16);
     --hover-color: #e2e2e247;
 
-    --hero-background-color: #264653;
-    --hero-text-color: rgb(255, 255, 255);
+    --hero-background-color: #f3f3f3;
+    --hero-text-color: rgb(19, 19, 19);
     --hero-hover-color: rgba(208, 208, 208, 0.123);
 
     /* --wave-color-1: #ff006e;
@@ -30,4 +30,8 @@ body {
 
 .stroke {
     -webkit-text-stroke: 3px black;
+}
+
+.test {
+    transform-origin: top;
 }
