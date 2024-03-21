@@ -20,27 +20,24 @@ export default function TextTransition() {
         // The total duration matches the transition duration + delay so the text stays visible for 2 seconds
         const cycleTexts = setInterval(() => {
             setIndex((currentIndex) => (currentIndex + 1) % texts.length);
-        }, 2400);
+        }, 3000);
 
         return () => clearInterval(cycleTexts);
     }, [texts.length]);
 
     return (
-        <div className='flex flex-col'>
-            <AnimatePresence
-                mode="wait"
+        <AnimatePresence mode="wait">
+            <motion.div
+                key={texts[index]}
+                initial={{ opacity: 0, }}
+                animate={{ opacity: 1, }}
+                exit={{ opacity: 0, }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className='relative inline'
             >
-                <motion.div
-                    key={texts[index]}
-                    initial={{ opacity: 0, }}
-                    animate={{  opacity: 1, }}
-                    exit={{ opacity: 0, }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className='relative font-medium'
-                >
-                    {texts[index]}
-                </motion.div>
-            </AnimatePresence>
-        </div>
+                {texts[index]}.
+            </motion.div>
+            .
+        </AnimatePresence>
     )
 }
