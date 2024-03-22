@@ -27,7 +27,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
             //     transform: `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
             // }}
             className={cn(
-                "absolute left-1/4 p-4 -top-1/4 flex  -translate-x-1/2 -translate-y-1/2 w-full h-full z-0",
+                "absolute left-1/4 p-4 -top-1/4 flex  -translate-x-1/2 -translate-y-1/2 w-full h-full",
                 className
             )}
             {...rest}
@@ -37,7 +37,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                     key={`row` + i}
                     className={cn(
                         "w-[70px] h-[70px]",
-                        // "border-l",
+                        "border-l",
                         "border-slate-700 relative border-dashed"
                     )}
                 >
@@ -57,7 +57,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                             key={`col` + j}
                             className={cn(
                                 "w-[70px] h-[70px]", 
-                                // "border-r border-t",
+                                "border-r border-t",
                                 "border-black border-dashed relative",
                                 "border-opacity-80",
                                 // "rounded-full",
