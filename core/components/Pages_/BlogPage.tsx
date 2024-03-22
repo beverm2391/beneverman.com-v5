@@ -10,23 +10,27 @@ import DoubleHorizontalRule from "../DoubleHorizontalRule";
 export function AllPosts({ posts }: { posts: Post[] }) {
     return (
         <div>
-            {posts ? posts
-                .sort((a, b) => new Date(b?.date || '').getTime() - new Date(a?.date || '').getTime())
-                .map((post) => (
-                    <Link
-                        key={post?.slug}
-                        className="flex flex-col mb-4"
-                        href={`/blog/${post?.slug}`}
-                    >
-                        <div className="w-full flex flex-col my-2">
-                            <h2 className="text-5xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-8">
+                Writing
+            </h1>
+            <hr className='mb-8 md:mb-16 border-t border-gray-200 w-full'/>
+            <div className="flex flex-col gap-4 md:gap-8">
+                {posts ? posts
+                    .sort((a, b) => new Date(b?.date || '').getTime() - new Date(a?.date || '').getTime())
+                    .map((post) => (
+                        <Link
+                            key={post?.slug}
+                            className="flex flex-col mb-4"
+                            href={`/blog/${post?.slug}`}
+                        >
+                            <h2 className="text-3xl md:text-4xl lg:text-4xl">
                                 {post?.title}
                             </h2>
-                        </div>
-                    </Link>
-                )) : (
-                <p>No posts published.</p>
-            )}
+                        </Link>
+                    )) : (
+                    <p>No posts published.</p>
+                )}
+            </div>
         </div>
     )
 }

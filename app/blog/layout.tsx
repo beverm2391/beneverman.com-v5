@@ -28,7 +28,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* <DoubleHorizontalRule className="" /> */}
             <motion.div
                 // className="py-24 w-[84%] md:w-[87.5%] px-[8%] md:pl-[12.5%] max-w-[1400px]"
-                className="py-8 md:py-24"
+                className="py-8 md:py-24 antialiased"
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
                 {children}
