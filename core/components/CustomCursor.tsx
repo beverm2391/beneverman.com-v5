@@ -18,10 +18,9 @@ export default function CustomCursor() {
         if (window !== undefined) {
             window.addEventListener('mousemove', ev => cursor = getCursorPos(ev));
             const customCursor = new Cursor(document.querySelectorAll('.cursor'));
-        }
-
-        return () => {
-            window.removeEventListener('mousemove', ev => cursor = getCursorPos(ev));
+            return () => {
+                window.removeEventListener('mousemove', ev => cursor = getCursorPos(ev));
+            }
         }
     }, [])
 

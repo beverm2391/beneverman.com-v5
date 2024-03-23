@@ -13,7 +13,10 @@ export default function LandingPage() {
                 // 'bg-[#d7d9f7]',
                 'absolute top-0 left-0 h-full w-full',
                 'flex flex-col items-center',
-                'pt-24 px-8 md:px-16'
+                'pt-24',
+                // 'px-8 md:px-16',
+                'overflow-hidden',
+                '[&>*]:px-8 md:[&>*]:px-16',
             )}>
                 {/* <div className='absolute top-0 left-0 lg:w-1/2 p-4 z-10 translate-y-[100px] ml-8'>
                 <h2 className='text-3xl md:text-4xl lg:text-4xl font-medium'>
@@ -22,8 +25,8 @@ export default function LandingPage() {
                 </div> */}
                 <div className={cn(
                     'relative flex flex-col w-full h-full',
-                    'gap-4 max-w-[1300px] pt-8',
-                    'bg-neutral-200 border-neutral-300 border-2',
+                    'gap-4 pt-8',
+                    'bg-neutral-200 border-neutral-300 border-2 max-w-[1300px]',
                     // 'scale-[1.2] z-0'
                     // '[mask-image:radial-gradient(white,transparent)]'
                 )}>
@@ -39,10 +42,9 @@ export default function LandingPage() {
                         "uppercase",
                         "tracking-tight",
                         "leading-tight",
-                        "mb-0",
                     )}>
-                    <h1 className='inline leading-tight'>Ben</h1>
-                    <h1 className='inline leading-tight'>Everman<span className="text-red-500">.</span></h1>
+                    <h1 className='inline leading-tighter'>Ben</h1>
+                    <h1 className='inline leading-tighter'>Everman<span className="text-red-500">.</span></h1>
                 </div>
             </div >
         </>

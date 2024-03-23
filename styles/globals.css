@@ -22,7 +22,7 @@ body {
     --wave-color-2: #ff006e;
     --wave-color-1: #3a86ff;
 
-    --cursor-stroke: #000000;
+    --cursor-stroke: #ff0000;
 }
 
 .background {
@@ -57,9 +57,7 @@ body {
 		stroke: var(--cursor-stroke);
 		stroke-width: 1px;
 	}
-
 	.no-js .cursor {
 		display: none;
 	}
-
 }
