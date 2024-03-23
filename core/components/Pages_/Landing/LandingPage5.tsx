@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from '@/lib/utils'
 import Waves from '../../WavesV1'
 import CustomCursor from '../../CustomCursor'
@@ -17,7 +19,7 @@ export default function LandingPage() {
                 <h2 className='text-3xl md:text-4xl lg:text-4xl font-medium'>
                     software engineer, machine teacher, purveyor of bad ideas
                 </h2>
-            </div> */}
+                </div> */}
                 <div className={cn(
                     'relative flex flex-col w-full h-full',
                     'gap-4 max-w-[1300px] pt-8',
@@ -31,16 +33,16 @@ export default function LandingPage() {
                 </div>
                 <div
                     className={cn(
-                        'realtive flex flex-row w-full justify-between',
+                        'flex flex-row w-full justify-between',
                         "text-6xl md:text-7xl lg:text-[7rem] xl:text-[8rem] 2xl:text-[9rem]",
                         "font-bold",
                         "uppercase",
                         "tracking-tight",
                         "leading-tight",
-                        "relative"
+                        "mb-0",
                     )}>
-                    <h1>Ben</h1>
-                    <h1>Everman<span className="text-red-500">.</span></h1>
+                    <h1 className='inline leading-tight'>Ben</h1>
+                    <h1 className='inline leading-tight'>Everman<span className="text-red-500">.</span></h1>
                 </div>
             </div >
         </>
