@@ -2,6 +2,12 @@ import type { Config } from "tailwindcss"
 import { fontFamily } from "tailwindcss/defaultTheme"
 import { addVariablesForColors } from "./lib/addVariablesForColors"
 
+const svgToDataUri = require("mini-svg-data-uri")
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+ 
+
 const config = {
   darkMode: ["class"],
   content: [

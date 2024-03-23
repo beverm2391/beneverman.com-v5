@@ -15,12 +15,12 @@ export default function CustomCursor() {
 
         let cursor = { x: 0, y: 0 }; // Track the cursor position
         
-        if (window !== undefined) {
+        if (typeof window !== 'undefined') {
             window.addEventListener('mousemove', ev => cursor = getCursorPos(ev));
             const customCursor = new Cursor(document.querySelectorAll('.cursor'));
-            return () => {
-                window.removeEventListener('mousemove', ev => cursor = getCursorPos(ev));
-            }
+        }
+        return () => {
+            window.removeEventListener('mousemove', ev => cursor = getCursorPos(ev));
         }
     }, [])
 
