@@ -11,7 +11,7 @@ export default function LandingPage() {
                 // 'bg-[#d7d9f7]',
                 'absolute top-0 left-0 h-full w-full',
                 'flex flex-col items-center',
-                'pt-24 px-16'
+                'pt-24 px-8 md:px-16'
             )}>
                 {/* <div className='absolute top-0 left-0 lg:w-1/2 p-4 z-10 translate-y-[100px] ml-8'>
                 <h2 className='text-3xl md:text-4xl lg:text-4xl font-medium'>
