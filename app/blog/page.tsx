@@ -11,11 +11,9 @@ export const metadata = {
 };
 
 export default async function Page() {
-    let posts = await getBlogPosts() as Post[];
-    // console.log(posts);
-
+  let posts = await getBlogPosts() as Post[];
     return (
-      <div className='mx-auto flex items-center justify-center'>
+      <div className='mx-auto flex items-center justify-center antialiased'>
         <BlogPage posts={posts} />
       </div>
     );

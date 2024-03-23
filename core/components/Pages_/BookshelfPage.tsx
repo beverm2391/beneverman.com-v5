@@ -44,26 +44,26 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
     const ReadingList = ({ data }: { data: ParsedResult[] }) => (
         <motion.div
             className="flex flex-col w-full"
-            // ! Uncomment this to animate the reading list
-            // initial="hidden"
-            // animate="show"
-            // transition={{ duration: 0.4 }}
-            // variants={
-            //     {
-            //         hidden: {},
-            //         show: {
-            //             transition: {
-            //                 staggerChildren: 0.15,
-            //             },
-            //         },
-            //     }
-            // }
+        // ! Uncomment this to animate the reading list
+        // initial="hidden"
+        // animate="show"
+        // transition={{ duration: 0.4 }}
+        // variants={
+        //     {
+        //         hidden: {},
+        //         show: {
+        //             transition: {
+        //                 staggerChildren: 0.15,
+        //             },
+        //         },
+        //     }
+        // }
         >
             <motion.div
                 className='flex flex-col md:flex-row w-full md:items-center'
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
-                <h2 className="text-6xl font-medium mb-2 md:mb-8">
+                <h2 className="text-5xl md:text-6xl font-medium mb-2 md:mb-8">
                     Reading List
                 </h2>
                 <div className='flex md:ml-8 p-4'>
@@ -77,8 +77,9 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
             <motion.div
                 className={cn(
                     'flex flex-col',
-                    'bg-white rounded-2xl',
-                    'shadow-md p-4'
+                    'border-2 border-neutral-200 p-4',
+                    // 'bg-white rounded-2xl',
+                    // 'shadow-md p-4'
                 )}
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
@@ -107,30 +108,34 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
     const FeaturedReading = ({ data }: { data: ParsedResult[] }) => (
         <motion.div
             className={cn("flex flex-col h-full w-full",)}
-            // ! Uncomment this to animate the featured reading
-            // initial="hidden"
-            // animate="show"
-            // transition={{ duration: 0.4 }}
-            // variants={
-            //     {
-            //         hidden: {},
-            //         show: {
-            //             transition: {
-            //                 staggerChildren: 0.15,
-            //             },
-            //         },
-            //     }
-            // }
+        // ! Uncomment this to animate the featured reading
+        // initial="hidden"
+        // animate="show"
+        // transition={{ duration: 0.4 }}
+        // variants={
+        //     {
+        //         hidden: {},
+        //         show: {
+        //             transition: {
+        //                 staggerChildren: 0.15,
+        //             },
+        //         },
+        //     }
+        // }
         >
             <motion.h2
-                className="text-6xl font-medium mb-2 md:mb-8"
+                className="text-5xl md:text-6xl font-medium mb-8"
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
                 Featured Reads
             </motion.h2>
             {/* <motion.hr className='my-4' variants={FADE_IN_ANIMATION_VARIANTS} /> */}
             <motion.div
-                className='bg-white rounded-2xl shadow-md p-8'
+                className={cn(
+                    // 'bg-white rounded-2xl shadow-md'
+                    'border-2 border-neutral-200',
+                    'p-8'
+                )}
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
                 {data
@@ -150,13 +155,29 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                 className='mx-auto px-4 md:px-16 w-full'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}    
+                transition={{ duration: 0.4 }}
             >
                 <div className='h-full flex flex-col-reverse lg:flex-row gap-8 max-w-4xl mx-auto'>
                     <Tabs defaultValue="list" className="w-full">
                         <TabsList className='mb-8'>
-                            <TabsTrigger value="list" className="text-2xl font-medium rounded-xl">Reading List</TabsTrigger>
-                            <TabsTrigger value="featured" className="text-2xl font-medium rounded-xl">Featured Reads</TabsTrigger>
+                            <TabsTrigger
+                                value="list"
+                                className={cn(
+                                    "text-2xl font-medium",
+                                    "data-[state=active]:bg-transparent data-[state=active]:text-slate-950 data-[state=active]:ring-2 ring-neutral-200"
+                                )}
+                            >
+                                Reading List
+                            </TabsTrigger>
+                            <TabsTrigger
+                                value="featured"
+                                className={cn(
+                                    "text-2xl font-medium",
+                                    "data-[state=active]:bg-transparent data-[state=active]:text-slate-950 data-[state=active]:ring-2 ring-neutral-200"
+                                )}
+                            >
+                                Featured Reads
+                            </TabsTrigger>
                         </TabsList>
                         <TabsContent value="list">
                             <ReadingList data={data} />

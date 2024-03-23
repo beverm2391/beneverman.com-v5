@@ -23,6 +23,7 @@ export type FrontMatterPost = {
 export type Post = {
     title: string;
     subtitle: string;
+    desc?: string;
     date: string;
     updated: string;
     body: string;
