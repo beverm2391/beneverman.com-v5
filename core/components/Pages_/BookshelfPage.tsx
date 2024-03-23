@@ -159,12 +159,13 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
             >
                 <div className='h-full flex flex-col-reverse lg:flex-row gap-8 max-w-4xl mx-auto'>
                     <Tabs defaultValue="list" className="w-full">
-                        <TabsList className='mb-8'>
+                        <TabsList className='mb-8 bg-transparent'>
                             <TabsTrigger
                                 value="list"
                                 className={cn(
                                     "text-2xl font-medium",
-                                    "data-[state=active]:bg-transparent data-[state=active]:text-slate-950 data-[state=active]:ring-2 ring-neutral-200"
+                                    "data-[state=active]:bg-transparent data-[state=active]:text-slate-950",
+                                    "data-[state=active]:shadow-none data-[state=active]:ring-2 ring-neutral-200",
                                 )}
                             >
                                 Reading List
@@ -173,7 +174,8 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                                 value="featured"
                                 className={cn(
                                     "text-2xl font-medium",
-                                    "data-[state=active]:bg-transparent data-[state=active]:text-slate-950 data-[state=active]:ring-2 ring-neutral-200"
+                                    "data-[state=active]:bg-transparent data-[state=active]:text-slate-950",
+                                    "data-[state=active]:shadow-none data-[state=active]:ring-2 ring-neutral-200",
                                 )}
                             >
                                 Featured Reads
