@@ -45,7 +45,12 @@ const AllPosts3 = ({ posts }: { posts: Post[] }) => {
     let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <div className='max-w-4xl'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className='max-w-4xl'
+        >
             <h1 className={cn(
                     "font-medium text-5xl md:text-6xl mb-4 md:mb-8",
                     "ml-6" // to compensate for the padding of the cards
@@ -58,7 +63,7 @@ const AllPosts3 = ({ posts }: { posts: Post[] }) => {
                     .sort((a, b) => new Date(b?.date || '').getTime() - new Date(a?.date || '').getTime())
                     .map((post, idx) => (
                         <Link
-                            href={post?.slug}
+                            href={`/blog/${post?.slug}`}
                             key={post?.slug}
                             className="relative group block p-2 h-full w-full"
                             onMouseEnter={() => setHoveredIndex(idx)}
@@ -102,7 +107,7 @@ const AllPosts3 = ({ posts }: { posts: Post[] }) => {
                     <p>No posts published.</p>
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 };
 

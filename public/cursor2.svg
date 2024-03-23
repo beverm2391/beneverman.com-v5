@@ -1,0 +1,10 @@
+<svg class="cursor" width="120" height="120" viewBox="0 0 120 120">
+    <defs>
+        <filter id="cursor-filter" x="-50%" y="-50%" width="200%" height="200%" 
+        filterUnits="objectBoundingBox">
+            <feTurbulence type="fractalNoise" baseFrequency="0" numOctaves="1" result="warp" />
+            <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" />
+        </filter>
+    </defs>
+    <circle class="cursor__inner" cx="60" cy="60" r="20"/>
+</svg>

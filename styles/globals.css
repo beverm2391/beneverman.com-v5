@@ -19,8 +19,10 @@ body {
 
     /* --wave-color-1: #ff006e;
     --wave-color-2: #3a86ff; */
-    --wave-color-2: #6DD3CE;
-    --wave-color-1: #ffffff;
+    --wave-color-2: #ff006e;
+    --wave-color-1: #3a86ff;
+
+    --cursor-stroke: #000000;
 }
 
 .background {
@@ -34,4 +36,30 @@ body {
 
 .test {
     transform-origin: top;
+}
+
+/* ! For homepage cursor */
+.cursor {
+	display: none;
+}
+
+@media (any-pointer:fine) {
+	.cursor {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: block;
+		pointer-events: none;
+		z-index: 10000;
+	}
+	.cursor__inner {
+		fill: none;
+		stroke: var(--cursor-stroke);
+		stroke-width: 1px;
+	}
+
+	.no-js .cursor {
+		display: none;
+	}
+
 }

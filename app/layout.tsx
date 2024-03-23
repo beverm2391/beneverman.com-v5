@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { cn } from '@/lib/utils'
 
-import { Inter, Arimo, Merriweather, Playfair_Display } from 'next/font/google'
+import { Inter, Arimo, Merriweather, Playfair_Display, Cormorant_Garamond } from 'next/font/google'
 import { Monofett } from 'next/font/google'
 import localFont from 'next/font/local'
 
@@ -12,6 +12,12 @@ import Logo from '@/core/components/Logo'
 const inter = Inter({
   subsets: ['latin'],
   variable: "--font-inter",
+})
+
+const garamond = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+  variable: "--font-garamond",
 })
 
 const satoshi = localFont({
@@ -124,7 +130,7 @@ export default function RootLayout({
         inter.variable,
         satoshi.variable,
         etbook.variable,
-        monofett.variable,
+        garamond.variable,
         // etbembo.variable,
       )}>
       <body>

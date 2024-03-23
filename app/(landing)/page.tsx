@@ -1,6 +1,6 @@
 import HoverScatter from '@/core/components/HoverScatter';
 // import LandingPage from '@/core/components/Pages_/Landing/LandingPage';
-import LandingPage from '@/core/components/Pages_/Landing/LandingPage4';
+import LandingPage from '@/core/components/Pages_/Landing/LandingPage5';
 
 export default function Home() {
   return (
