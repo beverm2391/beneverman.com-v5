@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { FaRegSmileBeam } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
+import TransitionLink from './TransitionLink'
 
 export default function Logo() {
     const path = usePathname()
@@ -12,7 +13,9 @@ export default function Logo() {
             'flex items-center justify-center',
             "z-10", // make sure the logo sits on top of everything else (thus is clickable)
         )}>
-            <Link href='/' className={cn(
+            <TransitionLink
+                href='/'
+                className={cn(
                 path === "/" ?
                     'text-[var(--hero-text-color)] hover:bg-[var(--hero-hover-bg-color)] hover:text-[var(--hero-hover-text-color)]' : // hero styles
                     'text-[var(--text-color)] hover:bg-[var(--hover-bg-color)] hover:text-[var(--hover-text-color)]', // normal styles
@@ -20,7 +23,7 @@ export default function Logo() {
             )}>
                 <h1 className='text-3xl uppercase'>Home</h1>
                 {/* <FaRegSmileBeam className='ml-2 w-8 h-8 text-white' /> */}
-            </Link>
+            </TransitionLink>
         </div>
     )
 }

@@ -26,6 +26,8 @@ body {
 
     --highlight-color: #3a86ff;
     --cursor-stroke: var(--highlight-color);
+
+    --transition-bg-color: var(--highlight-color);
 }
 
 .background {

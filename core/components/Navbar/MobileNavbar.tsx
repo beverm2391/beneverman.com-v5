@@ -7,6 +7,7 @@ import { Drawer } from 'vaul';
 import { BsList } from 'react-icons/bs'
 import { motion } from 'framer-motion'
 import { FADE_UP_ANIMATION_VARIANTS } from '@/config/animations'
+import TransitionLink from "../TransitionLink";
 
 export default function MobileNavbar({ items, path, className }: { items: NavItem[], path: string, className?: string }) {
     return (
@@ -51,7 +52,7 @@ export default function MobileNavbar({ items, path, className }: { items: NavIte
                                         )}
                                     >
                                         <Drawer.Close asChild>
-                                            <Link href={item.href}>{item.label}</Link>
+                                            <TransitionLink href={item.href}>{item.label}</TransitionLink>
                                         </Drawer.Close>
                                     </li>
                                 ))}

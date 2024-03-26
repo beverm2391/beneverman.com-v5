@@ -22,7 +22,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
         return (
             <motion.div
                 className={cn('px-4 py-2 hover:underline hover:underline-offset-2 transition-all')}>
-                <Link href={url || ''}>
+                <Link href={url || ''} target='_blank'>
                     <h2 className='text-lg font-medium inline'>{name}</h2>
                     <FaCircle className={cn('w-3 h-3 ml-2 inline translate-y-[-1px]', type ? (type in typemap) ? typemap[type] : 'text-red-500' : 'text-red-500')} />
                     <motion.div
@@ -95,7 +95,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
     const FeaturedReadingItem = ({ name, author, type, url, comments, status, date }: ParsedResult) => {
         return (
             <div className='flex flex-col mb-8 gap-3'>
-                <Link href={url || ''} target='_blank'>
+                <Link href={url || ''} target="_blank">
                     <h2 className='text-3xl font-medium mb-2'>{name}</h2>
                     <h3 className='text-lg italic'>{author}</h3>
                     {/* <p className='text-base'>{date}</p> */}
