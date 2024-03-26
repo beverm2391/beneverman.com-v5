@@ -9,20 +9,20 @@
 body {
     /* --background-color: #0B2545; */
     /* --background-color: #13315C; */
-    --background-color: #f3f3f3;
+    --background-color: #ffffff;
     --text-color: rgb(16, 16, 16);
     --hover-bg-color: rgb(0, 0, 0, 0); 
     --hover-text-color: #0043e0;
 
-    --hero-background-color: var(--background-color);
-    --hero-text-color: var(--text-color);
+    --hero-background-color: #002d49;
+    --hero-text-color: #f3f3f3;
     --hero-hover-bg-color: var(--hover-bg-color);
     --hero-hover-text-color: var(--hover-text-color);
 
-    /* --wave-color-1: #ff006e;
-    --wave-color-2: #3a86ff; */
-    --wave-color-2: #ff006e;
-    --wave-color-1: #3a86ff;
+    --wave-color-1: #ff006e;
+    --wave-color-2: #3a86ff;
+    /* --wave-color-2: #e9ff70; */
+    /* --wave-color-1: #ff006e; */
 
     --highlight-color: #3a86ff;
     --cursor-stroke: var(--highlight-color);
