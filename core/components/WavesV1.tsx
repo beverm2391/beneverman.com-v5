@@ -145,5 +145,9 @@ export default function Waves() {
         };
     }
 
-    return <div ref={sketchRef} className="absolute top-0 left-0 w-full h-full" id="p5-sketch"><NextReactP5Wrapper sketch={sketch} /></div>;
+    return (
+    <div ref={sketchRef} className="absolute top-0 left-0 w-full h-full translate-y-[0vh] rotate-[0deg] scale-[1]" id="p5-sketch">
+        <NextReactP5Wrapper sketch={sketch} />
+    </div>
+    )
 };
