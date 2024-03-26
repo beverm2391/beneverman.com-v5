@@ -41,7 +41,7 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
       })
         .to(animationWrapper, {
           xPercent: 0,
-          duration: 0.8,
+          duration: 0.6,
           onComplete: () => {
             router.push(href);
           },

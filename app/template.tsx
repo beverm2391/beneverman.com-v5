@@ -2,16 +2,22 @@
 
 import { useEffect } from "react"
 import { animatePageIn } from "@/lib/animations"
+import { cn } from "@/lib/utils"
 
 const YesTransition = ({ children }: { children: React.ReactNode }) => {
+    
     useEffect(() => {
         animatePageIn()
     }, [])
+
     return (
         <div>
             <div
                 id='transition-element'
-                className="w-screen h-screen bg-[var(--transition-bg-color)] z-[100] fixed top-0 left-0"
+                className={cn(
+                    "w-screen h-screen z-[100] fixed top-0 left-0",
+                    'bg-[var(--transition-bg-color)]',
+                )}
             ></div>
             {children}
         </div>

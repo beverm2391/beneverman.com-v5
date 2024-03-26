@@ -29,7 +29,7 @@ export function AllPosts({ posts }: { posts: Post[] }) {
                             <h3 className="text-lg italic font-medium mb-2">
                                 {post?.subtitle}
                             </h3>
-                            <p className="mt-4 text-lg font-serif antialiased">
+                            <p className="mt-4 text-lg font-serif">
                                 {post?.desc}
                             </p>
                         </Link>
@@ -98,7 +98,7 @@ const AllPosts3 = ({ posts }: { posts: Post[] }) => {
                                 <h3 className="text-lg italic font-medium mb-2">
                                     {post?.subtitle}
                                 </h3>
-                                <p className="mt-4 text-lg font-serif antialiased">
+                                <p className="mt-4 text-lg font-serif antialised">
                                     {post?.desc}
                                 </p>
                             </div>
