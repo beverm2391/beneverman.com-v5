@@ -14,8 +14,8 @@ export default function Logo() {
         )}>
             <Link href='/' className={cn(
                 path === "/" ?
-                    'text-[var(--hero-text-color)] hover:bg-[var(--hero-hover-color)]' : // hero styles
-                    'text-[var(--text-color)] hover:bg-[var(--hover-color)]', // normal styles
+                    'text-[var(--hero-text-color)] hover:bg-[var(--hero-hover-bg-color)] hover:text-[var(--hero-hover-text-color)]' : // hero styles
+                    'text-[var(--text-color)] hover:bg-[var(--hover-bg-color)] hover:text-[var(--hover-text-color)]', // normal styles
                 'hover:cursor-pointer transition-all px-2 py-1 flex flex-row items-center'
             )}>
                 <h1 className='text-3xl uppercase'>Home</h1>

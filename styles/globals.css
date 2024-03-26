@@ -11,18 +11,21 @@ body {
     /* --background-color: #13315C; */
     --background-color: #f3f3f3;
     --text-color: rgb(16, 16, 16);
-    --hover-color: #e2e2e247;
+    --hover-bg-color: rgb(0, 0, 0, 0); 
+    --hover-text-color: #0043e0;
 
-    --hero-background-color: #f3f3f3;
-    --hero-text-color: rgb(19, 19, 19);
-    --hero-hover-color: rgba(208, 208, 208, 0.123);
+    --hero-background-color: var(--background-color);
+    --hero-text-color: var(--text-color);
+    --hero-hover-bg-color: var(--hover-bg-color);
+    --hero-hover-text-color: var(--hover-text-color);
 
     /* --wave-color-1: #ff006e;
     --wave-color-2: #3a86ff; */
     --wave-color-2: #ff006e;
     --wave-color-1: #3a86ff;
 
-    --cursor-stroke: #ff0000;
+    --highlight-color: #3a86ff;
+    --cursor-stroke: var(--highlight-color);
 }
 
 .background {
@@ -34,8 +37,16 @@ body {
     -webkit-text-stroke: 3px black;
 }
 
-.test {
-    transform-origin: top;
+.cut-in-half {
+    clip-path: inset(0 0 40% 0); /* Top, right, bottom, left */
+}
+
+.bg-radial {
+    background: radial-gradient(circle, white, transparent);
+}
+
+.highlight {
+    color: var(--highlight-color);
 }
 
 /* ! For homepage cursor */

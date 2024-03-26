@@ -26,8 +26,8 @@ export default function Navbar({ items, path, className }: { items: NavItem[], p
                         className={cn(
                             // 'border-2 border-black rounded-full',
                             path === "/" ?
-                                'text-[var(--hero-text-color)] hover:bg-[var(--hero-hover-color)]' : // hero styles
-                                'text-[var(--text-color)] hover:bg-[var(--hover-color)]', // normal styles
+                                'text-[var(--hero-text-color)] hover:bg-[var(--hero-hover-bg-color)] hover:text-[var(--hero-hover-text-color)]' : // hero styles
+                                'text-[var(--text-color)] hover:bg-[var(--hover-bg-color)] hover:text-[var(--hover-text-color]', // normal styles
                             'tracking-wide',
                             'py-1 px-4 uppercase hover:cursor-pointer'
                         )}

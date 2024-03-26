@@ -45,8 +45,8 @@ export default function MobileNavbar({ items, path, className }: { items: NavIte
                                             "py-2 px-4 mt-4 transition-all hover:cursor-pointer uppercase",
                                             "tracking-wide",
                                             path === "/" ?
-                                            "text-[var(--hero-text-color)] hover:bg-[var(--hero-hover-color)]" :
-                                            "text-[var(--text-color)] hover:bg-[var(--hover-color)]",
+                                            "text-[var(--hero-text-color)] hover:bg-[var(--hero-hover-bg-color)] hover:text-[var(--hero-hover-text-color)]" :
+                                            "text-[var(--text-color)] hover:bg-[var(--hover-bg-color)] hover:text-[var(--hover-text-color)]",
                                             // "rounded-full border-2 border-black"
                                         )}
                                     >

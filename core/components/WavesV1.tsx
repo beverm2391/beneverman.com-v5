@@ -25,14 +25,17 @@ export default function Waves() {
 
         // ! WAVE ANIMATION ================================
         // ! Params ================================
+        let currentWidth = sketchRef.current ? sketchRef.current.offsetWidth : 0;
+        let isMobile = currentWidth < 768; // boolean to check if mobile (less than 768px width)
+
         let phase = 0; // Phase offset (starts at 0 and is incremented for the animation)
         const fixedAmplitude = 80; // Height of the wave
-        let amplitude = fixedAmplitude // for the initial value
-        let frequency = 0.004; // Frequency of the wave (peak to peak distance)
+        let amplitude = isMobile ? 40 : fixedAmplitude; // Height of the wave
+        let frequency = isMobile ? 0.008 : 0.004; // Frequency of the wave (peak to peak distance)
 
         // ! Style Params ================================
         const linesAmount = 25; // Number of lines
-        const fadeAmount = 1 // Fade amount (0 = no fade, 1 = full fade)
+        const fadeAmount = 0.3 // Fade amount (0 = no fade, 1 = full fade)
         const noiseAmount = 0.1 // Noise amount (0 = no noise, 1 = full noise)
         const userInteraction = false; // Enable user interaction
 
@@ -77,7 +80,8 @@ export default function Waves() {
 
                     // Adjust amplitude based on mouse Y displacement
                     const mouseAmplitudeMultiplier = s.map(Math.abs(mouseYDisplacement), 0, s.height / 2, 0.95, 1.05)
-                    const dynamicAmplitude = amplitude * mouseAmplitudeMultiplier;
+                    // const dynamicAmplitude = amplitude * mouseAmplitudeMultiplier;
+                    const dynamicAmplitude = amplitude //disable mouse amplitude
                     s.beginShape();
                     for (var i = 0; i < (s.width + 4); i += 4) {
                         let y = s.height * 0.5;
@@ -133,8 +137,10 @@ export default function Waves() {
         // Adjust canvas size when the div container size changes
         s.windowResized = () => {
             console.log("resized!")
-            amplitude = sketchRef.current ? (sketchRef.current.offsetWidth < 768 ? 40 : fixedAmplitude) : fixedAmplitude;
-            frequency = sketchRef.current ? (sketchRef.current.offsetWidth < 768 ? 0.008 : 0.004) : 0.004;
+            amplitude = isMobile ? 40 : fixedAmplitude; // handle mobile resizing
+            frequency = isMobile ? 0.008 : 0.004; // handle mobile resizing
+            currentWidth = sketchRef.current ? sketchRef.current.offsetWidth : 0; // update current width
+            isMobile = currentWidth < 768; // update isMobile
             s.resizeCanvas(sketchRef.current ? sketchRef.current.offsetWidth : 0, sketchRef.current ? sketchRef.current.offsetHeight : 0);
         };
     }
