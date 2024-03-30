@@ -14,8 +14,8 @@ body {
     --hover-bg-color: rgb(0, 0, 0, 0); 
     --hover-text-color: #0043e0;
 
-    --hero-background-color: #002d49;
-    --hero-text-color: #f3f3f3;
+    --hero-background-color: #ffffff;
+    --hero-text-color: #ffffff;
     --hero-hover-bg-color: var(--hover-bg-color);
     --hero-hover-text-color: var(--hover-text-color);
 

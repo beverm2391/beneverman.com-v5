@@ -1,0 +1,46 @@
+.u-svg-none {
+    display: none;
+}
+
+.blurballs {
+    font-size: 100px;
+    color: #f00;
+    background-color: #fff;
+    margin: 50px;
+    font-family: Helvetica
+}
+
+.filt {
+    display: none;
+}
+
+.right {
+    text-align: right;
+}
+
+#blurs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    pointer-events: none;
+    line-height: 40%;
+}
+
+.blur_ {
+    border: 1px solid #f00;
+    background: rgba(255, 0, 0, 0.05);
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    backdrop-filter: url(#noiseEffect2);
+    -webkit-backdrop-filter: url(#noiseEffect2);
+}
+
+.blur_:nth-child(4n+1) {
+    opacity: 0;
+}

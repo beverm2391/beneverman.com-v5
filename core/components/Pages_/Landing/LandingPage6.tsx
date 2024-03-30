@@ -39,6 +39,7 @@ export default function LandingPage() {
                         "leading-tight",
                         'text-[var(--hero-text-color)]',
                         'z-20',
+                        'px-4',
                     )}>
                     <h1 className={cn(
                         'inline leading-tighter',
