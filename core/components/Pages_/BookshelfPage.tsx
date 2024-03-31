@@ -21,7 +21,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
     const ReadingListItem = ({ name, author, type, url, comments, status, date }: ParsedResult) => {
         return (
             <motion.div
-                className={cn('px-4 py-2 hover:underline hover:underline-offset-2 transition-all')}>
+                className={cn('py-2 hover:underline hover:underline-offset-2 transition-all')}>
                 <Link href={url || ''} target='_blank'>
                     <h2 className='text-lg font-medium inline'>{name}</h2>
                     <FaCircle className={cn('w-3 h-3 ml-2 inline translate-y-[-1px]', type ? (type in typemap) ? typemap[type] : 'text-red-500' : 'text-red-500')} />
@@ -66,9 +66,9 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                 <h2 className="text-5xl md:text-6xl font-medium mb-2 md:mb-8">
                     Reading List
                 </h2>
-                <div className='flex md:ml-8 p-4'>
+                <div className='flex md:ml-8 pt-2 pb-4'>
                     {Object.keys(typemap).map((type: string, index: number) => (
-                        <span key={index} className='text-base font-medium inline mr-4'>
+                        <span key={index} className='text-sm font-medium inline mr-4'>
                             <FaCircle className={cn('w-3 h-3 inline translate-y-[-2px]', typemap[type])} /> {type}
                         </span>
                     ))}
@@ -77,7 +77,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
             <motion.div
                 className={cn(
                     'flex flex-col',
-                    'border-2 border-neutral-200 p-4',
+                    'md:border-2 border-neutral-200 md:p-4',
                     // 'bg-white rounded-2xl',
                     // 'shadow-md p-4'
                 )}
@@ -133,8 +133,8 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
             <motion.div
                 className={cn(
                     // 'bg-white rounded-2xl shadow-md'
-                    'border-2 border-neutral-200',
-                    'p-8'
+                    'md:border-2 border-neutral-200',
+                    'p-0 md:p-8'
                 )}
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
@@ -152,7 +152,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
         <section>
             {/* TODO: DO the animate when in view trick here */}
             <motion.div
-                className='mx-auto px-4 md:px-16 w-full'
+                className='mx-auto md:px-16 w-full'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
