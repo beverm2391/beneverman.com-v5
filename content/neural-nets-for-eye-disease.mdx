@@ -9,7 +9,7 @@ published: true
 # Building Neural Networks to Detect Eye Diseases
 
 <Callout type="default">
-    The source code is [here](), in Colab. You'll need a GPU to run it, but everything else should be ready to go. If something breaks, just email me: <Email/>.
+    The source code is [here](https://colab.research.google.com/drive/1u16VMEfoQmuXb5adNLExwes6OQZbT-7e?usp=sharing), in Colab. You'll need a GPU to run it, but everything else should be ready to go. If something breaks, just email me: <Email/>.
 </Callout>
 
 ## Doctors Can't Keep Up
@@ -62,7 +62,7 @@ My goal here was not to train the most performant classifier. Maybe I'll return 
 ## The Code, Explained
 
 <Callout>
-Again, [Here is the link to the code](). I've set it up so that you should be able to download the data, train/fine-tune the model, and test it pretty easily. NOTE: You'll probably need an A100 at least, which means you need Colab Pro. You could probably get away with a T4 (free) for the smallest model, *EfficientNet-B0*. Email me if you have any issues or questions! <Email/>
+Again, [Here is the link to the code](https://colab.research.google.com/drive/1u16VMEfoQmuXb5adNLExwes6OQZbT-7e?usp=sharing). I've set it up so that you should be able to download the data, train/fine-tune the model, and test it pretty easily. NOTE: You'll probably need an A100 at least, which means you need Colab Pro. You could probably get away with a T4 (free) for the smallest model, *EfficientNet-B0*. Email me if you have any issues or questions! <Email/>
 </Callout>
 
 {/* I'm not going to go into detail on how the code works, because it's pretty standard ML. If you want to know how a specific part works, I'd recommend trying to reverse-engineer it. If you have any questions or get stuck, just shoot me an email (emoji) [here]() */}
@@ -150,7 +150,20 @@ Next, let's take the gpu and put it in a variable that we can use later to trans
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # set the device (GPU) to move model and tensors to later
 ```
 
-Okay, now let's preprocess the data into datasets. We'll do some minimal preprocessing before we split the data into train, validation, and test sets. Before we do this, it can be helpful to look at the data and see what we're working with.<Sidenote0}>Andrej Karpathy (AKA the GOAT 🐐) has a [fantastic blog post](https://karpathy.github.io/2019/04/25/recipe/) that includes how and why you should manually inspect your data.</Sidenote>
+Okay, now let's preprocess the data into datasets. We'll do some minimal preprocessing before we split the data into train, validation, and test sets. Before we do this, it can be helpful to look at the data and see what we're working with.<Sidenote>Andrej Karpathy (AKA the GOAT 🐐) has a [fantastic blog post](https://karpathy.github.io/2019/04/25/recipe/) that includes how and why you should manually inspect your data.</Sidenote>
+
+Here's a way we can view some of the images inside this notebook, using `pillow`. Try to experiment with the data (look at the directory structure, view some images, etc.) to get a sense of what you're working with.
+```python
+from PIL import Image
+
+path = os.path.join(DATA_DIR, 'cataract').listdir()[0] # get the first image in the cataract folder
+img = Image.open(path)
+
+img.show() # sometimes notebooks can get funky with this, you can try the following line instead if it doesn't work
+# print(img) 
+```
+
+Now we can define a function to make the datasets.
 
 ```python
 def make_datasets(path: str):
@@ -296,7 +309,7 @@ def train(early_stopping=False, es_tol=.05):
 
 Now we can train the model. This will take a minute, so go grab a coffee or something. 
 
-<Callout type='danger'>
+<Callout type='warning'>
     If you are NOT using a GPU runtime (`!nvidia-smi` should show a GPU), this will take a looooooong time (hours or days) and might never finish. If you're on a CPU, I would recommend restarting the runtime and selecting a GPU runtime, before working back to this point (you'll need to re-run all previous cells).
 </Callout>
 
@@ -414,14 +427,6 @@ def visualize_predictions(model, dataloader, class_names, num_images=5):
 visualize_predictions(model, test_loader, class_names=["cataract", "glaucoma", "diabetic_retinopathy", "normal"], num_images=8) # TODO change class names
 ```
 
-### Model Performance
-
-The model performs well at about 90% accuracy on the test set. As aforementioned, for this project, I'm not too worried about performance, so I'm going to skip a full model evaluation. Instead, let's put the model in the context of a Clinical DSS.
-
-To determine which images need to be reviewed by the physician, we can set a confidence threshold $t$ that corresponds to the required output probability to bypass manual clinical review.
-
->If the model is confident enough, don't review the image. If the model is not confident enough, send the image to a physician for manual review.
-
 Here is an example model output:
 
 ```python
@@ -432,6 +437,10 @@ cataract: 0.7998, glaucoma: 0.0000, diabetic_retinopathy: 0.1971, normal: 0.0031
 ```
 
 ![example model output](/assets/blog/neural-nets-for-eye-disease/example-output.png)
+
+Let's put the model in the context of a Clinical DSS. To determine which images need to be reviewed by the physician, we can set a confidence threshold $t$ that corresponds to the required output probability to bypass manual clinical review.
+
+>If the model is confident enough, don't review the image. If the model is not confident enough, send the image to a physician for manual review.
 
 Notice that the model was incorrect on the last image. The greatest probability in the distribution was cataract (at .7998), but the image was actually diabetic retinopathy. If our threshold is set to .85 this image would correctly be tagged for physician review. 
 
@@ -445,8 +454,4 @@ To reiterate, Machine Learning and Artificial Intelligence have many application
 
 The next steps for this project could include optimizing model performance, implementing a model into production, or exploring other use cases like more pathologies or different types of imaging. 
 
-[^1]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3116346/
-[^2]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441682/#CR12
-[^3]: https://www.nature.com/articles/s41746-020-0221-y
-[^4]: https://apps.dtic.mil/sti/tr/pdf/ADA234216.pdf
-[^5]: https://www.bbc.com/future/article/20190617-apollo-in-50-numbers-the-workers
+If you have any questions, comments, or suggestions, feel free to reach out to me at <Email/>. Thanks for reading!
