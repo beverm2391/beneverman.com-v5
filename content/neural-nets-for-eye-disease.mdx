@@ -309,8 +309,8 @@ def train(early_stopping=False, es_tol=.05):
 
 Now we can train the model. This will take a minute, so go grab a coffee or something. 
 
-<Callout type='warning'>
-    If you are NOT using a GPU runtime (`!nvidia-smi` should show a GPU), this will take a looooooong time (hours or days) and might never finish. If you're on a CPU, I would recommend restarting the runtime and selecting a GPU runtime, before working back to this point (you'll need to re-run all previous cells).
+<Callout type='error'>
+    If you are NOT using a GPU runtime (`!nvidia-smi` should show a GPU), this will take a long time (hours or days) and might never finish. If you're on a CPU, you need to restart the runtime and selecting a GPU runtime, before working back to this point (you'll need to re-run all previous cells).
 </Callout>
 
 ```python

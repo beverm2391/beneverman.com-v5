@@ -101,6 +101,10 @@ figure.fullwidth figcaption {
 
 @media screen and (max-width: 768px) {
 
+    .margin-toggle {
+        @apply ml-1;
+    }
+
     /* this reveals the note after toggled */
     .margin-toggle:checked+.sidenote,
     .margin-toggle:checked+.marginnote {

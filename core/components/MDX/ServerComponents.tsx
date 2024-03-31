@@ -1,10 +1,12 @@
 import { Code } from 'bright'
 import Image, { ImageProps } from 'next/image'
 import Callout from '@/core/components/Callout'
-import { BsPlusCircle } from 'react-icons/bs'
+import { BsFileMinus, BsPlusCircle } from 'react-icons/bs'
 import Link from 'next/link'
 import { EMAIL } from '@/config/contact'
 import { useId } from 'react'
+import { FaAngleDoubleDown } from 'react-icons/fa'
+import { CiCircleMore } from 'react-icons/ci'
 
 Code.lineNumbers = true // Enable line numbers for all code blocks
 
@@ -34,11 +36,13 @@ const Sidenote = (props: { children: any }) => {
                 htmlFor={`sn-${id}`}
                 className="margin-toggle sidenote-number">
                 <BsPlusCircle className="inline-block h-4 w-4 md:hidden" />
+                {/* <CiCircleMore className="inline-block h-4 w-4 md:hidden" /> */}
             </label>
             <input
                 type="checkbox"
                 id={`sn-${id}`}
-                className="margin-toggle custom-checkbox"
+                name={`sn-${id}`}
+                className="margin-toggle custom-checkbox peer"
             />
             <span className='sidenote'>
                 {props.children}
