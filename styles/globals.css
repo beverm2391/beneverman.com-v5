@@ -12,7 +12,7 @@ body {
     --background-color: #242423;
     --text-color: #dedede;
     --hover-bg-color: rgba(255, 255, 255, 0); 
-    --hover-text-color: #0043e0;
+    --hover-text-color: #376ff3;
 
     --hero-background-color: #242423;
     --hero-text-color: #bbbbba;
@@ -58,6 +58,10 @@ body {
 .highlight-2 {
     color: var(--highlight-2-color);
     filter: drop-shadow(2px 2px 10px var(--highlight-2-color-rgb));
+}
+
+.image-shadow {
+    filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.2));
 }
 
 /* ! For homepage cursor */

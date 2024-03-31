@@ -15,7 +15,7 @@ import rehypeKatex from 'rehype-katex';
 import rehypePrettyCode from 'rehype-pretty-code';
 
 const MDXComponents = {
-    ...ClientComponents, // this needs to come first so that the server components can override the client components
+    // ...ClientComponents, // this needs to come first so that the server components can override the client components
     ...HTMLComponents,
     ...ServerComponents,
 };

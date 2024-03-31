@@ -8,29 +8,26 @@ published: true
 
 # Building Neural Networks to Detect Eye Diseases
 
-<Callout type="info">
-If you're an engineer and you just want the code, [here's the colab](). You'll need a GPU to run it, but everyting else should be ready to go.
+<Callout type="default">
+    The source code is [here](), in Colab. You'll need a GPU to run it, but everything else should be ready to go. If something breaks, just email me: <Email/>.
 </Callout>
 
 ## Doctors Can't Keep Up
 
-Healthcare is constantly changing and evolving. Research moves fast: in a 2011 publication, Densen estimated that by 2020, medical knowledge would double every 73 days, a marked departure from the 1950s, when doubling took 50 years[^1] <Sidenote idx={1}>hello lets see if i can put a [link](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3116346/) in here</Sidenote>For the average physician, though some continuing education is required to maintain licensure and board certification, they must fight to keep pace with the rate of new research while they juggle heavy caseloads, administrative responsibility, and personal care. 
+Healthcare is constantly changing and evolving. Research moves fast: in a 2011 publication, Densen estimated that by 2020, medical knowledge would double every 73 days, a marked departure from the 1950s, when doubling took 50 years<Sidenote idx={1}>Densen P. [*Challenges and opportunities facing medical education*](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3116346/)</Sidenote>. For the average physician, though some continuing education is required to maintain licensure and board certification, they must fight to keep pace with the rate of new research while they juggle heavy caseloads, administrative responsibility, and personal care. 
 
-> "This growing aggregation of advances and reversals presents a significant challenge to physicians attempting to stay up to date. Historically, there has been an average 17-year lag between medical discoveries and implementation into clinical practice.[12](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441682/#CR12),[13](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441682/#CR13) With the acceleration of changes in clinical medicine, coupled with normal lag times in dissemination, there is a higher probability than ever before that physicians, within just a few years of leaving their training, may not be practicing contemporary standards of care."
+> "This growing aggregation of advances and reversals presents a significant challenge to physicians attempting to stay up to date. Historically, there has been an average 17-year lag between medical discoveries and implementation into clinical practice. With the acceleration of changes in clinical medicine, coupled with normal lag times in dissemination, there is a higher probability than ever before that physicians, within just a few years of leaving their training, may not be practicing contemporary standards of care." <Sidenote idx={2}>Laiteerapong, Neda, and Elbert S Huang. [*The Pace of Change in Medical Practice and Health Policy: Collision or Coexistence?*](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441682/)</Sidenote>
 
-<Sidenote idx={"text"}>hello this is the content of the sidenote</Sidenote>
+With new technology like Machine Learning (ML) and Artificial Intelligence (AI), what are the implications for the average physician? Can we reduce the 17-year lag?
 
-**With new technology like Machine Learning (ML) and Artificial Intelligence (AI), what are the implications for the average physician? Can we reduce the 17-year lag?**
-
-I think we can. How? By building clinical *Decision Support Systems* (DSS)[^2]. While older decision support systems date back to the British in World War II[^3], a modern example is NASA's mission control. While astronauts pilot air and spacecraft, mission control gathers and manages vast data sets, utilizes advanced models for analysis, offers user-friendly interfaces for astronaut interaction, and provides crucial support for real-time decision-making. Observing NASA in action - throughout the Apollo program, 32 astronauts were assigned to fly missions[^4]. At a 1:100 ratio, one would estimate as many as 3200 staff on mission control. The actual number? 400,000[^5] . 
+I think we can. How? By building clinical *Decision Support Systems* (DSS)<Sidenote idx={3}>Sutton, et al. [*An overview of clinical decision support systems: benefits, risks, and strategies for success*](https://www.nature.com/articles/s41746-020-0221-y)</Sidenote>. While older decision support systems date back to the British in World War II[^3], a modern example is NASA's mission control. While astronauts pilot air and spacecraft, mission control gathers and manages vast data sets, utilizes advanced models for analysis, offers user-friendly interfaces for astronaut interaction, and provides crucial support for real-time decision-making. Observing NASA in action - throughout the Apollo program, 32 astronauts were assigned to fly missions. At a 1:100 ratio, one would estimate as many as 3200 staff on mission control. <Sidenote idx={4}>The actual number? [400,000](https://www.bbc.com/future/article/20190617-apollo-in-50-numbers-the-workers).</Sidenote> 
 
 So how can we use ML and AI to support clinical decision making? One way is using computer vision. With neural networks that take images as input, we can batch-process large amounts of medical imagery and use the network to return the much smaller subset that requires actual physician review. The goal is not to diagnose, but to identify what needs physician review while providing the physician with as much supporting information as possible.
 
 ## Using Math to See Disease
 
-This project was inspired by the incredible work of [Ophthalytics](https://www.ophthalytics.com/). In [their recent paper](https://www.mdpi.com/2075-4418/13/3/393) they trained a Convolutional Neural Network (CNN), commonly used in computer vision, to detect Diabetic Retinopathy (DR). DR is a X....
-
-In their paper, the model takes close-up images of eyes and classifies them in a binary manner. The 2 output classes are DR-Positive and DR-Negative. See the figure below.
+This project was inspired by the incredible work of [Ophthalytics](https://www.ophthalytics.com/). In [their recent paper](https://www.mdpi.com/2075-4418/13/3/393) they trained a Convolutional Neural Network (CNN), commonly used in computer vision, to detect Diabetic Retinopathy. DR is a complication of diabetes that affects the retina and can lead to vision loss if not detected and treated early.
+In their paper, the model takes close-up images of eyes and classifies them as `DR-Positive` or `DR-Negative`. See the figure below.
 
 ![ophth figure 3](/assets/blog/neural-nets-for-eye-disease/ophth-fig-3.png)
 (**a**) DR Negative and (**b**) DR Positive
@@ -38,11 +35,6 @@ In their paper, the model takes close-up images of eyes and classifies them in a
 I decided I wanted to build a similar eye disease classifier. My goals for this project were twofold:
 1. Train a classifier that can detect *multiple* eye diseases
 2. Train the model using minimal compute, as fast as possible
-
-### Convolutional Neural Networks
-make this an accordion
-CNNS work by X
-LBDL Images
 
 ## Implementing a CNN for Eye Disease Classification
 
@@ -53,9 +45,7 @@ uniformly scales all architectural dimensions of the CNN (depth/width/resolution
 
 ### Compute Details
 
-Notice the Y axis is Accuracy and the X axis is FLOPs - a direct measure for compute cost. FLOPs stands for *Floating Point Operations*, which is the number of matrix multiplications in the model (CHECK THIS). 
-
-For context, the [speculated number of FLOPs](https://patmcguinness.substack.com/p/gpt-4-details-revealed) used to train [GPT-4](https://arxiv.org/abs/2303.08774) (aka ChatGPT) was ~2.15e25 or 21,500,000 EFLOPs, which for \$1/A100 hour is estimated at \$63 Million. 
+Notice the Y axis is Accuracy and the X axis is FLOPs - a direct measure for compute cost. FLOPs stands for *Floating Point Operations*, which is the number of matrix multiplications in the model (CHECK THIS). <Sidenote idx={5}>For context, the [speculated number of FLOPs](https://patmcguinness.substack.com/p/gpt-4-details-revealed) used to train [GPT-4](https://arxiv.org/abs/2303.08774) (aka ChatGPT) was ~2.15e25 or 21,500,000 EFLOPs, which for \$1/A100 hour is estimated at \$63 Million.</Sidenote>
 
 For this project, I used an A100 on Google Colab, which costs me about \$9.99 a month. The isolated cost of this project would be much lower. It turns out that being poor does force you to be more creative. Read about it below.
 

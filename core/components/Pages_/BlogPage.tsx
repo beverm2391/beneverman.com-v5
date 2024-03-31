@@ -38,7 +38,7 @@ const AllPosts = ({ posts }: { posts: Post[] }) => {
                             <AnimatePresence>
                                 {hoveredIndex === idx && (
                                     <motion.span
-                                        className="absolute inset-0 h-full w-full bg-[var(--hover-bg-color)]  block rounded-3xl"
+                                        className="absolute inset-0 h-full w-full bg-zinc-500/10  block rounded-3xl"
                                         layoutId="hoverBackground"
                                         initial={{ opacity: 0 }}
                                         animate={{

@@ -71,7 +71,7 @@ code[data-theme*=" "] span {
 }
 
 .blog a {
-  @apply underline underline-offset-2 hover:text-[var(--hover-text-color)]
+  @apply underline decoration-1 underline-offset-2 hover:text-[var(--hover-text-color)]
 }
 
 .blog blockquote {
