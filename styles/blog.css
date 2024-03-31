@@ -40,12 +40,12 @@ code[data-theme*=" "] span {
   @apply mt-0
 }
 
-.blog p {
-  @apply text-lg
+.blog p, .blog ul, .blog ol, .blog li{
+  @apply text-xl
 }
 
 .blog {
-  @apply text-lg font-serif antialiased;
+  @apply font-serif antialiased text-[var(--text-color)];
   /* @apply text-[#111111]; */
   counter-reset: sidenote-counter; /* for sidenotes */
 }

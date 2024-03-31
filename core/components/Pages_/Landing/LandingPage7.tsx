@@ -29,7 +29,7 @@ export default function LandingPage() {
                 'bg-gradient-to-b from-[#242423] via-zinc-900 to-[#242423]'
             )}>
                 <div className={cn(
-                    'absolute inset-0 w-full h-full bg-grid-zinc-600/50',
+                    'absolute inset-0 w-full h-full bg-grid-zinc-600/20',
                     '[mask-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,1),rgba(0,0,0,1))]',
                 )} />
                 <div className={cn(
