@@ -29,7 +29,7 @@ export default function LandingPage() {
                 'bg-gradient-to-b from-[#242423] via-zinc-900 to-[#242423]'
             )}>
                 <div className={cn(
-                    'absolute inset-0 w-full h-full bg-grid-zinc-600/20',
+                    'absolute inset-0 w-full h-[100dvh] bg-grid-zinc-600/20',
                     '[mask-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,1),rgba(0,0,0,1))]',
                 )} />
                 <div className={cn(
@@ -52,7 +52,7 @@ export default function LandingPage() {
                     >
                         <motion.h2 className={cn(
                             'max-w-7xl',
-                            'text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl font tracking-tight',
+                            'text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl font tracking-tight',
                             'text-[#bbbbba] p-4',
                             'z-20',
                             '[&>*]:leading-tight',
