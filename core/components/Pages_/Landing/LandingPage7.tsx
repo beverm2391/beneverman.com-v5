@@ -157,7 +157,6 @@ export default function LandingPage() {
                             {Array.from({ length: 10 }).map((_, i) => (
                                 <motion.h1
                                     variants={LETTER_ANIMATION_VARIANTS}
-                                    whileHover="hover"
                                     key={i} className={cn(
                                         'leading-tighter mx-[0.125rem] md:mx-1',
                                         'hover:cursor-pointer',

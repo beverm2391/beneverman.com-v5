@@ -41,7 +41,7 @@ code[data-theme*=" "] span {
 }
 
 .blog p, .blog ul, .blog ol, .blog li{
-  @apply text-xl
+  @apply text-xl leading-normal;
 }
 
 .blog {
@@ -55,11 +55,11 @@ code[data-theme*=" "] span {
 .blog h3,
 .blog h2,
 .blog h1 {
-  @apply font-normal;
+  @apply font-normal
 }
 
 .blog a {
-  @apply underline underline-offset-2;
+  @apply underline underline-offset-2 hover:text-[var(--hover-text-color)]
 }
 
 .blog blockquote {
