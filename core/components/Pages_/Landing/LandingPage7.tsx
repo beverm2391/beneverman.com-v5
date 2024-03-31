@@ -1,111 +1,162 @@
 "use client"
 
 import { motion } from 'framer-motion'
-
 import { cn } from '@/lib/utils'
-
 import CustomCursor from '@/core/components/CustomCursor'
-import TestR3F from '../../TestR3F'
-import GradientComponent from '../../GradientComponent'
-import Waves from '../../WavesV1'
+import { Bs1Circle, Bs2Circle, Bs3Circle } from 'react-icons/bs'
+import { LETTER_ANIMATION_VARIANTS, FADE_UP_ANIMATION_VARIANTS } from '@/config/animations'
 
 export default function LandingPage() {
+    const SHOW_IMMEDIATELY_VARIANT = {
+        hidden: { opacity: 1 },
+        show: { opacity: 1 },
+    }
     return (
         <main className='absolute top-0 left-0 w-full h-full'>
             <CustomCursor />
             <section className={cn(
                 'relative h-[100dvh] w-full',
                 // 'bg-[var(--hero-background-color)]',
-                'bg-[#0f0f0f]',
+                // 'bg-[#242423]',
+                'bg-gradient-to-b from-[#242423] via-zinc-900 to-[#242423]'
             )}>
                 <div className={cn(
-                    'w-full h-full bg-grid-zinc-800 flex flex-col items-center justify-center',
-                    // "[mask-image:radial-gradient(transparent,white)]"
+                    'absolute inset-0 w-full h-full bg-grid-zinc-600/50',
+                    '[mask-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,1),rgba(0,0,0,1))]',
+                )} />
+                <div className={cn(
+                    'w-full h-full flex flex-col py-24 px-2 md:px-8 relative z-20',
+                    'items-center md:justify-normal md:items-start',
                 )}>
+                    <motion.div
+                        className='mt-20 z-20'
+                        initial="hidden"
+                        animate="show"
+                        variants={{
+                            hidden: {},
+                            show: {
+                                transition: {
+                                    staggerChildren: .15,
+                                    delayChildren: 2.0,
+                                },
+                            },
+                        }}
+                    >
+                        <motion.h2 className={cn(
+                            'max-w-7xl',
+                            'text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl font tracking-tight',
+                            'text-[#bbbbba] p-4',
+                            'z-20',
+                            '[&>*]:leading-tight',
+                        )}
+                        >
+                            <motion.span
+                                variants={FADE_UP_ANIMATION_VARIANTS}
+                            >
+                                I'm a
+                            </motion.span>
+                            <span className='highlight font-medium inline-block wrap-word'>
+                                <Bs1Circle className='inline h-6 w-6 align-super text-[#bbbbba]' />
+                                software engineer,
+                            </span>{' '}
+                            <span className='highlight font-medium inline-block wrap-word'>
+                                <Bs2Circle className='inline h-6 w-6 align-super text-[#bbbbba]' />
+                                neural network wrangler,
+                            </span>{' '}
+                            <motion.span
+                                variants={FADE_UP_ANIMATION_VARIANTS}
+                            >
+                                and{' '}
+                            </motion.span>
+                            <span className='highlight font-medium inline-block wrap-word'>
+                                <Bs3Circle className='inline h-6 w-6 align-super text-[#bbbbba]' />
+                                serial learner.
+                            </span><br />
+                            <motion.span
+                                variants={FADE_UP_ANIMATION_VARIANTS}
+                            >
+                                I do consulting and contract work under{' '}
+                            </motion.span>{' '}
+                            <span className='highlight-2 font-medium'>
+                                EverTech
+                            </span>,{' '}
+                            <motion.span variants={FADE_UP_ANIMATION_VARIANTS}>
+                                where I specialize in{' '}
+                            </motion.span>
+                            <span className='highlight-2 font-medium' >
+                                machine learning{' '}
+                            </span>
+                            <motion.span variants={FADE_UP_ANIMATION_VARIANTS}>
+                                and{' '}
+                            </motion.span>
+                            <span className='highlight-2 font-medium' >
+                                full-stack development
+                            </span>
+                            <motion.span variants={FADE_UP_ANIMATION_VARIANTS}>
+                                .
+                            </motion.span>
+                        </motion.h2>
+                    </motion.div>
                     {/* <Waves /> */}
-                    {/* <h2 className={cn(
-                        'max-w-[1300px]', 
-                        'text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-medium tracking-tight leading-tighter',
-                        'text-white p-4',
-                        'z-20'
-                        )}>
-                        I'm a software engineer, neural network wrangler, and serial learner. I do consulting and contract work under <span className='highlight' >EverTech</span>.
-                        I specialize in <span className='highlight' >machine learning</span> and <span className='highlight' >full-stack development</span>. I write about my work and other things that interest me on my <span className='highlight'>blog</span>.
-                    </h2> */}
-                    {/* <div className='h-[400px] w-[calc(100vw-200px)] grid grid-cols-3 gap-4'>
-                        <div className='h-full w-full border-2 border-zinc-100 cols-span-1 bg-white/20'>
-                        </div>
-                        <div className='h-full w-full border-2 border-zinc-100 cols-span-1 bg-white/20'>
-                        </div>
-                        <div className='h-full w-full border-2 border-zinc-100 cols-span-1 bg-white/20'>
-                        </div>
-                    </div> */}
-                    <div className='border-2 border-zinc-100 bg-gradient-to-tr z-20 rounded-3xl shadow-xl'>
-                        <h2 className={cn(
-                            'max-w-[1300px]', 
-                            'text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-medium tracking-tight leading-tighter',
-                            'text-white p-4',
-                            'z-20'
-                            )}>
-                            I'm a software engineer, neural network wrangler, and serial learner. I do consulting and contract work under <span className='highlight' >EverTech</span>.
-                            I specialize in <span className='highlight' >machine learning</span> and <span className='highlight' >full-stack development</span>. I write about my work and other things that interest me on my <span className='highlight'>blog</span>.
-                        </h2>
-                    </div>
                 </div>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, spring: 10 }}
                     className={cn(
-                        'absolute left-0 bottom-0 flex flex-row w-full justify-between',
-                        "text-6xl md:text-7xl lg:text-[7rem] xl:text-[8rem] 2xl:text-[9rem]",
+                        'absolute left-0 bottom-0 flex flex-col w-full',
+                        'justify-between',
+                        "text-6xl md:text-[6rem] lg:text-[8rem] xl:text-[9rem] 2xl:text-[9rem]",
                         "font-bold",
                         "uppercase",
                         "tracking-tight",
                         "leading-tight",
                         // 'text-[var(--hero-text-color)]',
                         'z-20',
-                        'px-4',
-                        'bg-gradient-to-br from-zinc-200 via-zinc-300 to-zinc-200',
+                        'px-2 md:px-8',
+                        'bg-gradient-to-b from-[#bbbbba] via-zinc-300 to-[#bbbbba]',
                         'bg-clip-text text-transparent',
                     )}>
-                    <h1 className={cn(
-                        'inline leading-tighter',
-                        // 'translate-y-[60px]'
-                    )}>
-                        Ben
-                    </h1>
-                    <h1 className={cn(
-                        'inline leading-tighter',
-                        // 'translate-y-[60px]'
-                    )}>
-                        Everman<span className="highlight">.</span>
-                    </h1>
+                    <div className='flex w-full justify-between flex-row items-center'>
+                        <h1 className={cn(
+                            'leading-tighter',
+                            // 'translate-y-[60px]'
+                        )}>
+                            Ben
+                        </h1>
+                        <motion.div
+                            className='grow-0 flex justify-center items-center overflow-clip text-blue-500 relative'
+                            initial='hidden'
+                            animate='show'
+                            variants={{
+                                hidden: {},
+                                show: {
+                                    transition: {
+                                        staggerChildren: 0.1,
+                                    },
+                                },
+                            }}
+                        >
+                            {Array.from({ length: 10 }).map((_, i) => (
+                                <motion.h1
+                                    variants={LETTER_ANIMATION_VARIANTS}
+                                    key={i} className={cn(
+                                        'leading-tighter mx-[0.125rem] md:mx-1 overflow-hidder',
+                                    )}>
+                                    N
+                                </motion.h1>
+                            ))}
+                        </motion.div>
+                        {/* <div className='inline w-full bg-zinc-300 h-8 rounded-xl mx-2 border-zinc-300 border-[10px]'> */}
+                        <h1 className={cn(
+                            'leading-tighter',
+                            // 'translate-y-[60px]'
+                        )}>
+                            Everman<span className="highlight">.</span>
+                        </h1>
+                    </div>
                 </motion.div>
             </section>
-            <section className={cn(
-                'relative h-[100dvh] w-full',
-                // 'bg-gradient-to-b from-[var(--hero-background-color)] via-[var(--hero-background-color)] to-[var(--background-color)]',
-                'bg-[var(--background-color)]',
-            )}>
-                <div className={cn(
-                    'max-w-[1300px] z-20 p-4 h-full w-full mx-auto',
-                    // 'bg-gradient-to-b to-[var(--hero-background-color)] from-transparent',
-                    'flex items-center justify-center',
-                )}>
-                    <h2 className={cn(
-                        'text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl',
-                        'font-medium',
-                        // 'uppercase',
-                        'tracking-tight',
-                        '!leading-tighter',
-                        'pointer-events-auto',
-                    )}>
-                        I'm a software engineer, neural network wrangler, and serial learner. I do consulting and contract work under <span className='highlight' >EverTech</span>.
-                        I specialize in <span className='highlight' >machine learning</span> and <span className='highlight' >full-stack development</span>. I write about my work and other things that interest me on my <span className='highlight'>blog</span>.
-                    </h2>
-                </div>
-            </section>
-        </main>
+        </main >
     )
 }

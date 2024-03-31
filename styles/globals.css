@@ -19,12 +19,15 @@ body {
     --hero-hover-bg-color: var(--hover-bg-color);
     --hero-hover-text-color: var(--hover-text-color);
 
-    --wave-color-1: #ff006e;
-    --wave-color-2: #3a86ff;
+    --wave-color-1: #bbbbba;
+    --wave-color-2: #bbbbba;
     /* --wave-color-2: #e9ff70; */
     /* --wave-color-1: #ff006e; */
 
     --highlight-color: #3a86ff;
+    --highlight-color-rgb: rgba(58, 134, 255, 0.4);
+    --highlight-2-color: #ff0051;
+    --highlight-2-color-rgb: rgba(255, 0, 81, 0.4);
     --cursor-stroke: var(--highlight-color);
 
     --transition-bg-color: var(--highlight-color);
@@ -49,7 +52,14 @@ body {
 
 .highlight {
     color: var(--highlight-color);
+    filter: drop-shadow(2px 2px 10px var(--highlight-color-rgb));
 }
+
+.highlight-2 {
+    color: var(--highlight-2-color);
+    filter: drop-shadow(2px 2px 10px var(--highlight-2-color-rgb));
+}
+
 
 /* ! For homepage cursor */
 .cursor {

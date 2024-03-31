@@ -34,7 +34,7 @@ export default function Waves() {
         let frequency = isMobile ? 0.008 : 0.004; // Frequency of the wave (peak to peak distance)
 
         // ! Style Params ================================
-        const linesAmount = 33; // Number of lines
+        const linesAmount = 25; // Number of lines
         const fadeAmount = 0.5 // Fade amount (0 = no fade, 1 = full fade)
         const noiseAmount = 0.3 // Noise amount (0 = no noise, 1 = full noise)
         const userInteraction = false; // Enable user interaction

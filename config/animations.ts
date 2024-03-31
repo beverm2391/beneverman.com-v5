@@ -12,3 +12,8 @@ export const FADE_IN_ANIMATION_VARIANTS = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { type: "spring" }}
 }
+
+export const LETTER_ANIMATION_VARIANTS = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { type: "spring" }}
+}
