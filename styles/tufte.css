@@ -38,6 +38,7 @@ img {
 /* ! This is a hack to bring the sidenote back to the right position if its in a blockquote > p element (which messes up the relative position */
 blockquote .sidenote {
     transform: translateX(-1rem);
+    padding-right: 1rem;
 }
 
 /* on small screens, dont show it on the side */
