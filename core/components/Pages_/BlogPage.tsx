@@ -6,42 +6,8 @@ import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
-// ! This is the list of all posts
-export function AllPosts({ posts }: { posts: Post[] }) {
-    return (
-        <div className='max-w-4xl'>
-            <h1 className="font-medium text-5xl md:text-6xl mb-4 md:mb-8">
-                Writing
-            </h1>
-            {/* <hr className='mb-8 md:mb-8 border-t border-gray-200 w-full'/> */}
-            <div className="flex flex-col gap-4 md:gap-8">
-                {posts ? posts
-                    .sort((a, b) => new Date(b?.date || '').getTime() - new Date(a?.date || '').getTime())
-                    .map((post) => (
-                        <Link
-                            key={post?.slug}
-                            className="flex flex-col mb-4"
-                            href={`/blog/${post?.slug}`}
-                        >
-                            <h2 className="text-3xl md:text-4xl lg:text-4xl font-medium mb-4">
-                                {post?.title}
-                            </h2>
-                            <h3 className="text-lg italic font-medium mb-2">
-                                {post?.subtitle}
-                            </h3>
-                            <p className="mt-4 text-lg font-serif">
-                                {post?.desc}
-                            </p>
-                        </Link>
-                    )) : (
-                    <p>No posts published.</p>
-                )}
-            </div>
-        </div>
-    )
-}
 
-const AllPosts3 = ({ posts }: { posts: Post[] }) => {
+const AllPosts = ({ posts }: { posts: Post[] }) => {
     let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
@@ -72,7 +38,7 @@ const AllPosts3 = ({ posts }: { posts: Post[] }) => {
                             <AnimatePresence>
                                 {hoveredIndex === idx && (
                                     <motion.span
-                                        className="absolute inset-0 h-full w-full bg-[var(--hover-color)] dark:bg-slate-800/[0.8] block rounded-3xl"
+                                        className="absolute inset-0 h-full w-full bg-[var(--hover-bg-color)]  block rounded-3xl"
                                         layoutId="hoverBackground"
                                         initial={{ opacity: 0 }}
                                         animate={{
@@ -90,15 +56,16 @@ const AllPosts3 = ({ posts }: { posts: Post[] }) => {
                                 "rounded-2xl h-full w-full p-4 overflow-hidden",
                                 // "bg-white",
                                 "border border-transparent dark:border-white/[0.2] group-hover:border-slate-200",
-                                "relative z-20"
+                                "relative z-20",
+                                "text-[var(--text-color)]",
                             )}>
                                 <h2 className="text-3xl md:text-4xl lg:text-4xl font-medium mb-4">
                                     {post?.title}
                                 </h2>
-                                <h3 className="text-lg italic font-medium mb-2">
+                                <h3 className="text-xl italic font-medium mb-2 leading-normal">
                                     {post?.subtitle}
                                 </h3>
-                                <p className="mt-4 text-lg font-serif antialised">
+                                <p className="mt-4 text-xl font-serif antialised tracking-normal leading-normal">
                                     {post?.desc}
                                 </p>
                             </div>
@@ -115,7 +82,7 @@ const AllPosts3 = ({ posts }: { posts: Post[] }) => {
 export default function BlogPage({ posts }: { posts: Post[] }) {
     return (
         <div className=''>
-            <AllPosts3 posts={posts} />
+            <AllPosts posts={posts} />
         </div>
     )
 }

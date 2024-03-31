@@ -94,7 +94,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
 
     const FeaturedReadingItem = ({ name, author, type, url, comments, status, date }: ParsedResult) => {
         return (
-            <div className='flex flex-col mb-8 gap-3'>
+            <div className='flex flex-col mb-8 gap-3 '>
                 <Link href={url || ''} target="_blank">
                     <h2 className='text-3xl font-medium mb-2'>{name}</h2>
                     <h3 className='text-lg italic'>{author}</h3>
@@ -163,9 +163,10 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                             <TabsTrigger
                                 value="list"
                                 className={cn(
-                                    "text-2xl font-medium",
-                                    "data-[state=active]:bg-transparent data-[state=active]:text-slate-950",
+                                    "text-lg md:text-2xl font-medium",
+                                    "data-[state=active]:bg-transparent data-[state=active]:text-[var(--hover-text-color)/80]",
                                     "data-[state=active]:shadow-none data-[state=active]:ring-2 ring-neutral-200",
+                                    "text-[var(--text-color)]"
                                 )}
                             >
                                 Reading List
@@ -173,9 +174,10 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                             <TabsTrigger
                                 value="featured"
                                 className={cn(
-                                    "text-2xl font-medium",
-                                    "data-[state=active]:bg-transparent data-[state=active]:text-slate-950",
+                                    "text-xl md:text-2xl font-medium",
+                                    "data-[state=active]:bg-transparent data-[state=active]:text-[var(--hover-text-color)/80]",
                                     "data-[state=active]:shadow-none data-[state=active]:ring-2 ring-neutral-200",
+                                    "text-[var(--text-color)]"
                                 )}
                             >
                                 Featured Reads

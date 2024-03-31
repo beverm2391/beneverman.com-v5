@@ -7,10 +7,18 @@ import { Bs1Circle, Bs2Circle, Bs3Circle } from 'react-icons/bs'
 import { LETTER_ANIMATION_VARIANTS, FADE_UP_ANIMATION_VARIANTS } from '@/config/animations'
 
 export default function LandingPage() {
-    const SHOW_IMMEDIATELY_VARIANT = {
-        hidden: { opacity: 1 },
-        show: { opacity: 1 },
-    }
+    const generateVariants = (index: number) => ({
+        initial: { 
+          y: 0, 
+          x: 0 
+        },
+        hover: { 
+          y: -(index * 5), // Example: Move up 5px more for each subsequent element
+          x: -(index * 5), // Example: Move left 5px more for each subsequent element
+          transition: { type: 'spring', stiffness: 300 }
+        }
+      });
+      
     return (
         <main className='absolute top-0 left-0 w-full h-full'>
             <CustomCursor />
@@ -37,7 +45,7 @@ export default function LandingPage() {
                             show: {
                                 transition: {
                                     staggerChildren: .15,
-                                    delayChildren: 2.0,
+                                    delayChildren: 1.7,
                                 },
                             },
                         }}
@@ -77,21 +85,30 @@ export default function LandingPage() {
                             >
                                 I do consulting and contract work under{' '}
                             </motion.span>{' '}
-                            <span className='highlight-2 font-medium'>
-                                EverTech
-                            </span>,{' '}
+                            <motion.span
+                                className='highlight-2 font-medium'
+                                variants={FADE_UP_ANIMATION_VARIANTS}
+                            >
+                                EverTech,{' '}
+                            </motion.span>
                             <motion.span variants={FADE_UP_ANIMATION_VARIANTS}>
                                 where I specialize in{' '}
                             </motion.span>
-                            <span className='highlight-2 font-medium' >
+                            <motion.span
+                                className='highlight-2 font-medium'
+                                variants={FADE_UP_ANIMATION_VARIANTS}
+                            >
                                 machine learning{' '}
-                            </span>
+                            </motion.span>
                             <motion.span variants={FADE_UP_ANIMATION_VARIANTS}>
                                 and{' '}
                             </motion.span>
-                            <span className='highlight-2 font-medium' >
+                            <motion.span
+                                className='highlight-2 font-medium'
+                                variants={FADE_UP_ANIMATION_VARIANTS}    
+                            >
                                 full-stack development
-                            </span>
+                            </motion.span>
                             <motion.span variants={FADE_UP_ANIMATION_VARIANTS}>
                                 .
                             </motion.span>
@@ -140,8 +157,10 @@ export default function LandingPage() {
                             {Array.from({ length: 10 }).map((_, i) => (
                                 <motion.h1
                                     variants={LETTER_ANIMATION_VARIANTS}
+                                    whileHover="hover"
                                     key={i} className={cn(
-                                        'leading-tighter mx-[0.125rem] md:mx-1 overflow-hidder',
+                                        'leading-tighter mx-[0.125rem] md:mx-1',
+                                        'hover:cursor-pointer',
                                     )}>
                                     N
                                 </motion.h1>

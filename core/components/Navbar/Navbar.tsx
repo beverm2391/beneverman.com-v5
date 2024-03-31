@@ -35,7 +35,7 @@ export default function Navbar({ items, path, className }: { items: NavItem[], p
                     // >
                     //     {item.label}
                     // </Link>
-                    <TransitionLink
+                    <Link
                         href={item.href}
                         key={index}
                         className={cn(
@@ -48,7 +48,7 @@ export default function Navbar({ items, path, className }: { items: NavItem[], p
                         )}
                     >
                         {item.label}
-                    </TransitionLink>
+                    </Link>
                 ))}
             </div>
         </div>
