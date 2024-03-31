@@ -38,7 +38,7 @@ I decided I wanted to build a similar eye disease classifier. My goals for this 
 
 ## Implementing a CNN for Eye Disease Classification
 
-Since my goal was to minimize compute costs, I chose the EfficientNet architecture. <Sidenote>The [original Efficientnet paper](https://arxiv.org/abs/1905.11946) was published by Tan and Le in 2019. The EfficientNet architecture uses a compound scaling method that uniformly scales all architectural dimensions of the CNN (depth/width/resolution).</Sidenote> The big benefit of the Efficient is that its optimized for performance/compute cost. At the time of publication, their largest model, the *EfficientNetB7* was deemed "8.4x smaller and 6.1x faster on inference than the best existing ConvNet"<Sidenote>[Tan & Lee, 2019]()</Sidenote>. Here's a figure from the paper:
+Since my goal was to minimize compute costs, I chose the EfficientNet architecture. The original EfficientNet paper<Sidenote>[Tan and Le. (2019)](https://arxiv.org/abs/1905.11946)</Sidenote> was published in 2019. The EfficientNet architecture uses a compound scaling method that uniformly scales all architectural dimensions of the CNN (depth/width/resolution).The big benefit of the Efficient is that its optimized for performance/compute cost. At the time of publication, their largest model, the *EfficientNetB7* was deemed "8.4x smaller and 6.1x faster on inference than the best existing ConvNet"<Sidenote>[Tan and Le. (2019)](https://arxiv.org/abs/1905.11946)</Sidenote>. Here's a figure from the paper:
 
 ![EfficientNet](/assets/blog/neural-nets-for-eye-disease/efficientnet.png)
 
@@ -155,12 +155,15 @@ Okay, now let's preprocess the data into datasets. We'll do some minimal preproc
 Here's a way we can view some of the images inside this notebook, using `pillow`. Try to experiment with the data (look at the directory structure, view some images, etc.) to get a sense of what you're working with.
 ```python
 from PIL import Image
+from IPython.display import display
 
-path = os.path.join(DATA_DIR, 'cataract').listdir()[0] # get the first image in the cataract folder
-img = Image.open(path)
-
-img.show() # sometimes notebooks can get funky with this, you can try the following line instead if it doesn't work
-# print(img) 
+folders = ["cataract", "glaucoma", "diabetic_retinopathy", "normal"]
+for folder in folders:
+  files = os.listdir(os.path.join(DATA_DIR, folder))
+  if len(files) > 0:
+    print(f"{folder}: {files[0]}")
+    img = Image.open(os.path.join(DATA_DIR, folder, files[0]))
+    display(img)
 ```
 
 Now we can define a function to make the datasets.
@@ -319,8 +322,6 @@ train(early_stopping=True)
 
 Here's an example output from the training loop:
 ```bash
-
-train(early_stopping=True)
 Epoch 1/10 - train loss: 0.7035
 Epoch 1/10 - validation loss: 0.3994, validation accuracy: 0.8468
 Epoch 2/10 - train loss: 0.2524

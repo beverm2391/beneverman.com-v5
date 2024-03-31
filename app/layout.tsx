@@ -7,6 +7,7 @@ import localFont from 'next/font/local'
 import "@/styles/globals.css"
 import Navbars from '@/core/components/Navbar/Navbars'
 import Logo from '@/core/components/Logo'
+import Head from 'next/head'
 
 const satoshi = localFont({
   variable: "--font-satoshi",
@@ -120,6 +121,7 @@ export default function RootLayout({
         jetbrainsmono.variable,
       )}>
       <body>
+        <link rel='icon' href='favicon.ico' />
         <main className={cn(
           "min-h-screen w-screen py-4 px-4 md:px-8",
           "relative",

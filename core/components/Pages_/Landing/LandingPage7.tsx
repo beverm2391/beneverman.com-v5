@@ -25,12 +25,13 @@ export default function LandingPage() {
             <section className={cn(
                 'relative h-[100dvh] w-full',
                 // 'bg-[var(--hero-background-color)]',
-                // 'bg-[#242423]',
-                'bg-gradient-to-b from-[#242423] via-zinc-900 to-[#242423]'
+                'bg-[#242423]',
+                // 'bg-gradient-to-b from-[#242423] via-zinc-900 to-[#242423]'
+                // 'bg-gradient-to-b from-[#242423] via-zinc-900 to-[#242423]'
             )}>
                 <div className={cn(
                     'absolute inset-0 w-full h-[100dvh] bg-grid-zinc-600/20',
-                    '[mask-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,1),rgba(0,0,0,1))]',
+                    '[mask-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,.8),rgba(0,0,0,0.2))]',
                 )} />
                 <div className={cn(
                     'w-full h-full flex flex-col py-24 px-2 md:px-8 relative z-20',
