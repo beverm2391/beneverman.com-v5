@@ -1,24 +1,12 @@
 import type { Metadata } from 'next'
 import { cn } from '@/lib/utils'
 
-import { Inter, Arimo, Merriweather, Playfair_Display, Cormorant_Garamond } from 'next/font/google'
-import { Monofett } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
 
 import "@/styles/globals.css"
 import Navbars from '@/core/components/Navbar/Navbars'
 import Logo from '@/core/components/Logo'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: "--font-inter",
-})
-
-const garamond = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
-  variable: "--font-garamond",
-})
 
 const satoshi = localFont({
   variable: "--font-satoshi",
@@ -107,15 +95,15 @@ const etbook = localFont({
   ]
 })
 
-const monofett = Monofett({
-  variable: "--font-monofett",
+const jetbrainsmono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ['latin'],
   weight: ['400'],
 })
 
 export const metadata: Metadata = {
-  title: 'beneverman.com',
-  description: 'my website',
+  title: 'Ben Everman',
+  description: 'Software Engineer, Neural Network Wrangler, and Serial Learner',
 }
 
 export default function RootLayout({
@@ -127,15 +115,13 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        inter.variable,
         satoshi.variable,
         etbook.variable,
-        garamond.variable,
-        // etbembo.variable,
+        jetbrainsmono.variable,
       )}>
       <body>
         <main className={cn(
-          "min-h-screen w-screen py-4 px-8",
+          "min-h-screen w-screen py-4 px-4 md:px-8",
           "relative",
           // "bg-[#faf7f1]",
           // "bg-[#fffff9]"

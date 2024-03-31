@@ -1,10 +1,18 @@
-/* code {
-    overflow-x: auto;
-    padding: 1rem 0;
+code {
+  @apply overflow-x-auto bg-transparent font-mono text-sm
 }
 
 code [data-line] {
     padding: 0 1rem;
+}
+
+/* code not a child of pre */
+:not(pre) > code {
+  @apply bg-zinc-700/50 text-[#e7e7e7] rounded-md px-1 py-1;
+}
+
+pre {
+  @apply font-mono text-sm p-4 border border-zinc-700 rounded-2xl;
 }
 
 code[data-theme*=" "],
@@ -19,7 +27,7 @@ code[data-theme*=" "] span {
     color: var(--shiki-dark);
     background-color: var(--shiki-dark-bg);
   }
-} */
+}
 
 /* this is to hide the katex-html class which already has the aria-hidden set to true */
 /* [aria-hidden="true"] { 
@@ -41,11 +49,11 @@ code[data-theme*=" "] span {
 }
 
 .blog p, .blog ul, .blog ol, .blog li{
-  @apply text-xl leading-normal;
+  @apply text-xl leading-normal text-[#c7c7c7];
 }
 
 .blog {
-  @apply font-serif antialiased text-[var(--text-color)];
+  @apply font-serif antialiased text-[#e7e7e7];
   /* @apply text-[#111111]; */
   counter-reset: sidenote-counter; /* for sidenotes */
 }
@@ -55,7 +63,11 @@ code[data-theme*=" "] span {
 .blog h3,
 .blog h2,
 .blog h1 {
-  @apply font-normal
+  @apply font-medium
+}
+
+.blog h1 {
+  @apply text-5xl
 }
 
 .blog a {

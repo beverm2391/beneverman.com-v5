@@ -27,9 +27,7 @@ const config = {
       fontFamily: {
         sans: ['var(--font-satoshi)', ...fontFamily.sans], // Satoshi
         serif: ['var(--font-etbook)', ...fontFamily.serif], // ET Book
-        // serif: ['var(--font-garamond)', ...fontFamily.serif], // Cormorant Garamond
-        arimo: ['var(--font-arimo)'], // Arimo 
-        inter: ['var(--font-inter)'], // Inter
+        mono: ['var(--font-jetbrains-mono)', ...fontFamily.mono], // Fira Code
       },
       keyframes: {
         "accordion-down": {

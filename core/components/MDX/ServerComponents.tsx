@@ -3,6 +3,8 @@ import Image, { ImageProps } from 'next/image'
 import Callout from '@/core/components/Callout'
 import { BsPlusCircle } from 'react-icons/bs'
 
+Code.lineNumbers = true // Enable line numbers for all code blocks
+
 const PreServerSide = ({ children, ...props }: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLPreElement>) => {
     return (
         <Code {...props}>

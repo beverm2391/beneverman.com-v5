@@ -29,17 +29,6 @@ figure.fullwidth figcaption {
 img {
     max-width: 100%;
 }
-/* 
-hr {
-    display: block;
-    height: 1px;
-    width: 55%;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-} */
-
 
 .sidenote,
 .marginnote {
@@ -86,25 +75,6 @@ blockquote .marginnote {
     min-width: 59%;
     text-align: left;
 }
-
-.sans {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: .03em;
-}
-
-code,
-pre>code {
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 1.0rem;
-    line-height: 1.42;
-    -webkit-text-size-adjust: 100%;
-    /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
-}
-
-.sans>code {
-    font-size: 1.2rem;
-}
-
 
 figcaption,
 figure.fullwidth figcaption {

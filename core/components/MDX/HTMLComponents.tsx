@@ -32,7 +32,7 @@ const htmlComponents = {
     h1: ({ children, ...props }: HTMLComponentProps) => (
         <h1
             className={cn(
-                "mt-2 scroll-m-20 text-4xl font-bold",
+                "mt-2 scroll-m-20 text-4xl",
                 props.className
             )}
             {...props}
@@ -43,7 +43,7 @@ const htmlComponents = {
     h2: ({ children, ...props }: HTMLComponentProps) => (
         <h2
             className={cn(
-                "mt-10 scroll-m-20 border-b border-color pb-1 text-3xl font-semibold first:mt-0",
+                "mt-10 scroll-m-20 border-b border-color pb-1 text-3xl first:mt-0",
                 props.className
             )}
             {...props}
@@ -54,7 +54,7 @@ const htmlComponents = {
     h3: ({ children, ...props }: HTMLComponentProps) => (
         <h3
             className={cn(
-                "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight",
+                "mt-8 scroll-m-20 text-2xl tracking-tight",
                 props.className
             )}
             {...props}
@@ -65,7 +65,7 @@ const htmlComponents = {
     h4: ({ children, ...props }: HTMLComponentProps) => (
         <h4
             className={cn(
-                "mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+                "mt-8 scroll-m-20 text-xl tracking-tight",
                 props.className
             )}
             {...props}
@@ -76,7 +76,7 @@ const htmlComponents = {
     h5: ({ children, ...props }: HTMLComponentProps) => (
         <h5
             className={cn(
-                "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+                "mt-8 scroll-m-20 text-lg tracking-tight",
                 props.className
             )}
             {...props}
@@ -129,6 +129,7 @@ const htmlComponents = {
             {children}
         </blockquote>
     ),
+    // pre is in SeverComponents.tsx
 }
 
 
