@@ -37,7 +37,7 @@ export default function LandingPage() {
                     'items-center md:justify-normal md:items-start',
                 )}>
                     <motion.div
-                        className='mt-20 z-20'
+                        className='md:mt-20 z-20'
                         initial="hidden"
                         animate="show"
                         variants={{
@@ -123,7 +123,7 @@ export default function LandingPage() {
                     className={cn(
                         'absolute left-0 bottom-0 flex flex-col w-full',
                         'justify-between',
-                        "text-6xl md:text-[6rem] lg:text-[8rem] xl:text-[9rem] 2xl:text-[9rem]",
+                        "text-5xl md:text-[6rem] lg:text-[8rem] xl:text-[9rem] 2xl:text-[9rem]",
                         "font-bold",
                         "uppercase",
                         "tracking-tight",
