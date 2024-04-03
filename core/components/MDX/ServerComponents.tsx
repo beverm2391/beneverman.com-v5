@@ -6,13 +6,17 @@ import Link from 'next/link'
 import { EMAIL } from '@/config/contact'
 import { useId } from 'react'
 import { FaAngleDoubleDown } from 'react-icons/fa'
-import { CiCircleMore } from 'react-icons/ci'
+import { cn } from '@/lib/utils'
 
 Code.lineNumbers = true // Enable line numbers for all code blocks
 
 const PreServerSide = ({ children, ...props }: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLPreElement>) => {
     return (
-        <Code {...props}>
+        <Code className={cn(
+            'overflow-visible' // ! Allow code blocks to overflow (this keeps the block from diasappearing when theres a sidenote open directly above it)
+        )}
+            {...props}
+        >
             {children}
         </Code>
     )

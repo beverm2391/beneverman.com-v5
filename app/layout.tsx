@@ -121,7 +121,7 @@ export default function RootLayout({
         jetbrainsmono.variable,
       )}>
       <body>
-        <link rel='icon' href='favicon.ico' />
+      {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
         <main className={cn(
           "min-h-screen w-screen py-4 px-4 md:px-8",
           "relative",
