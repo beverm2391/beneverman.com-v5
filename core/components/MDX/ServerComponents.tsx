@@ -12,10 +12,10 @@ Code.lineNumbers = true // Enable line numbers for all code blocks
 
 const PreServerSide = ({ children, ...props }: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLPreElement>) => {
     return (
-        <Code className={cn(
-            'overflow-visible' // ! Allow code blocks to overflow (this keeps the block from diasappearing when theres a sidenote open directly above it)
-        )}
+        <Code
             {...props}
+            className='!overflow-visible' // TODO see if this causes any issues?? fingers crossed
+            // ? solves an issue where the code block is cut off if a sidenote is opened directly above it
         >
             {children}
         </Code>
