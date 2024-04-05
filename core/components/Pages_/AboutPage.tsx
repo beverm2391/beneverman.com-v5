@@ -4,12 +4,14 @@ import { motion } from 'framer-motion';
 import Box from "@/core/components/Box";
 import { FADE_IN_ANIMATION_VARIANTS } from '@/config/animations';
 import DoubleHorizontalRule from '@/core/components/DoubleHorizontalRule';
+import { cn } from '@/lib/utils';
 
 export default function AboutPage() {
     const currentYear: number = new Date().getFullYear();
     return (
         <section>
             <motion.div
+                className=''
                 initial="hidden"
                 animate="show"
                 variants={{
@@ -21,13 +23,12 @@ export default function AboutPage() {
                     },
                 }}
             >
-                {/* <motion.h1
-                    className="mb-4"
-                    variants={FADE_IN_ANIMATION_VARIANTS}
-                >
-                    About Me
-                </motion.h1> */}
-                {/* <DoubleHorizontalRule/> */}
+                <h1 className={cn(
+                    "font-medium text-5xl md:text-6xl mb-4 md:mb-8",
+                    "ml-6" // to compensate for the padding of the cards
+                )}>
+                    About
+                </h1>
             </motion.div>
         </section>
     )

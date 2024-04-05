@@ -126,10 +126,6 @@ export default function RootLayout({
         <main className={cn(
           "min-h-screen w-screen py-4 px-4 md:px-8",
           "relative",
-          // "bg-[#faf7f1]",
-          // "bg-[#fffff9]"
-          // "bg-white",
-          // "bg-gradient-to-r from-[#f5f5f5] to-[#f0f0f0]",
           "background"
         )}>
           <div className="flex justify-between items-center mb-8">

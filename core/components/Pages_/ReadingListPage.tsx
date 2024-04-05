@@ -141,12 +141,12 @@ export default function ReadingListPage({ data }: { data: ParsedResult[] }) {
         <section>
             {/* TODO: DO the animate when in view trick here */}
             <motion.div
-                className='mx-auto md:px-16 w-full'
+                className=''
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
             >
-                <div className='h-full flex flex-col-reverse lg:flex-row gap-8 max-w-4xl mx-auto'>
+                <div className='h-full flex flex-col-reverse lg:flex-row gap-8'>
                     <Tabs defaultValue="list" className="w-full">
                         <TabsList className='mb-8 bg-transparent border border-zinc-600 rounded-xl'>
                             <TabsTrigger

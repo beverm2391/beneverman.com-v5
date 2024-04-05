@@ -24,13 +24,10 @@ export default function LandingPage() {
             <CustomCursor />
             <section className={cn(
                 'relative h-[100dvh] w-full',
-                // 'bg-[var(--hero-background-color)]',
-                'bg-[#242423]',
-                // 'bg-gradient-to-b from-[#242423] via-zinc-900 to-[#242423]'
-                // 'bg-gradient-to-b from-[#242423] via-zinc-900 to-[#242423]'
+                'bg-[var(--hero-background-color)]',
             )}>
                 <div className={cn(
-                    'absolute inset-0 w-full h-[100dvh] bg-grid-zinc-600/20',
+                    'absolute inset-0 w-full h-[100dvh] bg-grid-zinc-600/30',
                     '[mask-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,.8),rgba(0,0,0,0.2))]',
                 )} />
                 <div className={cn(

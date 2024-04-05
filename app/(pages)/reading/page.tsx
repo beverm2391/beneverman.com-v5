@@ -34,8 +34,6 @@ export default async function Page() {
   // fs.writeFileSync('parsed-data.json', JSON.stringify(data, null, 4))
 
   return (
-    <div className="pt-8 pb-16">
-      <ReadingListPage data={data}/>
-    </div>
+    <ReadingListPage data={data}/>
   )
 }

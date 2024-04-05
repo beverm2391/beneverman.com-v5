@@ -15,7 +15,7 @@ const AllPosts = ({ posts }: { posts: Post[] }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
-            className='max-w-4xl'
+            // className='max-w-4xl'
         >
             <h1 className={cn(
                     "font-medium text-5xl md:text-6xl mb-4 md:mb-8",
@@ -81,7 +81,7 @@ const AllPosts = ({ posts }: { posts: Post[] }) => {
 // This is the blog page (client side)
 export default function BlogPage({ posts }: { posts: Post[] }) {
     return (
-        <div className=''>
+        <div className='antialiased'>
             <AllPosts posts={posts} />
         </div>
     )
