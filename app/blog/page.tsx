@@ -6,14 +6,16 @@ import "@/styles/blog.css";
 import 'katex/dist/katex.min.css' // for KaTeX
 
 export const metadata = {
-    title: 'Ben Everman | Blog',
-    description: 'Writing about software engineering, machine learning, and more',
+  title: 'Ben Everman | Blog',
+  description: 'Writing about software engineering, machine learning, and more',
 };
 
 export default async function Page() {
   let posts = await getBlogPosts() as Post[];
-    return (
+  return (
+    // ! Blog Layout goes here as to not affect the w-screen in [slug].tsx
+    <div className='blog-layout'>
       <BlogPage posts={posts} />
-    );
-  }
-  
+    </div>
+  );
+}

@@ -34,9 +34,31 @@ body {
     /* --line-number-color: #ff0000; */
 }
 
+/* ! Layouts */
+
+.pages-layout {
+    @apply mx-auto py-8 w-full max-w-4xl
+}
+
+.blog-layout {
+    @apply mx-auto py-8 w-full max-w-4xl
+}
+
+.blog-post-layout {
+    @apply py-8 md:w-[87.5%] sm:px-[8%] md:pl-[12.5%] max-w-[1400px];
+}
+
+/* ! Background */
+
 .background {
     background-color: var(--background-color);
     color: var(--text-color);
+}
+
+/* ! Footer */
+
+.footer {
+    /* box-shadow: 0 -5px 10px rgba(0, 0, 0, 1); */
 }
 
 .stroke {

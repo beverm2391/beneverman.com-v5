@@ -28,12 +28,29 @@ const getData = cache(async () => {
   return parsedResponse
 })
 
-export default async function Page() {
-  const data: ParsedResult[] = await getData()
-  console.log('data', data)
-  // fs.writeFileSync('parsed-data.json', JSON.stringify(data, null, 4))
-
+function ReadingListErrorPage() {
   return (
-    <ReadingListPage data={data}/>
+    <div className="w-full h-full flex flex-col items-center justify-center">
+      <h1 className="text-5xl md:text-6xl font-medium mb-2 md:mb-8">
+        Uh oh! There was an error fetching the reading list 😅. Sorry about that. Since you're seeing this page, I will get a notification in my logs and fix it ASAP!
+      </h1>
+    </div>
   )
+}
+
+export default async function Page() {
+  try {
+    // ! Get data and return the page if successful
+    const data: ParsedResult[] = await getData()
+    return (
+      <ReadingListPage data={data} />
+    )
+  } catch (error) {
+    // ! If there is an error, log it and return an error page
+    console.error(error)
+    const data = []
+    return (
+      <ReadingListErrorPage />
+    )
+  }
 }

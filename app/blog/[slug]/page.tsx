@@ -10,7 +10,7 @@ import "@/styles/tufte.css"
 
 // ! Dynamic Metadata
 // ? DOCS: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-export async function generateMetadata({ params }: { params: { slug: string; }}
+export async function generateMetadata({ params }: { params: { slug: string; } }
 ): Promise<Metadata> {
     const post = await getPost(params.slug);
     if (!post) { return notFound(); }
@@ -21,13 +21,10 @@ export async function generateMetadata({ params }: { params: { slug: string; }}
 }
 
 export default async function PostPage({ params }: { params: { slug: string; } }) {
-    // console.log("slug passed to page: ", params.slug)
     const post = await getPost(params.slug);
     if (!post) { return notFound(); }
-    const title = post.title;
-    const description = post.desc;
     return (
-        <div className='md:w-[87.5%] sm:px-[8%] md:pl-[12.5%] max-w-[1400px]'>
+        <div className='blog-post-layout'>
             <article className='relative blog md:max-w-[75%]'>
                 <Link className="absolute left-[-120px] mt-8 hidden lg:block" href="/blog">
                     <BsArrowLeftShort className="inline-block h-12 w-12" />
@@ -38,5 +35,4 @@ export default async function PostPage({ params }: { params: { slug: string; } }
             </article>
         </div>
     );
-
 }

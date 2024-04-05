@@ -8,6 +8,7 @@ import { useId } from 'react'
 import { FaAngleDoubleDown } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import { CustomBlock } from './BrightExtensions'
+import { Email} from '@/core/components/Email'
 
 // ! See the Bright documentation for more information on how to use the Code component
 // ! https://bright.codehike.org/
@@ -68,8 +69,6 @@ const Sidenote = (props: { children: any }) => {
         </>
     );
 };
-
-const Email = ({ icon = true }: { icon?: boolean }) => <span className='inline-block'><Link href={`mailto:${EMAIL}`}>{EMAIL}</Link>{icon && <span className='inline-block translate-y-[2px] ml-1'>📧</span>}</span>
 
 const ServerComponents = {
     pre: PreServerSide,

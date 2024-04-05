@@ -8,6 +8,7 @@ import "@/styles/globals.css"
 import Navbars from '@/core/components/Navbar/Navbars'
 import Logo from '@/core/components/Logo'
 import Head from 'next/head'
+import Footer from '@/core/components/Footer'
 
 const satoshi = localFont({
   variable: "--font-satoshi",
@@ -134,6 +135,7 @@ export default function RootLayout({
           </div>
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   )

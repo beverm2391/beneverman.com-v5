@@ -6,19 +6,82 @@ import CustomCursor from '@/core/components/CustomCursor'
 import { Bs1Circle, Bs2Circle, Bs3Circle } from 'react-icons/bs'
 import { LETTER_ANIMATION_VARIANTS, FADE_UP_ANIMATION_VARIANTS } from '@/config/animations'
 
+export function BENNN({ className } : { className?: string }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, spring: 10 }}
+            className={cn(
+                'justify-between',
+                "text-5xl md:text-[6rem] lg:text-[8rem] xl:text-[9rem] 2xl:text-[9rem]",
+                "font-bold",
+                "uppercase",
+                "tracking-tight",
+                "leading-tight",
+                // 'text-[var(--hero-text-color)]',
+                'z-20',
+                'px-2 md:px-8',
+                'bg-gradient-to-b from-[#bbbbba] via-zinc-300 to-[#bbbbba]',
+                'bg-clip-text text-transparent',
+                className,
+            )}>
+            <div className='flex w-full justify-between flex-row items-center'>
+                <h1 className={cn(
+                    'leading-tighter',
+                    // 'translate-y-[60px]'
+                )}>
+                    Ben
+                </h1>
+                <motion.div
+                    className='grow-0 flex justify-center items-center overflow-clip text-blue-500 relative'
+                    initial='hidden'
+                    animate='show'
+                    variants={{
+                        hidden: {},
+                        show: {
+                            transition: {
+                                staggerChildren: 0.1,
+                            },
+                        },
+                    }}
+                >
+                    {Array.from({ length: 10 }).map((_, i) => (
+                        <motion.h1
+                            variants={LETTER_ANIMATION_VARIANTS}
+                            key={i} className={cn(
+                                'leading-tighter mx-[0.125rem] md:mx-1',
+                                'hover:cursor-pointer',
+                            )}>
+                            N
+                        </motion.h1>
+                    ))}
+                </motion.div>
+                {/* <div className='inline w-full bg-zinc-300 h-8 rounded-xl mx-2 border-zinc-300 border-[10px]'> */}
+                <h1 className={cn(
+                    'leading-tighter',
+                    // 'translate-y-[60px]'
+                )}>
+                    Everman<span className="highlight">.</span>
+                </h1>
+            </div>
+        </motion.div>
+    )
+}
+
 export default function LandingPage() {
     const generateVariants = (index: number) => ({
-        initial: { 
-          y: 0, 
-          x: 0 
+        initial: {
+            y: 0,
+            x: 0
         },
-        hover: { 
-          y: -(index * 5), // Example: Move up 5px more for each subsequent element
-          x: -(index * 5), // Example: Move left 5px more for each subsequent element
-          transition: { type: 'spring', stiffness: 300 }
+        hover: {
+            y: -(index * 5), // Example: Move up 5px more for each subsequent element
+            x: -(index * 5), // Example: Move left 5px more for each subsequent element
+            transition: { type: 'spring', stiffness: 300 }
         }
-      });
-      
+    });
+
     return (
         <main className='absolute top-0 left-0 w-full h-full'>
             <CustomCursor />
@@ -103,7 +166,7 @@ export default function LandingPage() {
                             </motion.span>
                             <motion.span
                                 className='highlight-2 font-medium'
-                                variants={FADE_UP_ANIMATION_VARIANTS}    
+                                variants={FADE_UP_ANIMATION_VARIANTS}
                             >
                                 full-stack development
                             </motion.span>
@@ -114,64 +177,9 @@ export default function LandingPage() {
                     </motion.div>
                     {/* <Waves /> */}
                 </div>
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, spring: 10 }}
-                    className={cn(
-                        'absolute left-0 bottom-0 flex flex-col w-full',
-                        'justify-between',
-                        "text-5xl md:text-[6rem] lg:text-[8rem] xl:text-[9rem] 2xl:text-[9rem]",
-                        "font-bold",
-                        "uppercase",
-                        "tracking-tight",
-                        "leading-tight",
-                        // 'text-[var(--hero-text-color)]',
-                        'z-20',
-                        'px-2 md:px-8',
-                        'bg-gradient-to-b from-[#bbbbba] via-zinc-300 to-[#bbbbba]',
-                        'bg-clip-text text-transparent',
-                    )}>
-                    <div className='flex w-full justify-between flex-row items-center'>
-                        <h1 className={cn(
-                            'leading-tighter',
-                            // 'translate-y-[60px]'
-                        )}>
-                            Ben
-                        </h1>
-                        <motion.div
-                            className='grow-0 flex justify-center items-center overflow-clip text-blue-500 relative'
-                            initial='hidden'
-                            animate='show'
-                            variants={{
-                                hidden: {},
-                                show: {
-                                    transition: {
-                                        staggerChildren: 0.1,
-                                    },
-                                },
-                            }}
-                        >
-                            {Array.from({ length: 10 }).map((_, i) => (
-                                <motion.h1
-                                    variants={LETTER_ANIMATION_VARIANTS}
-                                    key={i} className={cn(
-                                        'leading-tighter mx-[0.125rem] md:mx-1',
-                                        'hover:cursor-pointer',
-                                    )}>
-                                    N
-                                </motion.h1>
-                            ))}
-                        </motion.div>
-                        {/* <div className='inline w-full bg-zinc-300 h-8 rounded-xl mx-2 border-zinc-300 border-[10px]'> */}
-                        <h1 className={cn(
-                            'leading-tighter',
-                            // 'translate-y-[60px]'
-                        )}>
-                            Everman<span className="highlight">.</span>
-                        </h1>
-                    </div>
-                </motion.div>
+                <div className='absolute left-0 bottom-0 flex flex-col w-full'>
+                    <BENNN/>
+                </div>
             </section>
         </main >
     )
