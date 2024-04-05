@@ -7,30 +7,31 @@
 }
 
 body {
-    /* --background-color: #0B2545; */
-    /* --background-color: #13315C; */
-    --background-color: #242423;
-    --text-color: #dedede;
-    --hover-bg-color: rgba(255, 255, 255, 0); 
-    --hover-text-color: #376ff3;
+    --background-color: #242423; /* Main background color */
+    --text-color: #dedede; /* Main text color */
+    --text-body-color: #c7c7c7; /* This has less-contrast than the main text-color, great for body text */
 
-    --hero-background-color: #242423;
-    --hero-text-color: #bbbbba;
-    --hero-hover-bg-color: var(--hover-bg-color);
-    --hero-hover-text-color: var(--hover-text-color);
+    --hover-bg-color: rgba(255, 255, 255, 0); /* Hover background color */
+    --hover-text-color: #376ff3; /* Hover text color */
 
-    --wave-color-1: #bbbbba;
-    --wave-color-2: #bbbbba;
-    /* --wave-color-2: #e9ff70; */
-    /* --wave-color-1: #ff006e; */
+    --hero-background-color: #242423; /* Hero background color */
+    --hero-text-color: #bbbbba; /* Hero text color */
+    --hero-hover-bg-color: var(--hover-bg-color); /* Hero hover background color */
+    --hero-hover-text-color: var(--hover-text-color); /* Hero hover text color */
 
-    --highlight-color: #3a86ff;
-    --highlight-color-rgb: rgba(58, 134, 255, 0.4);
-    --highlight-2-color: #ff0051;
-    --highlight-2-color-rgb: rgba(255, 0, 81, 0.4);
-    --cursor-stroke: var(--highlight-color);
+    --wave-color-1: #bbbbba; /* This is the first color of the wave animation component */
+    --wave-color-2: #bbbbba; /* This is the second color of the wave animation component */
 
-    --transition-bg-color: #bbbbba;
+    --highlight-color: #3a86ff; /* This is the color for the highlight text */
+    --highlight-color-rgb: rgba(58, 134, 255, 0.4); /* rgb version with less opacity, for the shadow */
+    --highlight-2-color: #ff0051; /* This is the color for the second highlight text */
+    --highlight-2-color-rgb: rgba(255, 0, 81, 0.4); /* rgb version with less opacity, for the shadow */
+    --cursor-stroke: var(--highlight-color); /* This is the color for the cursor */
+
+    --transition-bg-color: #bbbbba; /* This is the color for the transition background (Currently not using this) */
+
+    /* For Bright Code Blocks */
+    /* --line-number-color: #ff0000; */
 }
 
 .background {
@@ -64,7 +65,7 @@ body {
     filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.2));
 }
 
-/* ! For homepage cursor */
+/* ! For homepage cursor  ================================================ */
 .cursor {
 	display: none;
 }

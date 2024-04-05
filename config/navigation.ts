@@ -12,8 +12,8 @@ export const NavItems = [
         href: '/blog'
     },
     {
-        label: 'Bookshelf',
-        href: '/bookshelf'
+        label: 'Reading',
+        href: '/reading'
     },
     // {
     //     label: 'Canvas',

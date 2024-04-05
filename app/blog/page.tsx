@@ -6,8 +6,8 @@ import "@/styles/blog.css";
 import 'katex/dist/katex.min.css' // for KaTeX
 
 export const metadata = {
-    title: 'Blog',
-    description: 'Read my writing about the things I tinker with.',
+    title: 'Ben Everman | Blog',
+    description: 'Writing about software engineering, machine learning, and more',
 };
 
 export default async function Page() {

@@ -62,10 +62,10 @@ const AllPosts = ({ posts }: { posts: Post[] }) => {
                                 <h2 className="text-3xl md:text-4xl lg:text-4xl font-medium mb-4">
                                     {post?.title}
                                 </h2>
-                                <h3 className="text-xl italic font-medium mb-2 leading-normal">
+                                <h3 className="text-lg italic font-medium mb-2 leading-normal">
                                     {post?.subtitle}
                                 </h3>
-                                <p className="mt-4 text-xl font-serif antialised tracking-normal leading-normal">
+                                <p className="mt-4 text-lg font-serif antialised tracking-normal leading-normal">
                                     {post?.desc}
                                 </p>
                             </div>

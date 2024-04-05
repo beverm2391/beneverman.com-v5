@@ -6,7 +6,7 @@ import { ParsedResult } from '@/types/reading-list';
 import Link from 'next/link';
 import { FaCircle } from 'react-icons/fa';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/core/components/shadcn/tabs"
-import '@/styles/bookshelf.css'
+import '@/styles/reading.css'
 import { FADE_IN_ANIMATION_VARIANTS } from '@/config/animations';
 
 const typemap: { [key: string]: string } = {
@@ -16,26 +16,15 @@ const typemap: { [key: string]: string } = {
     'other': 'text-red-500',
 }
 
-export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
+export default function ReadingListPage({ data }: { data: ParsedResult[] }) {
 
     const ReadingListItem = ({ name, author, type, url, comments, status, date }: ParsedResult) => {
         return (
             <motion.div
-                className={cn('py-2 hover:underline hover:underline-offset-2 transition-all')}>
+                className={cn('py-2 hover:underline hover:underline-offset-2 transition-all text-[var(--text-body-color)')}>
                 <Link href={url || ''} target='_blank'>
                     <h2 className='text-lg font-medium inline'>{name}</h2>
                     <FaCircle className={cn('w-3 h-3 ml-2 inline translate-y-[-1px]', type ? (type in typemap) ? typemap[type] : 'text-red-500' : 'text-red-500')} />
-                    <motion.div
-                        className='transition-all'
-                        layout
-                        // apply layout transition to this element
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.4 }}
-                    >
-                        {/* <h3 className='text-lg font-semibold'>{author}</h3> */}
-                        {/* <p className='text-base'>{date}</p> */}
-                    </motion.div>
                 </Link>
             </motion.div>
         )
@@ -43,7 +32,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
 
     const ReadingList = ({ data }: { data: ParsedResult[] }) => (
         <motion.div
-            className="flex flex-col w-full"
+            className="flex flex-col w-full text-[var(--text-body-color)]"
         // ! Uncomment this to animate the reading list
         // initial="hidden"
         // animate="show"
@@ -77,7 +66,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
             <motion.div
                 className={cn(
                     'flex flex-col',
-                    'md:border-2 border-neutral-200 md:p-4',
+                    // 'md:border rounded-2xl border-[var(--text-body-color)] md:p-4',
                     // 'bg-white rounded-2xl',
                     // 'shadow-md p-4'
                 )}
@@ -107,7 +96,7 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
 
     const FeaturedReading = ({ data }: { data: ParsedResult[] }) => (
         <motion.div
-            className={cn("flex flex-col h-full w-full",)}
+            className={cn("flex flex-col h-full w-full text-[var(--font-body-color")}
         // ! Uncomment this to animate the featured reading
         // initial="hidden"
         // animate="show"
@@ -133,8 +122,8 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
             <motion.div
                 className={cn(
                     // 'bg-white rounded-2xl shadow-md'
-                    'md:border-2 border-neutral-200',
-                    'p-0 md:p-8'
+                    // 'md:border-2 border-neutral-200',
+                    // 'p-0 md:p-8'
                 )}
                 variants={FADE_IN_ANIMATION_VARIANTS}
             >
@@ -159,14 +148,14 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
             >
                 <div className='h-full flex flex-col-reverse lg:flex-row gap-8 max-w-4xl mx-auto'>
                     <Tabs defaultValue="list" className="w-full">
-                        <TabsList className='mb-8 bg-transparent'>
+                        <TabsList className='mb-8 bg-transparent border border-zinc-600 rounded-xl'>
                             <TabsTrigger
                                 value="list"
                                 className={cn(
-                                    "text-lg md:text-2xl font-medium",
-                                    "data-[state=active]:bg-transparent data-[state=active]:text-[var(--hover-text-color)/80]",
-                                    "data-[state=active]:shadow-none data-[state=active]:ring-2 ring-neutral-200",
-                                    "text-[var(--text-color)]"
+                                    "text-lg md:text-xl",
+                                    "data-[state=active]:bg-transparent data-[state=active]:text-[var(--hover-text-color)]",
+                                    "data-[state=active]:shadow-none data-[state=active]:border-0",
+                                    "text-[var(--text-body-color)]"
                                 )}
                             >
                                 Reading List
@@ -174,10 +163,10 @@ export default function BookshelfPage({ data }: { data: ParsedResult[] }) {
                             <TabsTrigger
                                 value="featured"
                                 className={cn(
-                                    "text-xl md:text-2xl font-medium",
-                                    "data-[state=active]:bg-transparent data-[state=active]:text-[var(--hover-text-color)/80]",
-                                    "data-[state=active]:shadow-none data-[state=active]:ring-2 ring-neutral-200",
-                                    "text-[var(--text-color)]"
+                                    "text-lg md:text-xl",
+                                    "data-[state=active]:bg-transparent data-[state=active]:text-[var(--hover-text-color)]",
+                                    "data-[state=active]:shadow-none data-[state=active]:border-0",
+                                    "text-[var(--text-body-color)]"
                                 )}
                             >
                                 Featured Reads

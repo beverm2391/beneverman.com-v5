@@ -7,8 +7,22 @@ import { EMAIL } from '@/config/contact'
 import { useId } from 'react'
 import { FaAngleDoubleDown } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
+import { CustomBlock } from './BrightExtensions'
+
+// ! See the Bright documentation for more information on how to use the Code component
+// ! https://bright.codehike.org/
 
 Code.lineNumbers = true // Enable line numbers for all code blocks
+Code.theme = {
+    dark: 'dark-plus',
+    light: 'github-light',
+    // using a different CSS selector:
+    // lightSelector: '[data-theme="light"]',
+    // lightSelector: 'html.light',
+}
+Code.extensions = [
+    CustomBlock,
+]
 
 const PreServerSide = ({ children, ...props }: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLPreElement>) => {
     return (

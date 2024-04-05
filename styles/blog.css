@@ -1,35 +1,26 @@
+
+/* ! Code Block Styles ================================================ */
 code {
-  @apply overflow-x-auto bg-transparent font-mono text-sm
+  @apply font-mono text-sm
 }
 
-code [data-line] {
+/* code [data-line] {
     padding: 0 1rem;
-}
+} */
 
-/* code not a child of pre */
+/* ! code not a child of pre AKA inline */
 :not(pre) > code {
   @apply bg-zinc-700/50 text-[#e7e7e7] rounded-md px-1 py-1;
 }
 
+/* ! pre */
 pre {
-  @apply font-mono text-sm p-4 border border-zinc-700 rounded-2xl;
+  @apply p-4 border border-zinc-700 rounded-2xl;
 }
 
-code[data-theme*=" "],
-code[data-theme*=" "] span {
-  color: var(--shiki-light);
-  background-color: var(--shiki-light-bg);
-}
- 
-@media (prefers-color-scheme: dark) {
-  code[data-theme*=" "],
-  code[data-theme*=" "] span {
-    color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
-  }
-}
+/* ! End Code Block Styles ================================================ */
 
-/* this is to hide the katex-html class which already has the aria-hidden set to true */
+/* ? this is to hide the katex-html class which already has the aria-hidden set to true */
 [aria-hidden="true"] { 
   visibility: hidden; 
   position: absolute;
@@ -49,11 +40,11 @@ code[data-theme*=" "] span {
 }
 
 .blog p, .blog ul, .blog ol, .blog li{
-  @apply text-xl leading-normal text-[#c7c7c7];
+  @apply text-xl leading-normal text-[var(--text-body-color)];
 }
 
 .blog {
-  @apply font-serif antialiased text-[#e7e7e7];
+  @apply font-serif antialiased text-[var(--text-body-color)];
   /* @apply text-[#111111]; */
   counter-reset: sidenote-counter; /* for sidenotes */
 }

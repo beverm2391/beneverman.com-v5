@@ -105,6 +105,7 @@ const jetbrainsmono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Ben Everman',
   description: 'Software Engineer, Neural Network Wrangler, and Serial Learner',
+  metadataBase: new URL('https://www.beneverman.com'),
 }
 
 export default function RootLayout({
