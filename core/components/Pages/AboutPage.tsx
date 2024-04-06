@@ -1,9 +1,7 @@
 "use client"
 
 import { motion } from 'framer-motion';
-import Box from "@/core/components/Box";
 import { FADE_IN_ANIMATION_VARIANTS } from '@/config/animations';
-import DoubleHorizontalRule from '@/core/components/DoubleHorizontalRule';
 import { cn } from '@/lib/utils';
 
 export default function AboutPage() {
