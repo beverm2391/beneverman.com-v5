@@ -32,7 +32,7 @@ export default function Footer() {
                                     This website is open source.{' '}
                                 </span>
                                 <Link
-                                    href="https://www.github.com/beverm2391"
+                                    href="https://github.com/beverm2391/beneverman.com-v5"
                                     target="_blank"
                                     className='highlight'
                                 >
