@@ -31,8 +31,8 @@ const getData = cache(async () => {
 function ReadingListErrorPage() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
-      <h1 className="text-5xl md:text-6xl font-medium mb-2 md:mb-8">
-        Uh oh! There was an error fetching the reading list 😅. Sorry about that. Since you're seeing this page, I will get a notification in my logs and fix it ASAP!
+      <h1 className="text-xl md:text-2xl mb-2 md:mb-8">
+        Uh oh! There was an error fetching the reading list 😅. Sorry about that. Make sure you're connected to the internet.
       </h1>
     </div>
   )

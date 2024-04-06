@@ -1,4 +1,5 @@
 import "@/styles/blog.css"
+import Footer from "@/core/components/Footer";
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
     return (
