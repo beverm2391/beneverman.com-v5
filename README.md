@@ -1,28 +1,29 @@
 # Ben's Website (v5)
 
+This is my personal website where I put my reading, writing, and so on. It's fully open source, built with Typescript and Next.js.
+
 ## TODO
-- [ ] refactor the landing page component
-- [ ] rebuild scrolling text component with CSS marquee
-- [ ] make more landing page "components" out of OpenAI, Cohere, Anthropic's pages
-- [ ] create a cool scroll transition
-  - sticky/parallax
-  - bg transtision
-  - scroll animation
-- [ ] blog stuff
-  - intercepting routes with the first x words of article, click on it to go to page (check https://adammaj.com/)
-  - Easily hover over TOC to change preview
-  - [X] serif font? // styling
-  - [ ] style links somehow??
-  - [ ] add accordian component
-- [ ] copy
-  - [ ] put this on website? “I’m just crazy enough to keep things interesting, just sane enough to keep things together”
-  - [ ] footnotes on side (might have to write my own plugin)
-- [ ] bookshelf
-  - [ ] get data working
-  - [ ] make the titles animate on view
-  - [ ] try the same style as blog page, books on the left in the main, sidenotes will be comments on the right
-  - [ ] add a cool scroll animation or something
-  - [ ] add in progress reads at the top of featured with an "in progress" badge
-  - [ ] add tabs to filter each type of reading
-  - [ ] V2 - take screenshots of each link to page, or use book cover
+- [ ] make the about page
+- [ ] Reading List
+    - [ ] Redo reading list with table, show dates
     - [ ] put in this component https://x.com/verse_/status/1759343366842548262?s=20
+- [ ] Blog 
+    - [ ] Add breadcrumbs to blog
+- [ ] Code Blocks
+    - [ ] add copy button to code blocks: https://bright.codehike.org/recipes/collapse
+- [ ] Global
+    - [ ] Add OG images
+- [ ] Weekly Update Page
+    - [ ] make a page like this for my weekly updates
+        - [ ] put them all in markdown (copy and paste directly to mdx)
+        - [ ] use resend to send emails of the rendered post, along with a link to the post
+        - [ ] a place to sign up, and testimonials?
+- [ ] Quotes component
+    - [ ] add an animated list with my favorite quotes (number them, in the corner, and have a search). regular big table where people can see all of them
+        - [ ] make this really aesthetic
+        - [ ] ask https://twitter.com/austin_malerba for help
+    - [ ] Do a quote card grid (infinite??)
+- [ ] Resources
+    - [ ] expose my KB resources to a table
+    - [ ] expose my curriculum to a table
+    - [ ] expose my web design resources to a table
