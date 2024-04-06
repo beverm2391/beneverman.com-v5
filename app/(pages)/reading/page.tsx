@@ -1,4 +1,4 @@
-import ReadingListPage from "@/core/components/Pages_/ReadingListPage"
+import ReadingListPage from "@/core/components/Pages/ReadingListPage"
 import { queryDBPagination, parseResponse } from "@/lib/reading-list-db"
 import { ParsedResult } from "@/types/reading-list"
 import { cache } from 'react'

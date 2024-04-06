@@ -1,6 +1,6 @@
 import { getBlogPosts } from '@/lib/blog';
 import { Post } from '@/types/post';
-import BlogPage from '@/core/components/Pages_/BlogPage';
+import BlogPage from '@/core/components/Pages/BlogPage';
 
 import "@/styles/blog.css";
 import 'katex/dist/katex.min.css' // for KaTeX
