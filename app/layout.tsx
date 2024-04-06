@@ -125,7 +125,9 @@ export default function RootLayout({
       <body>
       {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
         <main className={cn(
-          "min-h-[100dvh] w-screen py-4 px-4 md:px-8",
+          "min-h-screen",
+          // "min-h-screen min-h-[100dvh]", // ? I was weirdly having isues where the container would change size when the keyboard was open on mobile. min-h-screen is a fallback for now.
+          "w-screen py-4 px-4 md:px-8",
           "relative",
           "background"
         )}>
