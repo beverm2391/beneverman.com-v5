@@ -21,7 +21,10 @@ export default function Footer() {
     } else {
         return (
             <>
-                <div className='w-full flex bg-[var(--background-color)]'>
+                <div className='bg-[var(--background-color)] h-[100px] rounded-b-[100px]' />
+                <div className='w-full flex bg-[var(--footer-bg-color)] sticky bottom-0 -z-50'>
+                    {/* this next div is to cover the rounded corners */}
+                    <div className='absolute w-full h-full top-0 bg-[var(--footer-bg-color)] -translate-y-[100%]'/> 
                     <div className="relative flex flex-col mx-auto w-full border-t border-zinc-700 justify-between items-end px-8 py-8 ">
                         <div className='w-full mb-2 font-mono text-[var(--text-body-color)]'>
                             <h2 className='text-base opacity-50'>
@@ -34,7 +37,7 @@ export default function Footer() {
                                 <Link
                                     href="https://github.com/beverm2391/beneverman.com-v5"
                                     target="_blank"
-                                    className='highlight'
+                                    className='highlight cursor-pointer'
                                 >
                                     View on GitHub
                                 </Link>

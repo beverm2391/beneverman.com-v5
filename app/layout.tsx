@@ -129,7 +129,7 @@ export default function RootLayout({
           // "min-h-screen min-h-[100dvh]", // ? I was weirdly having isues where the container would change size when the keyboard was open on mobile. min-h-screen is a fallback for now.
           "w-screen py-4 px-4 md:px-8",
           "relative",
-          "background"
+          "background",
         )}>
           <div className="flex justify-between items-center mb-8">
             <Logo />
@@ -137,8 +137,8 @@ export default function RootLayout({
           </div>
           {children}
         </main>
-        <Footer />
       </body>
+      <Footer />
     </html>
   )
 }

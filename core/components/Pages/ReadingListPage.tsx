@@ -146,7 +146,7 @@ export default function ReadingListPage({ data }: { data: ParsedResult[] }) {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
             >
-                <div className='h-full flex flex-col-reverse lg:flex-row gap-8'>
+                <div className='h-full flex flex-col-reverse lg:flex-row gap-8 px-2'>
                     <Tabs defaultValue="list" className="w-full">
                         <TabsList className='mb-8 bg-transparent border border-zinc-600 rounded-xl'>
                             <TabsTrigger

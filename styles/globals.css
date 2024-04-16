@@ -6,10 +6,11 @@
     transform: rotateX(50deg);
 }
 
-body {
+:root {
     --background-color: #242423; /* Main background color */
     --text-color: #dedede; /* Main text color */
     --text-body-color: #c7c7c7; /* This has less-contrast than the main text-color, great for body text */
+    --footer-bg-color: #3b3b3a; /* Footer background color */
 
     --hover-bg-color: rgba(255, 255, 255, 0); /* Hover background color */
     --hover-text-color: #376ff3; /* Hover text color */
