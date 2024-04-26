@@ -21,7 +21,7 @@ export default function Footer() {
     } else {
         return (
             <>
-                <div className='bg-[var(--background-color)] h-[100px] rounded-b-[100px]' />
+                <div className='bg-[var(--background-color)] h-[100px] rounded-b-3xl md:rounded-b-[100px]' />
                 <div className='w-full flex bg-[var(--footer-bg-color)] sticky bottom-0 -z-50'>
                     {/* this next div is to cover the rounded corners */}
                     <div className='absolute w-full h-full top-0 bg-[var(--footer-bg-color)] -translate-y-[100%]'/> 
