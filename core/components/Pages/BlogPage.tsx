@@ -65,9 +65,9 @@ const AllPosts = ({ posts }: { posts: Post[] }) => {
                                 <h3 className="text-lg italic font-medium mb-2 leading-normal">
                                     {post?.subtitle}
                                 </h3>
-                                <p className="mt-4 text-lg font-serif antialised tracking-normal leading-normal">
+                                {/* <p className="mt-4 text-lg font-serif antialised tracking-normal leading-normal">
                                     {post?.desc}
-                                </p>
+                                </p> */}
                             </div>
                         </Link>
                     )) : (

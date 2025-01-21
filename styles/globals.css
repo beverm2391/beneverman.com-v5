@@ -9,7 +9,7 @@
 :root {
     --background-color: #242423; /* Main background color */
     --text-color: #dedede; /* Main text color */
-    --text-body-color: #c7c7c7; /* This has less-contrast than the main text-color, great for body text */
+    --text-body-color: #dedede; /* This has less-contrast than the main text-color, great for body text */
     --footer-bg-color: #3b3b3a; /* Footer background color */
 
     --hover-bg-color: rgba(255, 255, 255, 0); /* Hover background color */
@@ -75,13 +75,17 @@
 }
 
 .highlight {
-    color: var(--highlight-color);
+    background-color: var(--highlight-color);
     filter: drop-shadow(2px 2px 10px var(--highlight-color-rgb));
 }
 
 .highlight-2 {
     color: var(--highlight-2-color);
     filter: drop-shadow(2px 2px 10px var(--highlight-2-color-rgb));
+}
+
+.blue-shadow {
+    filter: drop-shadow(2px 2px 10px rgba(58, 134, 255, 0.4));
 }
 
 .image-shadow {
@@ -110,4 +114,8 @@
 	.no-js .cursor {
 		display: none;
 	}
+}
+
+[aria-hidden="true"] {
+    display: none;
 }

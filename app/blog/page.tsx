@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 export default async function Page() {
-  let posts = await getBlogPosts() as Post[];
+  const posts = await getBlogPosts() as Post[];
   return (
     // ! Blog Layout goes here as to not affect the w-screen in [slug].tsx
     <div className='blog-layout'>

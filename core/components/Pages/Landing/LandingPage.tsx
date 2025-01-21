@@ -13,28 +13,23 @@ export function BENNN({ className } : { className?: string }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, spring: 10 }}
             className={cn(
-                'justify-between',
                 "text-5xl md:text-[6rem] lg:text-[8rem] xl:text-[9rem] 2xl:text-[9rem]",
                 "font-bold",
                 "uppercase",
                 "tracking-tight",
                 "leading-tight",
-                // 'text-[var(--hero-text-color)]',
                 'z-20',
                 'px-2 md:px-8',
                 'bg-gradient-to-b from-[#bbbbba] via-zinc-300 to-[#bbbbba]',
                 'bg-clip-text text-transparent',
                 className,
             )}>
-            <div className='flex w-full justify-between flex-row items-center'>
-                <h1 className={cn(
-                    'leading-tighter',
-                    // 'translate-y-[60px]'
-                )}>
+            <div className='flex w-full flex-row items-center'>
+                <h1 className='leading-tighter whitespace-nowrap'>
                     Ben
                 </h1>
                 <motion.div
-                    className='grow-0 flex justify-center items-center overflow-clip text-blue-500 relative'
+                    className='flex-1 flex justify-center items-center overflow-hidden text-blue-500 relative'
                     initial='hidden'
                     animate='show'
                     variants={{
@@ -57,11 +52,7 @@ export function BENNN({ className } : { className?: string }) {
                         </motion.h1>
                     ))}
                 </motion.div>
-                {/* <div className='inline w-full bg-zinc-300 h-8 rounded-xl mx-2 border-zinc-300 border-[10px]'> */}
-                <h1 className={cn(
-                    'leading-tighter',
-                    // 'translate-y-[60px]'
-                )}>
+                <h1 className='leading-tighter whitespace-nowrap'>
                     Everman<span className="highlight">.</span>
                 </h1>
             </div>
@@ -90,8 +81,8 @@ export default function LandingPage() {
                 'bg-[var(--hero-background-color)]',
             )}>
                 <div className={cn(
-                    'absolute inset-0 w-full h-full bg-grid-zinc-600/30',
-                    '[mask-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,.8),rgba(0,0,0,0.2))]',
+                    'absolute inset-0 w-full h-full bg-grid-zinc-600/20',
+                    '[mask-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,.2),rgba(0,0,0,0.8))]',
                 )} />
                 <div className={cn(
                     'w-full h-full flex flex-col py-24 px-2 md:px-8 relative z-20',

@@ -7,7 +7,6 @@ import { Metadata } from 'next';
 
 import "@/styles/tufte.css"
 
-
 // ! Dynamic Metadata
 // ? DOCS: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 export async function generateMetadata({ params }: { params: { slug: string; } }
