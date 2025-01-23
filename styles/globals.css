@@ -75,7 +75,7 @@
 }
 
 .highlight {
-    background-color: var(--highlight-color);
+    color: var(--highlight-color);
     filter: drop-shadow(2px 2px 10px var(--highlight-color-rgb));
 }
 
