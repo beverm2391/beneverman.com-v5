@@ -135,31 +135,28 @@ export default function LandingPage() {
                             <motion.span
                                 variants={FADE_UP_ANIMATION_VARIANTS}
                             >
-                                I do consulting and contract work under{' '}
+                                Currently working at{' '}
                             </motion.span>{' '}
                             <motion.span
                                 className='highlight-2 font-medium'
                                 variants={FADE_UP_ANIMATION_VARIANTS}
                             >
-                                EverTech,{' '}
+                                Tekmir,{' '}
                             </motion.span>
                             <motion.span variants={FADE_UP_ANIMATION_VARIANTS}>
-                                where I specialize in{' '}
+                                where we're building{' '}
                             </motion.span>
                             <motion.span
                                 className='highlight-2 font-medium'
                                 variants={FADE_UP_ANIMATION_VARIANTS}
                             >
-                                machine learning{' '}
-                            </motion.span>
-                            <motion.span variants={FADE_UP_ANIMATION_VARIANTS}>
-                                and{' '}
+                                an end-to-end platform for {' '}
                             </motion.span>
                             <motion.span
                                 className='highlight-2 font-medium'
                                 variants={FADE_UP_ANIMATION_VARIANTS}
                             >
-                                full-stack development
+                                mass-action litigation
                             </motion.span>
                             <motion.span variants={FADE_UP_ANIMATION_VARIANTS}>
                                 .
